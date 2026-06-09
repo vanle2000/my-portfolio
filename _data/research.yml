@@ -1,54 +1,77 @@
-- slug: llm-eval
-  title: "Benchmarking LLM Calibration on Tabular Reasoning"
-  venue: "Under Review — NeurIPS 2025 (Workshop)"
-  year: 2025
-  tags: [LLMs, Calibration, Tabular Data, Python]
+- slug: membrane-modeling
+  title: "Realistic Membrane Modeling Using Complex Lipid Mixtures in Simulation Studies"
+  venue: "JoVE (Journal of Visualized Experiments), e65712 · 2023"
+  year: 2023
+  tags: [Molecular Dynamics, Deep Learning, CHARMM, Python, Membrane Biophysics]
   summary: >
-    Systematic evaluation of eight instruction-tuned LLMs on structured
-    tabular reasoning tasks, measuring calibration error, hallucination rate,
-    and self-consistency across three benchmark datasets.
+    Published protocol for constructing and equilibrating realistic biological
+    membrane models using complex lipid mixtures in molecular dynamics simulations.
+    Work conducted at the Monje Lab, University at Buffalo (2022–2023).
   body: |
-    ### Abstract
-    Large language models show impressive zero-shot performance on many
-    reasoning tasks but exhibit poorly calibrated confidence on structured
-    tabular inputs. We benchmark GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro,
-    Llama 3 70B, Mistral Large, and three smaller open-weights models on
-    WikiTableQuestions, TabFact, and FetaQA, measuring Expected Calibration
-    Error (ECE), exact-match accuracy, and hallucination rate.
+    ### Citation
+    Campbell, O., Le, V., Aguirre, A., & Monje-Galvan, V. (2023). "Realistic
+    Membrane Modeling Using Complex Lipid Mixtures in Simulation Studies."
+    *Journal of Visualized Experiments*, e65712.
 
-    We find that verbosity correlates negatively with calibration, and that
-    chain-of-thought prompting improves accuracy but degrades calibration on
-    numeric aggregation queries. We release a diagnostic test suite of 400
-    hand-annotated edge cases.
+    ### Research Context
+    Conducted at the **Monje Lab** (University at Buffalo, 2022–2023) under
+    Dr. Viviana Monje-Galvan. The lab focuses on the physical chemistry of
+    biological membranes — how lipid composition affects structure, dynamics,
+    and protein interactions.
 
-    ### Status
-    Under review. Pre-print available on request.
-
-- slug: forecast-uncertainty
-  title: "Quantifying Forecast Uncertainty in Retail Demand Models"
-  venue: "International Journal of Forecasting (In Preparation)"
-  year: 2024
-  tags: [Forecasting, Uncertainty Quantification, Retail, Python]
-  summary: >
-    A comparative study of conformal prediction, quantile regression, and
-    Bayesian methods for producing well-calibrated prediction intervals in
-    high-SKU retail demand forecasting.
-  body: |
-    ### Motivation
-    Point forecasts drive most production inventory systems, but interval
-    estimates are needed for robust safety-stock calculations. We benchmark
-    three uncertainty quantification approaches on a real-world dataset of
-    8 M+ weekly observations.
+    ### My Contributions
+    - Molecular dynamics trajectory analysis using Python and MDAnalysis
+    - Membrane protein modelling pipeline incorporating deep learning-based
+      structure prediction
+    - CHARMM force field parameterisation for novel lipid species
+    - Developed and validated the protocol published in JoVE
 
     ### Methods
-    Conformal prediction (split + cross-conformal), quantile regression forests,
-    and Pyro-based Bayesian structural time series. Evaluated on coverage
-    probability, interval width, and winkler score.
+    Simulations used the CHARMM36 force field with TIP3P water. Complex lipid
+    mixtures were constructed using CHARMM-GUI. Trajectory analysis scripts
+    computed order parameters, area per lipid, membrane thickness, and lateral
+    diffusion coefficients. Deep learning tools (AlphaFold2 derivatives) were
+    used to model transmembrane protein structures embedded in the membranes.
 
-    ### Findings
-    Conformal methods achieve nominal coverage at lower computational cost;
-    Bayesian approaches outperform on items with sparse history. We propose a
-    routing heuristic that selects method by item history length.
+    ### Significance
+    Provides a reproducible, step-by-step protocol enabling researchers to
+    build biologically realistic membrane simulations — moving beyond simple
+    single-lipid bilayers to mixtures that better reflect actual cell membrane
+    composition.
 
-    ### Status
-    Manuscript in preparation; expected submission Q3 2025.
+- slug: nanomedicine-drug-delivery
+  title: "Nanoparticle Drug Delivery & Nanomedicine Resistance"
+  venue: "Liu Lab, University of Houston · 2020–2022"
+  year: 2022
+  tags: [Mass Spectrometry Imaging, Python, Nanomedicine, Drug Delivery, ETL]
+  summary: >
+    Research at the Liu Lab (UH, 2020–2022) investigating nanoparticle-based
+    drug delivery systems and mechanisms of nanomedicine resistance, with a focus
+    on building mass spectrometry imaging data pipelines.
+  body: |
+    ### Research Context
+    Conducted at the **Liu Lab** (University of Houston, 2020–2022) during my
+    pre-med period. The lab investigates how nanoparticles can be engineered to
+    deliver therapeutics more precisely — and why some tumour cells develop
+    resistance to nanomedicine treatment.
+
+    ### My Contributions
+    - Designed and maintained Python data pipelines for mass spectrometry imaging
+      (MSI) datasets — transforming raw instrument output into analysis-ready
+      formats
+    - Investigated resistance mechanisms in nanoparticle drug delivery systems
+      through data-driven analysis of cellular uptake profiles
+    - Contributed to experimental workflows for testing nanoparticle formulations
+      on cell culture models
+
+    ### Technical Work
+    Mass spectrometry imaging produces high-dimensional spatial data — each pixel
+    carries a full mass spectrum. I built preprocessing pipelines handling
+    baseline correction, peak alignment, and dimensionality reduction to make
+    the data tractable for downstream statistical analysis.
+
+    ### Impact on my trajectory
+    This experience — sitting at the boundary of wet-lab biology and
+    computational analysis — is what drew me fully toward data science.
+    The bottleneck in biomedical research is rarely the experiment itself;
+    it is the capacity to process and interpret the data it generates.

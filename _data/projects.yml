@@ -1,138 +1,201 @@
-- slug: retail-forecasting
-  title: "Retail Demand Forecasting"
-  subtitle: "Time-series models for inventory optimization"
-  tags: [Python, Prophet, SQL, Tableau]
+- slug: github-support-analytics
+  title: "GitHub Support Operations Analytics"
+  subtitle: "End-to-end BI platform for open-source support health"
+  tags: [Python, SQL Server, SQLAlchemy, VADER NLP, Power BI]
   status: "Complete"
   year: 2024
+  github: "https://github.com/vanle2000/GitHub-support-operations-analytics"
   summary: >
-    Built an ensemble forecasting pipeline combining Facebook Prophet and XGBoost
-    to predict weekly SKU-level demand across 200+ store locations.
-    Reduced over-stock by 18% and cut stockout incidents by 23% QoQ.
+    End-to-end BI platform built on a SQL Server star schema with SQLAlchemy ETL.
+    VADER NLP tracks sentiment across support threads; statistical SLA breach
+    modelling classifies repos into five risk tiers.
   highlights:
-    - Automated feature engineering pipeline ingesting 3 years of POS data
-    - Cross-validation framework preserving temporal order
-    - Tableau dashboard surfacing anomaly alerts to merchandising team
+    - Star-schema warehouse ingesting GitHub Issues & PR event streams via SQLAlchemy
+    - VADER sentiment scoring pipeline across 100K+ support interactions
+    - SLA breach model classifying repos into 5 risk tiers
+    - Power BI dashboards surfacing contributor health metrics
   body: |
-    ### Background
-    The merchandising team relied on static reorder-point rules that hadn't been
-    updated since 2019. Seasonal spikes caused frequent stockouts; conservative
-    safety stock kept capital tied up.
-
-    ### Approach
-    I evaluated SARIMA, Prophet, and gradient-boosted trees, ultimately blending
-    Prophet trend + XGBoost residuals. Feature store in BigQuery; orchestrated
-    with Airflow DAGs running nightly.
-
-    ### Results
-    Stockout rate fell from 4.1 % to 1.9 %; over-stock holding cost down ~$2.4 M
-    annualised across the pilot region. Model now powers the auto-replenishment
-    workflow in production.
-
-- slug: dbt-analytics
-  title: "Analytics Engineering Overhaul"
-  subtitle: "dbt + BigQuery data warehouse migration"
-  tags: [dbt, BigQuery, Python, Looker]
-  status: "Complete"
-  year: 2024
-  summary: >
-    Migrated a 400-table legacy Redshift warehouse to BigQuery using dbt,
-    establishing a layered architecture (staging → intermediate → marts)
-    and cutting average query time by 60%.
-  highlights:
-    - Defined 80+ dbt models with full lineage documentation
-    - Automated data quality tests covering nulls, uniqueness, and referential integrity
-    - Looker semantic layer rebuild from scratch
-  body: |
-    ### Context
-    Engineering had outgrown Redshift; ad-hoc SQL scripts were duplicating
-    business logic across 12 teams. A single source of truth didn't exist.
-
-    ### What I built
-    Staged raw data from five source systems (Salesforce, Stripe, internal
-    microservices) into BigQuery. dbt models enforce naming conventions and
-    are version-controlled. Every mart table ships with at least one dbt test.
-
-    ### Impact
-    Time-to-insight for new metric requests dropped from ~2 weeks to ~2 days.
-    P95 dashboard load time improved from 28 s to 11 s.
-
-- slug: bi-dashboard
-  title: "Executive BI Dashboard Suite"
-  subtitle: "Real-time KPI monitoring for C-suite"
-  tags: [Tableau, SQL, Python, Airflow]
-  status: "Complete"
-  year: 2023
-  summary: >
-    Designed and deployed a suite of six Tableau dashboards giving leadership
-    real-time visibility into revenue, churn, support load, and marketing ROI.
-  highlights:
-    - Row-level security tied to Okta SSO groups
-    - Incremental refresh pipeline via Tableau Prep + Airflow
-    - Custom viz library (Figma → Tableau) for brand consistency
-  body: |
-    ### Problem
-    Executive team relied on a weekly email digest. Decisions lagged data by
-    up to 5 business days.
-
-    ### Solution
-    Six interconnected dashboards: Revenue & Pipeline, Customer Health,
-    Support Operations, Marketing Funnel, Product Adoption, and Finance Roll-up.
-    All refresh every 15 minutes.
-
-    ### Outcome
-    Weekly status meeting cut from 90 min to 30 min. Two dashboards were
-    adopted by regional teams in APAC and EMEA without additional configuration.
-
-- slug: nlp-feedback
-  title: "Customer Feedback NLP Pipeline"
-  subtitle: "Sentiment & topic modelling at scale"
-  tags: [Python, spaCy, BERTopic, FastAPI]
-  status: "Complete"
-  year: 2023
-  summary: >
-    Built an end-to-end NLP pipeline processing 50 k+ weekly support tickets
-    and survey responses, surfacing emerging issues to product and CX teams
-    within 24 hours.
-  highlights:
-    - Fine-tuned BERT classifier for 9-category intent labelling (F1 0.88)
-    - BERTopic dynamic topic model with weekly diff report
-    - FastAPI microservice serving predictions; latency p95 < 120 ms
-  body: |
-    ### Motivation
-    Customer feedback lived in six disconnected tools. No one had a coherent
-    picture of what users were actually saying.
+    ### Overview
+    Open-source maintainers have limited visibility into whether their support
+    processes are actually working. This project builds a full analytics platform
+    to answer that question — tracking response times, sentiment trends, and
+    which repositories are systematically failing contributors.
 
     ### Architecture
-    Raw text ingested from Zendesk + Qualtrics APIs → cleaned & deduplicated
-    → intent classifier → topic model → written to BigQuery → Slack digest bot.
+    A SQL Server star schema sits at the centre. SQLAlchemy ETL jobs pull raw
+    GitHub Issues and PR events, normalise them into fact and dimension tables,
+    and load them on a nightly schedule. All transformations are idempotent and
+    tested.
 
-    ### Results
-    Product team identified and resolved a checkout UX issue within 3 days of
-    pipeline going live — previously would have taken a quarterly review cycle.
+    ### Sentiment & SLA Modelling
+    VADER NLP scores every comment in a support thread, producing a sentiment
+    trajectory per issue lifetime. SLA breach probability is modelled
+    statistically across five risk tiers based on response latency, thread
+    length, and sentiment slope.
 
-- slug: churn-model
-  title: "Subscription Churn Prediction"
-  subtitle: "Proactive retention for SaaS product"
-  tags: [Python, XGBoost, MLflow, Airflow]
+    ### Key Findings
+    - 12-hour first-response threshold correlates with a **3.5× lift** in repeat
+      contributor rates
+    - **12% of repositories** were flagged as SLA-toxic under the risk model
+    - Negative sentiment spikes 48 hours before contributor churn in 71% of cases
+
+- slug: chronic-disease-risk
+  title: "Chronic Disease Risk Intelligence"
+  subtitle: "20-year CDC surveillance analysis across 50 states"
+  tags: [Python, Scikit-learn, KMeans, Random Forest, GeoPandas, Plotly]
   status: "Complete"
-  year: 2022
+  year: 2024
+  github: "https://github.com/vanle2000/Chronic-disease-risks-in-US"
   summary: >
-    Developed a 30-day churn propensity model for a 120 k subscriber base,
-    enabling targeted retention campaigns that recovered an estimated $1.1 M ARR.
+    Cluster analysis and predictive modelling on 900K CDC chronic disease
+    surveillance records spanning 20 years and all 50 states. K-Means
+    identifies geographic risk cohorts; Random Forest predicts mortality
+    outcomes with AUC 0.73.
   highlights:
-    - Feature engineering from product telemetry, billing events, and support history
-    - SHAP explainability layer for Customer Success team
-    - MLflow experiment tracking; model registry with A/B shadow deployment
+    - 900K records, 50 states, 20-year longitudinal span
+    - K-Means clustering with silhouette score 0.635
+    - Random Forest mortality classifier — AUC 0.73, macro F1 0.85
+    - GeoPandas choropleth maps + Plotly interactive dashboards
   body: |
-    ### Objective
-    Identify at-risk customers early enough for CS to intervene before the
-    cancel decision is made.
+    ### Motivation
+    CDC chronic disease data is public but unwieldy — hundreds of indicators,
+    inconsistent state-level reporting, and no off-the-shelf tool for surfacing
+    geographic risk patterns over time.
 
-    ### Model
-    XGBoost classifier trained on 18 months of labelled events. Key signals:
-    login frequency drop, feature adoption regression, plan downgrade events.
-    SHAP values exposed to CS reps via a Salesforce sidebar widget.
+    ### Data & Preprocessing
+    900K records from the CDC Chronic Disease Indicators dataset (2001–2021).
+    Missing values imputed using state-year medians; indicators normalised
+    before clustering. Feature engineering extracted year-over-year delta
+    features to capture trend momentum.
 
-    ### Results
-    30-day precision 0.74, recall 0.68. Pilot campaign reached 2,400 at-risk
-    accounts; 31% converted to a retention offer. Estimated ARR recovery $1.1 M.
+    ### Clustering
+    K-Means (k selected via elbow + silhouette analysis, final k=6) grouped
+    states into chronic-disease risk cohorts. Silhouette score: **0.635**.
+    Clusters aligned strongly with known regional health disparities — Deep
+    South states consistently in the highest-risk cohort.
+
+    ### Predictive Modelling
+    Random Forest classifier predicting above-median mortality outcome.
+    Walk-forward cross-validation across yearly splits. Final metrics:
+    AUC **0.73**, macro F1 **0.85**.
+
+    ### Visualisation
+    GeoPandas choropleth maps render risk cohort by state per year. Plotly
+    interactive dashboard allows filtering by indicator, year range, and
+    cohort membership.
+
+- slug: marathon-analysis
+  title: "Marathon Performance Analysis"
+  subtitle: "KDE-Bayes classifier + regression on 26,000 Boston runners"
+  tags: [Python, SciPy, KDE, Bayesian Inference, KNN, Linear Regression]
+  status: "Complete"
+  year: 2023
+  github: "https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners"
+  summary: >
+    Statistical analysis of 26,000 Boston Marathon finishers. A custom
+    2-D KDE-Bayes classifier segments runners by performance archetype;
+    linear regression predicts finish time with R² 0.85.
+  highlights:
+    - 26,000 runner dataset with split-by-split pace profiles
+    - Custom KDEBayesClassifier built on SciPy's gaussian_kde
+    - 2-D KDE classification accuracy 77.5%
+    - Linear regression finish-time prediction R² 0.85
+    - 26 unit tests covering all model components
+  body: |
+    ### Problem
+    Predicting marathon finish time from early-race data is a classic but
+    non-trivial problem — pace decay is non-linear and runner archetypes
+    (negative splitters, positive splitters, even pacers) behave very differently.
+
+    ### KDEBayesClassifier
+    A custom classifier built on SciPy's `gaussian_kde`. A 2-D kernel density
+    estimate is fit over (half-split pace, finish pace) space for each runner
+    archetype class. Prediction uses Bayes' theorem with the KDE as the
+    likelihood. Final classification accuracy: **77.5%**.
+
+    ### Finish Time Prediction
+    Linear regression model using half-split time, age group, bib tier, and
+    weather conditions as features. Walk-forward validation preserving year
+    ordering. R² **0.85** on held-out years.
+
+    ### Engineering
+    Full test suite of 26 unit tests covering KDE bandwidth selection,
+    classifier edge cases (single-class data, identical splits), and
+    regression feature engineering pipeline.
+
+- slug: stock-recommendation
+  title: "Stock Recommendation System"
+  subtitle: "LinearSVR price prediction + autoencoder-based recommendation"
+  tags: [Python, LinearSVR, TensorFlow, PCA, FastAPI]
+  status: "Complete"
+  year: 2023
+  github: "https://github.com/vanle2000/Stock-based-Recommendation-System"
+  summary: >
+    Two-stage system: a LinearSVR predicts next-day price movement from
+    PCA-compressed technical indicators (R² 0.997 under walk-forward CV);
+    a deep learning autoencoder learns stock embeddings for similarity-based
+    recommendation.
+  highlights:
+    - LinearSVR on PCA-compressed 20+ technical indicators — R² 0.997
+    - Walk-forward cross-validation preserving time ordering
+    - Autoencoder stock embeddings for nearest-neighbour recommendations
+    - FastAPI serving layer; 45 tests
+  body: |
+    ### Architecture
+    Two independent models serve different use cases: the SVR handles
+    directional price prediction; the autoencoder handles "stocks like this one"
+    recommendation. Both are served via a shared FastAPI endpoint.
+
+    ### Feature Engineering & PCA
+    20+ technical indicators computed from OHLCV data (RSI, MACD, Bollinger
+    Bands, volume momentum, etc.). PCA compresses these to 5 orthogonal
+    components, reducing noise and multicollinearity before the SVR.
+
+    ### LinearSVR Prediction
+    Walk-forward cross-validation with a 252-day (1-year) training window and
+    21-day (1-month) test window. Final R²: **0.997**. Evaluated on
+    out-of-sample periods only.
+
+    ### Autoencoder Recommendation
+    A symmetric autoencoder (encoder → 8-dim bottleneck → decoder) trained to
+    reconstruct normalised return profiles. The bottleneck embedding is used
+    for cosine-similarity nearest-neighbour recommendations.
+
+- slug: stock-data-pipeline
+  title: "Stock Market Data Pipeline"
+  subtitle: "PySpark ingestion of 10M+ OHLCV records from 3,600+ tickers"
+  tags: [PySpark, Pandas, PCA, Docker, FastAPI, NASDAQ API]
+  status: "Complete"
+  year: 2023
+  github: "https://github.com/vanle2000/Stock-based-Recommendation-System"
+  summary: >
+    PySpark pipeline ingesting 10M+ OHLCV records from 3,600+ NASDAQ tickers,
+    computing 20+ technical indicators, and compressing features to 5 PCA
+    components for downstream modelling.
+  highlights:
+    - 10M+ OHLCV records across 3,600+ NASDAQ tickers
+    - 20+ technical indicators computed in PySpark
+    - PCA compression from 20+ features to 5 components
+    - Dockerised pipeline with FastAPI data-serving layer
+  body: |
+    ### Scope
+    Full ingestion and feature engineering pipeline for the Stock Recommendation
+    System. Handles raw OHLCV data from the NASDAQ API across 3,600+ tickers,
+    spanning multiple years of daily data.
+
+    ### PySpark Processing
+    Raw tick data is partitioned by ticker and date. PySpark jobs compute 20+
+    technical indicators (RSI, MACD, Bollinger Bands, ATR, OBV, etc.) in
+    parallel across partitions. Intermediate results are checkpointed to
+    Parquet.
+
+    ### PCA Compression
+    After indicator computation, scikit-learn PCA reduces the 20+ feature
+    columns to 5 principal components (explaining ~94% of variance). This
+    compressed representation feeds directly into the LinearSVR and autoencoder
+    training pipelines.
+
+    ### Infrastructure
+    The full pipeline runs in Docker. A FastAPI layer exposes processed data
+    to downstream consumers. Configuration-driven — new tickers or indicators
+    can be added via YAML without code changes.

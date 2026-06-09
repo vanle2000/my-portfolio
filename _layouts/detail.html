@@ -36,6 +36,10 @@ layout: default
       {% if record.subtitle %}<p class="detail__subtitle">{{ record.subtitle }}</p>{% endif %}
       {% if record.venue %}<p class="detail__subtitle">{{ record.venue }}</p>{% endif %}
 
+      {% if record.github %}
+        <a class="detail__github-link" href="{{ record.github }}" target="_blank" rel="noopener">View on GitHub →</a>
+      {% endif %}
+
       {% if record.highlights %}
         <ul class="detail__highlights">
           {% for h in record.highlights %}

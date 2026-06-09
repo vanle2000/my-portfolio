@@ -1,14 +1,14 @@
-- date: 2025-05-01
-  body: "Paper submitted to NeurIPS 2025 Workshop on LLM evaluation."
-
 - date: 2025-03-15
-  body: "Joined Anthropic as a Data Scientist, focusing on model evaluation and analytics infrastructure."
+  body: "Joined Anthropic as a Data Scientist."
 
-- date: 2024-12-10
-  body: "Retail forecasting project featured in internal case study at Rice University Data Science Day."
+- date: 2023-09-01
+  body: "Paper published in JoVE — membrane modelling protocol with the Monje Lab."
 
-- date: 2024-09-01
-  body: "Started M.S. in Statistics at Rice University (part-time)."
+- date: 2023-06-01
+  body: "Completed Stock Recommendation System with PySpark data pipeline and FastAPI serving layer."
 
-- date: 2024-06-20
-  body: "Completed Google Advanced Data Analytics Certificate."
+- date: 2022-08-01
+  body: "Wrapped up two years of computational biology research at the Liu Lab (UH) and Monje Lab (UB)."
+
+- date: 2022-05-01
+  body: "Graduated from the State University at Buffalo — B.A. Computational & Applied Mathematics."
