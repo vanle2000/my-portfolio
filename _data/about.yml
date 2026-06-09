@@ -11,18 +11,28 @@ tagline: >
   analytics pipelines, and dashboards that teams actually rely on.
 
 bio: |
-  I'm a data scientist and analytics engineer based in Houston, TX. My work
-  sits at the intersection of statistical modelling, data infrastructure, and
-  product analytics — I care about the full stack from raw ingestion to the
-  chart that lands in the board deck.
+  I'm a data scientist based in Houston, TX. My work sits at the intersection
+  of statistical modelling, machine learning, and data infrastructure — I care
+  about the full stack from raw ingestion to the insight that drives a decision.
 
-  Before moving into data full-time, I studied Statistics and Computer Science
-  at the University of Houston. I'm currently pursuing an M.S. in Statistics
-  at Rice University part-time, with a research focus on forecast uncertainty
-  quantification and LLM evaluation.
+  I studied Computational and Applied Mathematics (Statistics focus) at the
+  State University at Buffalo. Before committing fully to data science, I spent
+  two years on a pre-med track at the University of Houston (2020–2022),
+  building a foundation in biology and medicine research that still shapes how
+  I think about scientific problems.
 
-  Outside work, I'm into distance running, specialty coffee, and reading
-  anything by Ursula K. Le Guin.
+  My first internship at Adaptive Biotechnologies' Seattle office set the
+  direction. I collaborated with Microsoft researchers on immunology and
+  predictive modelling — specifically, using flow cytometry data from human
+  blood samples to generate ImmuneCODE data sufficient to map how the adaptive
+  immune system responds to different infections, from initial exposure through
+  clearance. That work — sitting at the edge of wet-lab biology and machine
+  learning — showed me how technology can accelerate research and help produce
+  better treatments and vaccines. It's what pushed me fully into data science
+  and model development.
+
+  Outside work, I'm into travelling, hiking and camping, astrology, matcha,
+  and writing movie reviews.
 
 skills:
   - category: "Languages & Query"
