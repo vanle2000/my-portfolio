@@ -1,0 +1,91 @@
+/* Anthropic skin — CSS tokens + Sass variable overrides
+   IMPORTANT: All $vars used by MM's _variables.scss must be real Sass values
+   (hex/string), never var() — because MM calls mix() on them at compile time. */
+
+:root {
+  /* ── Colour ── */
+  --color-bg-primary:    #F5F0E8;
+  --color-bg-secondary:  #EDE8DC;
+  --color-bg-surface:    #FAF7F2;
+  --color-bg-dark:       #1A1814;
+  --color-text-primary:  #1A1814;
+  --color-text-secondary:#4A4540;
+  --color-text-muted:    #8C8278;
+  --color-text-inverse:  #F5F0E8;
+  --color-accent:        #C96442;
+  --color-accent-light:  #E8845E;
+  --color-accent-subtle: #F2E0D8;
+  --color-border:        #D6CFC2;
+  --color-border-strong: #B0A898;
+
+  /* ── Typography ── */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Source Serif 4', 'Times New Roman', serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* ── Type scale ── */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg:   1.25rem;
+  --text-xl:   1.5rem;
+  --text-2xl:  2rem;
+  --text-3xl:  2.75rem;
+  --text-4xl:  3.75rem;
+
+  /* ── Line heights ── */
+  --leading-tight:   1.2;
+  --leading-body:    1.7;
+  --leading-relaxed: 1.85;
+
+  /* ── Spacing ── */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+
+  /* ── Layout ── */
+  --max-width-prose: 68ch;
+  --max-width-site:  1200px;
+  --max-width-wide:  1440px;
+
+  /* ── Motion ── */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --duration-fast:  150ms;
+  --duration-base:  280ms;
+  --duration-slow:  500ms;
+}
+
+/* ── Sass variable overrides ──────────────────────────────────────────────────
+   Define ALL derived color vars here so MM never runs mix() on our values.   */
+
+$background-color:        #F5F0E8 !default;
+$text-color:              #1A1814 !default;
+$muted-text-color:        #8C8278 !default;
+$primary-color:           #C96442 !default;
+$link-color:              #C96442 !default;
+$link-color-hover:        #E8845E !default;
+$link-color-visited:      #8C5A4A !default;
+$masthead-link-color:     #1A1814 !default;
+$masthead-link-color-hover: #C96442 !default;
+$navicon-link-color-hover: #F2E0D8 !default;
+$code-background-color:   #EDE8DC !default;
+$border-color:            #D6CFC2 !default;
+$footer-background-color: #1A1814 !default;
+$footer-border-color:     #2A2420 !default;
+$footer-font-color:       #F5F0E8 !default;
+$footer-link-color:       #E8845E !default;
+$footer-link-color-hover: #F5F0E8 !default;
+$focus-color:             #C96442 !default;
+$active-color:            rgba(201, 100, 66, 0.08) !default;
+$form-background-color:   #FAF7F2 !default;
+$box-shadow:              0 1px 1px rgba(26, 24, 20, 0.125) !default;
+
+$sans-serif:         'Source Serif 4', 'Times New Roman', serif !default;
+$serif:              'Source Serif 4', 'Times New Roman', serif !default;
+$monospace:          'JetBrains Mono', 'Courier New', monospace !default;
+$global-font-family: 'Source Serif 4', 'Times New Roman', serif !default;
+$header-font-family: 'Source Serif 4', 'Times New Roman', serif !default;
+$doc-font-size:      17 !default;

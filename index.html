@@ -1,0 +1,42 @@
+---
+layout: default
+title: "Elizabeth Van Le"
+---
+
+{% include aurora.html %}
+{% include hero.html %}
+
+<main>
+  <div class="section">
+    <div class="section__header">
+      <h2 class="section__title">Projects</h2>
+      <span class="section__count">{{ site.data.projects | size }} total</span>
+    </div>
+    <ul class="project-list">
+      {% for project in site.data.projects limit: 3 %}
+        {% include project-list-item.html project=project %}
+      {% endfor %}
+    </ul>
+    {% if site.data.projects.size > 3 %}
+      <p style="margin-top:1.5rem">
+        <a href="{{ '/projects/' | relative_url }}" style="font-family:var(--font-mono);font-size:var(--text-sm);">View all projects →</a>
+      </p>
+    {% endif %}
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <div class="section__header">
+      <h2 class="section__title">Research</h2>
+      <span class="section__count">{{ site.data.research | size }} papers</span>
+    </div>
+    <ul class="research-list">
+      {% for item in site.data.research %}
+        <li class="research-item">
+          <div class="research-item__venue">{{ item.venue }}</div>
+          <a class="research-item__title" href="{{ '/research/' | append: item.slug | append: '/' | relative_url }}">{{ item.title }}</a>
+          <p class="research-item__summary">{{ item.summary }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>

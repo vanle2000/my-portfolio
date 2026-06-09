@@ -1,0 +1,27 @@
+title: "Elizabeth Van Le"
+description: "Data Scientist · Analytics Engineer · BI Engineer"
+url: "https://vanle2000.github.io"
+baseurl: ""
+locale: "en-US"
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: anthropic
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+encoding: "utf-8"
+sass:
+  style: compressed
+defaults:
+  - scope: { path: "", type: pages }
+    values: { layout: default }
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-include-cache
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/
+  - README.md

@@ -1,0 +1,50 @@
+---
+layout: default
+title: "Resume"
+permalink: /resume/
+---
+
+{% include aurora.html %}
+{% assign r = site.data.resume %}
+{% assign contact = site.data.contact %}
+
+<main class="resume-page">
+  <div class="resume-page__header">
+    <h1 class="resume-page__title">Resume</h1>
+    <a class="resume-pdf-link" href="{{ contact.resume_pdf | relative_url }}" download>Download PDF</a>
+  </div>
+
+  <h2 class="resume-section__title">Experience</h2>
+  {% for job in r.experience %}
+    <div class="resume-entry">
+      <div>
+        <p class="resume-entry__org">{{ job.org }}</p>
+        <p class="resume-entry__title">{{ job.title }} · {{ job.location }}</p>
+        <ul class="resume-entry__bullets">
+          {% for b in job.bullets %}
+            <li>{{ b }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <span class="resume-entry__period">{{ job.period }}</span>
+    </div>
+  {% endfor %}
+
+  <h2 class="resume-section__title">Education</h2>
+  {% for ed in r.education %}
+    <div class="resume-entry">
+      <div>
+        <p class="resume-entry__org">{{ ed.school }}</p>
+        <p class="resume-entry__title">{{ ed.degree }}{% if ed.note %} — {{ ed.note }}{% endif %}</p>
+      </div>
+      <span class="resume-entry__period">{{ ed.period }}</span>
+    </div>
+  {% endfor %}
+
+  <h2 class="resume-section__title">Certifications</h2>
+  <ul class="resume-certs">
+    {% for cert in r.certifications %}
+      <li class="resume-cert">{{ cert }}</li>
+    {% endfor %}
+  </ul>
+</main>

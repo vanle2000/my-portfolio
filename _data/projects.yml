@@ -1,0 +1,138 @@
+- slug: retail-forecasting
+  title: "Retail Demand Forecasting"
+  subtitle: "Time-series models for inventory optimization"
+  tags: [Python, Prophet, SQL, Tableau]
+  status: "Complete"
+  year: 2024
+  summary: >
+    Built an ensemble forecasting pipeline combining Facebook Prophet and XGBoost
+    to predict weekly SKU-level demand across 200+ store locations.
+    Reduced over-stock by 18% and cut stockout incidents by 23% QoQ.
+  highlights:
+    - Automated feature engineering pipeline ingesting 3 years of POS data
+    - Cross-validation framework preserving temporal order
+    - Tableau dashboard surfacing anomaly alerts to merchandising team
+  body: |
+    ### Background
+    The merchandising team relied on static reorder-point rules that hadn't been
+    updated since 2019. Seasonal spikes caused frequent stockouts; conservative
+    safety stock kept capital tied up.
+
+    ### Approach
+    I evaluated SARIMA, Prophet, and gradient-boosted trees, ultimately blending
+    Prophet trend + XGBoost residuals. Feature store in BigQuery; orchestrated
+    with Airflow DAGs running nightly.
+
+    ### Results
+    Stockout rate fell from 4.1 % to 1.9 %; over-stock holding cost down ~$2.4 M
+    annualised across the pilot region. Model now powers the auto-replenishment
+    workflow in production.
+
+- slug: dbt-analytics
+  title: "Analytics Engineering Overhaul"
+  subtitle: "dbt + BigQuery data warehouse migration"
+  tags: [dbt, BigQuery, Python, Looker]
+  status: "Complete"
+  year: 2024
+  summary: >
+    Migrated a 400-table legacy Redshift warehouse to BigQuery using dbt,
+    establishing a layered architecture (staging → intermediate → marts)
+    and cutting average query time by 60%.
+  highlights:
+    - Defined 80+ dbt models with full lineage documentation
+    - Automated data quality tests covering nulls, uniqueness, and referential integrity
+    - Looker semantic layer rebuild from scratch
+  body: |
+    ### Context
+    Engineering had outgrown Redshift; ad-hoc SQL scripts were duplicating
+    business logic across 12 teams. A single source of truth didn't exist.
+
+    ### What I built
+    Staged raw data from five source systems (Salesforce, Stripe, internal
+    microservices) into BigQuery. dbt models enforce naming conventions and
+    are version-controlled. Every mart table ships with at least one dbt test.
+
+    ### Impact
+    Time-to-insight for new metric requests dropped from ~2 weeks to ~2 days.
+    P95 dashboard load time improved from 28 s to 11 s.
+
+- slug: bi-dashboard
+  title: "Executive BI Dashboard Suite"
+  subtitle: "Real-time KPI monitoring for C-suite"
+  tags: [Tableau, SQL, Python, Airflow]
+  status: "Complete"
+  year: 2023
+  summary: >
+    Designed and deployed a suite of six Tableau dashboards giving leadership
+    real-time visibility into revenue, churn, support load, and marketing ROI.
+  highlights:
+    - Row-level security tied to Okta SSO groups
+    - Incremental refresh pipeline via Tableau Prep + Airflow
+    - Custom viz library (Figma → Tableau) for brand consistency
+  body: |
+    ### Problem
+    Executive team relied on a weekly email digest. Decisions lagged data by
+    up to 5 business days.
+
+    ### Solution
+    Six interconnected dashboards: Revenue & Pipeline, Customer Health,
+    Support Operations, Marketing Funnel, Product Adoption, and Finance Roll-up.
+    All refresh every 15 minutes.
+
+    ### Outcome
+    Weekly status meeting cut from 90 min to 30 min. Two dashboards were
+    adopted by regional teams in APAC and EMEA without additional configuration.
+
+- slug: nlp-feedback
+  title: "Customer Feedback NLP Pipeline"
+  subtitle: "Sentiment & topic modelling at scale"
+  tags: [Python, spaCy, BERTopic, FastAPI]
+  status: "Complete"
+  year: 2023
+  summary: >
+    Built an end-to-end NLP pipeline processing 50 k+ weekly support tickets
+    and survey responses, surfacing emerging issues to product and CX teams
+    within 24 hours.
+  highlights:
+    - Fine-tuned BERT classifier for 9-category intent labelling (F1 0.88)
+    - BERTopic dynamic topic model with weekly diff report
+    - FastAPI microservice serving predictions; latency p95 < 120 ms
+  body: |
+    ### Motivation
+    Customer feedback lived in six disconnected tools. No one had a coherent
+    picture of what users were actually saying.
+
+    ### Architecture
+    Raw text ingested from Zendesk + Qualtrics APIs → cleaned & deduplicated
+    → intent classifier → topic model → written to BigQuery → Slack digest bot.
+
+    ### Results
+    Product team identified and resolved a checkout UX issue within 3 days of
+    pipeline going live — previously would have taken a quarterly review cycle.
+
+- slug: churn-model
+  title: "Subscription Churn Prediction"
+  subtitle: "Proactive retention for SaaS product"
+  tags: [Python, XGBoost, MLflow, Airflow]
+  status: "Complete"
+  year: 2022
+  summary: >
+    Developed a 30-day churn propensity model for a 120 k subscriber base,
+    enabling targeted retention campaigns that recovered an estimated $1.1 M ARR.
+  highlights:
+    - Feature engineering from product telemetry, billing events, and support history
+    - SHAP explainability layer for Customer Success team
+    - MLflow experiment tracking; model registry with A/B shadow deployment
+  body: |
+    ### Objective
+    Identify at-risk customers early enough for CS to intervene before the
+    cancel decision is made.
+
+    ### Model
+    XGBoost classifier trained on 18 months of labelled events. Key signals:
+    login frequency drop, feature adoption regression, plan downgrade events.
+    SHAP values exposed to CS reps via a Salesforce sidebar widget.
+
+    ### Results
+    30-day precision 0.74, recall 0.68. Pilot campaign reached 2,400 at-risk
+    accounts; 31% converted to a retention offer. Estimated ARR recovery $1.1 M.

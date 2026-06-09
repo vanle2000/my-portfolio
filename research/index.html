@@ -1,0 +1,23 @@
+---
+layout: default
+title: "Research"
+permalink: /research/
+---
+
+{% include aurora.html %}
+
+<div class="section">
+  <div class="section__header">
+    <h1 class="section__title">Research</h1>
+    <span class="section__count">{{ site.data.research | size }} papers</span>
+  </div>
+  <ul class="research-list">
+    {% for item in site.data.research %}
+      <li class="research-item">
+        <div class="research-item__venue">{{ item.venue }}</div>
+        <a class="research-item__title" href="{{ '/research/' | append: item.slug | append: '/' | relative_url }}">{{ item.title }}</a>
+        <p class="research-item__summary">{{ item.summary }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

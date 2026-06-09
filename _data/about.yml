@@ -1,0 +1,37 @@
+name: "Elizabeth Van Le"
+role: "Data Scientist"
+photo: "/assets/images/headshot.jpg"
+location: "Houston, TX"
+email: "lethaovann28@gmail.com"
+github: "vanle2000"
+linkedin: "elizabethvanle"
+
+tagline: >
+  I turn messy data into clear decisions — building forecasting systems,
+  analytics pipelines, and dashboards that teams actually rely on.
+
+bio: |
+  I'm a data scientist and analytics engineer based in Houston, TX. My work
+  sits at the intersection of statistical modelling, data infrastructure, and
+  product analytics — I care about the full stack from raw ingestion to the
+  chart that lands in the board deck.
+
+  Before moving into data full-time, I studied Statistics and Computer Science
+  at the University of Houston. I'm currently pursuing an M.S. in Statistics
+  at Rice University part-time, with a research focus on forecast uncertainty
+  quantification and LLM evaluation.
+
+  Outside work, I'm into distance running, specialty coffee, and reading
+  anything by Ursula K. Le Guin.
+
+skills:
+  - category: "Languages & Query"
+    items: [Python, SQL, R, Bash]
+  - category: "ML & Analytics"
+    items: [XGBoost, Prophet, spaCy, BERT, MLflow, scikit-learn]
+  - category: "Data Infrastructure"
+    items: [dbt, BigQuery, Redshift, Airflow, Spark]
+  - category: "Visualisation"
+    items: [Tableau, Looker, Plotly, Matplotlib]
+  - category: "Tools"
+    items: [Git, Docker, Terraform, GitHub Actions, Figma]

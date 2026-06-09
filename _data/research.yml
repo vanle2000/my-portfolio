@@ -1,0 +1,54 @@
+- slug: llm-eval
+  title: "Benchmarking LLM Calibration on Tabular Reasoning"
+  venue: "Under Review — NeurIPS 2025 (Workshop)"
+  year: 2025
+  tags: [LLMs, Calibration, Tabular Data, Python]
+  summary: >
+    Systematic evaluation of eight instruction-tuned LLMs on structured
+    tabular reasoning tasks, measuring calibration error, hallucination rate,
+    and self-consistency across three benchmark datasets.
+  body: |
+    ### Abstract
+    Large language models show impressive zero-shot performance on many
+    reasoning tasks but exhibit poorly calibrated confidence on structured
+    tabular inputs. We benchmark GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro,
+    Llama 3 70B, Mistral Large, and three smaller open-weights models on
+    WikiTableQuestions, TabFact, and FetaQA, measuring Expected Calibration
+    Error (ECE), exact-match accuracy, and hallucination rate.
+
+    We find that verbosity correlates negatively with calibration, and that
+    chain-of-thought prompting improves accuracy but degrades calibration on
+    numeric aggregation queries. We release a diagnostic test suite of 400
+    hand-annotated edge cases.
+
+    ### Status
+    Under review. Pre-print available on request.
+
+- slug: forecast-uncertainty
+  title: "Quantifying Forecast Uncertainty in Retail Demand Models"
+  venue: "International Journal of Forecasting (In Preparation)"
+  year: 2024
+  tags: [Forecasting, Uncertainty Quantification, Retail, Python]
+  summary: >
+    A comparative study of conformal prediction, quantile regression, and
+    Bayesian methods for producing well-calibrated prediction intervals in
+    high-SKU retail demand forecasting.
+  body: |
+    ### Motivation
+    Point forecasts drive most production inventory systems, but interval
+    estimates are needed for robust safety-stock calculations. We benchmark
+    three uncertainty quantification approaches on a real-world dataset of
+    8 M+ weekly observations.
+
+    ### Methods
+    Conformal prediction (split + cross-conformal), quantile regression forests,
+    and Pyro-based Bayesian structural time series. Evaluated on coverage
+    probability, interval width, and winkler score.
+
+    ### Findings
+    Conformal methods achieve nominal coverage at lower computational cost;
+    Bayesian approaches outperform on items with sparse history. We propose a
+    routing heuristic that selects method by item history length.
+
+    ### Status
+    Manuscript in preparation; expected submission Q3 2025.

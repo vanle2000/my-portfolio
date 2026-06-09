@@ -1,0 +1,15 @@
+{% assign project = include.project %}
+<li>
+  <a class="project-item" href="{{ '/projects/' | append: project.slug | append: '/' | relative_url }}">
+    <div class="project-item__left">
+      <span class="project-item__title">{{ project.title }}</span>
+      <span class="project-item__subtitle">{{ project.subtitle }}</span>
+      <div class="project-item__tags">
+        {% for tag in project.tags %}
+          <span class="project-item__tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    <span class="project-item__year">{{ project.year }}</span>
+  </a>
+</li>

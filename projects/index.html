@@ -1,0 +1,19 @@
+---
+layout: default
+title: "Projects"
+permalink: /projects/
+---
+
+{% include aurora.html %}
+
+<div class="section">
+  <div class="section__header">
+    <h1 class="section__title">Projects</h1>
+    <span class="section__count">{{ site.data.projects | size }} total</span>
+  </div>
+  <ul class="project-list">
+    {% for project in site.data.projects %}
+      {% include project-list-item.html project=project %}
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,53 @@
+experience:
+  - title: "Data Scientist"
+    org: "Anthropic"
+    period: "Mar 2025 – Present"
+    location: "Remote"
+    bullets:
+      - "Build evaluation infrastructure for Claude model analytics"
+      - "Develop dashboards and metrics for model quality and usage"
+      - "Partner with research teams on data analysis for capability assessments"
+
+  - title: "Analytics Engineer"
+    org: "Sysco Corporation"
+    period: "Jun 2023 – Feb 2025"
+    location: "Houston, TX"
+    bullets:
+      - "Migrated 400-table Redshift warehouse to BigQuery using dbt; reduced P95 query time 60%"
+      - "Built retail demand forecasting pipeline (Prophet + XGBoost) deployed across 200+ stores"
+      - "Designed executive BI dashboard suite in Tableau serving 150+ stakeholders"
+      - "Mentored two junior analysts on SQL best practices and dbt modelling patterns"
+
+  - title: "Business Intelligence Analyst"
+    org: "Memorial Hermann Health System"
+    period: "Aug 2021 – May 2023"
+    location: "Houston, TX"
+    bullets:
+      - "Owned 30+ Tableau dashboards tracking operational and clinical KPIs"
+      - "Automated ETL pipelines replacing manual Excel reporting for 8 departments"
+      - "Built subscription churn model (XGBoost) recovering $1.1 M ARR via targeted outreach"
+      - "Reduced report-generation time from 3 days to 4 hours through SQL optimisation"
+
+  - title: "Data Analyst Intern"
+    org: "HP Inc."
+    period: "May 2020 – Aug 2020"
+    location: "Houston, TX"
+    bullets:
+      - "Analysed supply chain data to identify cost-reduction opportunities"
+      - "Built Python scripts to automate weekly supplier performance reports"
+
+education:
+  - degree: "M.S. Statistics (in progress)"
+    school: "Rice University"
+    period: "2024 – Present"
+    note: "Focus: Forecasting, Bayesian Methods"
+
+  - degree: "B.S. Statistics, Minor Computer Science"
+    school: "University of Houston"
+    period: "2018 – 2022"
+    note: "Magna Cum Laude, GPA 3.89"
+
+certifications:
+  - "Google Advanced Data Analytics Certificate (2024)"
+  - "dbt Analyst Certification (2023)"
+  - "Tableau Desktop Specialist (2022)"

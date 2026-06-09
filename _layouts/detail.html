@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+{% if page.collection == 'project' %}
+  {% assign record = site.data.projects | where: "slug", page.slug | first %}
+  {% assign back_url = '/projects/' | relative_url %}
+  {% assign back_label = '← Projects' %}
+{% elsif page.collection == 'research' %}
+  {% assign record = site.data.research | where: "slug", page.slug | first %}
+  {% assign back_url = '/research/' | relative_url %}
+  {% assign back_label = '← Research' %}
+{% endif %}
+
+{% include aurora.html %}
+
+<div class="detail">
+  <aside class="detail__sidebar">
+    <a class="detail__back" href="{{ back_url }}">{{ back_label }}</a>
+    <p class="detail__toc-title">Contents</p>
+    <ul class="detail__toc-list" id="toc-list">
+      <!-- populated by site.js -->
+    </ul>
+    {% if record %}
+      <div class="detail__meta">
+        {% if record.year %}<div>{{ record.year }}</div>{% endif %}
+        {% if record.status %}<div>{{ record.status }}</div>{% endif %}
+        {% if record.venue %}<div>{{ record.venue }}</div>{% endif %}
+      </div>
+    {% endif %}
+  </aside>
+
+  <article class="detail__body" id="detail-content">
+    {% if record %}
+      <h1 class="detail__title">{{ record.title }}</h1>
+      {% if record.subtitle %}<p class="detail__subtitle">{{ record.subtitle }}</p>{% endif %}
+      {% if record.venue %}<p class="detail__subtitle">{{ record.venue }}</p>{% endif %}
+
+      {% if record.highlights %}
+        <ul class="detail__highlights">
+          {% for h in record.highlights %}
+            <li>{{ h }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {{ record.body | markdownify }}
+    {% else %}
+      {{ content }}
+    {% endif %}
+  </article>
+</div>
