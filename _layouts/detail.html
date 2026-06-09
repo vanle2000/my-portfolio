@@ -5,52 +5,75 @@ layout: default
 {% if page.collection == 'project' %}
   {% assign record = site.data.projects | where: "slug", page.slug | first %}
   {% assign back_url = '/projects/' | relative_url %}
-  {% assign back_label = '← Projects' %}
+  {% assign back_label = '← All Projects' %}
+  {% assign eyebrow = 'Project' %}
 {% elsif page.collection == 'research' %}
   {% assign record = site.data.research | where: "slug", page.slug | first %}
   {% assign back_url = '/research/' | relative_url %}
-  {% assign back_label = '← Research' %}
+  {% assign back_label = '← All Research' %}
+  {% assign eyebrow = 'Research' %}
 {% endif %}
 
 {% include aurora.html %}
 
 <div class="detail">
-  <aside class="detail__sidebar">
-    <a class="detail__back" href="{{ back_url }}">{{ back_label }}</a>
-    <p class="detail__toc-title">Contents</p>
-    <ul class="detail__toc-list" id="toc-list">
-      <!-- populated by site.js -->
-    </ul>
-    {% if record %}
-      <div class="detail__meta">
-        {% if record.year %}<div>{{ record.year }}</div>{% endif %}
-        {% if record.status %}<div>{{ record.status }}</div>{% endif %}
-        {% if record.venue %}<div>{{ record.venue }}</div>{% endif %}
-      </div>
-    {% endif %}
-  </aside>
+  <div class="detail__grid">
 
-  <article class="detail__body" id="detail-content">
-    {% if record %}
-      <h1 class="detail__title">{{ record.title }}</h1>
-      {% if record.subtitle %}<p class="detail__subtitle">{{ record.subtitle }}</p>{% endif %}
-      {% if record.venue %}<p class="detail__subtitle">{{ record.venue }}</p>{% endif %}
+    <aside class="detail__toc">
+      <p class="detail__toc-title">Contents</p>
+      <nav id="toc-nav" aria-label="Page sections">
+        <!-- populated by site.js -->
+      </nav>
+      {% if record %}
+        <div class="detail__meta" style="margin-top:var(--space-md)">
+          {% if record.year %}<div>{{ record.year }}</div>{% endif %}
+          {% if record.status %}<div>{{ record.status }}</div>{% endif %}
+          {% if record.venue %}<div>{{ record.venue }}</div>{% endif %}
+        </div>
+      {% endif %}
+    </aside>
 
-      {% if record.github %}
-        <a class="detail__github-link" href="{{ record.github }}" target="_blank" rel="noopener">View on GitHub →</a>
+    <article class="detail__content" id="detail-content">
+      {% if record %}
+        <p class="detail__eyebrow">{{ eyebrow }}</p>
+        <h1 class="detail__title">{{ record.title }}</h1>
+
+        {% if record.subtitle %}
+          <p class="detail__short-desc">{{ record.subtitle }}</p>
+        {% elsif record.venue %}
+          <p class="detail__short-desc">{{ record.venue }}</p>
+        {% endif %}
+
+        {% if record.tags %}
+          <div class="detail__tags">
+            {% for tag in record.tags %}
+              <span class="detail__tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if record.github %}
+          <a class="detail__github-link" href="{{ record.github }}" target="_blank" rel="noopener">View on GitHub →</a>
+        {% endif %}
+
+        {% if record.highlights %}
+          <ul class="detail__highlights">
+            {% for h in record.highlights %}
+              <li>{{ h }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        <div class="detail__body">
+          {{ record.body | markdownify }}
+        </div>
+
+      {% else %}
+        <div class="detail__body">{{ content }}</div>
       {% endif %}
 
-      {% if record.highlights %}
-        <ul class="detail__highlights">
-          {% for h in record.highlights %}
-            <li>{{ h }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+      <a class="detail__back" href="{{ back_url }}">{{ back_label }}</a>
+    </article>
 
-      {{ record.body | markdownify }}
-    {% else %}
-      {{ content }}
-    {% endif %}
-  </article>
+  </div>
 </div>

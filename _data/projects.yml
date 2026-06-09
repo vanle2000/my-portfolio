@@ -1,3 +1,51 @@
+- slug: facebook-ads-efficiency
+  title: "Facebook Ads Efficiency & Audience Saturation"
+  subtitle: "Identifying underperforming ad segments and simulating budget reallocation"
+  tags: [R, SQL, DuckDB, XGBoost, Shiny, tidymodels]
+  status: "Complete"
+  year: 2024
+  github: "https://github.com/vanle2000/Facebook-ads-lose-efficiency-after-audience-saturation"
+  summary: >
+    End-to-end analysis of Meta advertising campaign performance. Engineers
+    CTR, CPC, CPM, CPA, and ROAS metrics via SQL; models conversion probability
+    with XGBoost; and simulates budget reallocation strategies that lift
+    approved conversions without increasing total spend.
+  highlights:
+    - SQL + DuckDB pipeline engineering CTR, CPC, CPM, CPA, ROAS metrics
+    - XGBoost & Random Forest conversion classifiers with ROC-AUC evaluation
+    - Budget reallocation simulator estimating CPA improvement per segment
+    - Interactive Shiny dashboard for stakeholder exploration
+    - A/B test design framework for campaign validation
+  body: |
+    ### Problem
+    High-spend ad segments often generate clicks without producing proportional
+    approved conversions — a classic audience saturation pattern. Marketing
+    teams lack the tooling to identify which segments are losing efficiency
+    and quantify the opportunity cost.
+
+    ### Data Pipeline
+    SQL and DuckDB transform raw campaign event data into an analysis-ready
+    table. Engineered metrics include CTR (click-through rate), CPC (cost per
+    click), CPM (cost per mille), CPA (cost per acquisition), ROAS (return on
+    ad spend), and segment-level conversion rates. The pipeline is reproducible
+    via a Makefile with `renv` locking R package versions.
+
+    ### Modelling
+    XGBoost and Random Forest classifiers predict conversion probability per
+    impression, trained on tidymodels with cross-validation. Evaluation metrics:
+    RMSE, MAE, ROC-AUC, precision, recall. The model identifies which audience
+    segments are systematically underperforming relative to spend.
+
+    ### Budget Reallocation Simulator
+    A simulation layer estimates the conversion lift and CPA improvement
+    achievable by shifting budget from saturated segments to high-efficiency
+    ones — without increasing total advertising spend.
+
+    ### Shiny Dashboard
+    An interactive Shiny app exposes segment-level metrics, model predictions,
+    and reallocation scenarios to non-technical stakeholders. Built with
+    ggplot2 and plotly for visualisation.
+
 - slug: github-support-analytics
   title: "GitHub Support Operations Analytics"
   subtitle: "End-to-end BI platform for open-source support health"
