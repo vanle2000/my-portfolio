@@ -1,53 +1,65 @@
+summary: >
+  Quantitative analyst with a B.A. in Computational and Applied Mathematics and
+  applied experience in time-series forecasting, ML model evaluation, and
+  unsupervised learning at scale. Recent work: walk-forward cross-validation on
+  10M+ equity records, validation of 8 mechanistic models against 570K+ data
+  points at Merck, and PCA/clustering pipelines on 100K+ single-cell RNA-seq
+  samples.
+
+skills:
+  - category: "Programming"
+    items: [Python, pandas, NumPy, scikit-learn, PyTorch, SciPy, SQL, R, Bash, Scala]
+  - category: "Statistics & ML"
+    items: [Time-Series Forecasting, Walk-Forward CV, A/B Testing, Regression, Classification, "Clustering (PCA, k-means, DBSCAN)", Random Forest, XGBoost]
+  - category: "Data Engineering & Cloud"
+    items: [ETL Pipeline Design, Data Modeling, Data Warehousing, "AWS (S3, EMR, Athena)", PySpark, MySQL]
+  - category: "BI & Visualization"
+    items: [Tableau, Excel, Plotly]
+
 experience:
-  - title: "Data Scientist"
-    org: "Anthropic"
-    period: "Mar 2025 – Present"
-    location: "Remote"
-    bullets:
-      - "Build evaluation infrastructure for Claude model analytics"
-      - "Develop dashboards and metrics for model quality and usage"
-      - "Partner with research teams on data analysis for capability assessments"
-
-  - title: "Analytics Engineer"
-    org: "Sysco Corporation"
-    period: "Jun 2023 – Feb 2025"
+  - title: "Data Analyst"
+    org: "M&T Tax Firm"
+    period: "Oct 2024 – Present"
     location: "Houston, TX"
+    type: "Full-time"
     bullets:
-      - "Migrated 400-table Redshift warehouse to BigQuery using dbt; reduced P95 query time 60%"
-      - "Built retail demand forecasting pipeline (Prophet + XGBoost) deployed across 200+ stores"
-      - "Designed executive BI dashboard suite in Tableau serving 150+ stakeholders"
-      - "Mentored two junior analysts on SQL best practices and dbt modelling patterns"
+      - "Cut reconciliation cycle time from 3–5 days to 1 day with 95% fewer reporting errors by designing optimized SQL workflows on point-of-sale and banking transaction data, replacing manual spreadsheet processes"
+      - "Automated monthly financial statement generation and data validation across client portfolios, saving 15+ hours/month, by building 3 reusable SQL query templates with embedded data quality checks"
+      - "Conducted YoY variance analysis on revenue growth, expense ratios, and cash flow trends across 10+ client portfolios, surfacing $175K in cost-reduction and tax-benefit opportunities adopted into client operational strategies"
 
-  - title: "Business Intelligence Analyst"
-    org: "Memorial Hermann Health System"
-    period: "Aug 2021 – May 2023"
-    location: "Houston, TX"
+  - title: "Data Science Co-op"
+    org: "Merck & Co."
+    period: "May 2023 – Aug 2023"
+    location: ""
+    type: "Co-op"
     bullets:
-      - "Owned 30+ Tableau dashboards tracking operational and clinical KPIs"
-      - "Automated ETL pipelines replacing manual Excel reporting for 8 departments"
-      - "Built subscription churn model (XGBoost) recovering $1.1 M ARR via targeted outreach"
-      - "Reduced report-generation time from 3 days to 4 hours through SQL optimisation"
+      - "Contributed to a 7% yield increase and 25% shorter production cycles by validating 8 mechanistic models against 570K+ experimental data points using statistical model evaluation methodology; findings adopted by process engineers into manufacturing changes"
+      - "Reduced data ingestion time by 40% for 3–4 downstream analytics and engineering teams by building performant AWS EMR-to-S3 ETL pipelines for manufacturing process and instrument data"
+      - "Designed domain-aware schemas and reusable SQL/Python templates on AWS Athena for data retrieval and batch-vs-standard analytics, replacing manual folder searches and cutting time-to-data by 60% across 3–4 teams"
 
-  - title: "Data Analyst Intern"
-    org: "HP Inc."
-    period: "May 2020 – Aug 2020"
-    location: "Houston, TX"
+  - title: "Data Science Intern"
+    org: "Adaptive Biotechnologies"
+    period: "Jun 2022 – Aug 2022"
+    location: "Seattle, WA"
+    type: "Internship"
     bullets:
-      - "Analysed supply chain data to identify cost-reduction opportunities"
-      - "Built Python scripts to automate weekly supplier performance reports"
+      - "Initiated a new flow cytometry research direction by developing unsupervised ML pipelines (PCA, k-means, DBSCAN) on 100K+ single-cell RNA sequencing samples, surfacing novel T-cell receptor clustering patterns presented to department leadership"
+      - "Improved experiment-tracking efficiency by 13% for 2 life-sciences research teams by gathering requirements from end users and consolidating fragmented manual reporting into a unified Tableau BI layer with real-time visibility into experiment status, sample throughput, and result tracking"
 
 education:
-  - degree: "M.S. Statistics (in progress)"
-    school: "Rice University"
-    period: "2024 – Present"
-    note: "Focus: Forecasting, Bayesian Methods"
+  - degree: "M.S. in Computational Data Analytics (Online)"
+    school: "Georgia Institute of Technology"
+    period: "Aug 2026 – Expected Dec 2028"
+    note: ""
 
-  - degree: "B.A. Computational and Applied Mathematics (Statistics)"
-    school: "State University at Buffalo"
-    period: ""
-    note: "Biology & medicine research background (pre-med, UH 2020–2022)"
+  - degree: "B.A. in Computational and Applied Mathematics"
+    school: "State University of New York at Buffalo"
+    period: "Aug 2022 – Dec 2023"
+    note: ""
 
-certifications:
-  - "Google Advanced Data Analytics Certificate (2024)"
-  - "dbt Analyst Certification (2023)"
-  - "Tableau Desktop Specialist (2022)"
+  - degree: "Associate of Arts in Business and Chemistry"
+    school: "North Seattle College"
+    period: "Jan 2018 – Jun 2020"
+    note: ""
+
+certifications: []

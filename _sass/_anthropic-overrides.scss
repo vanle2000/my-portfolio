@@ -660,16 +660,30 @@ body {
 .resume-page__header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
+  gap: var(--space-md);
   border-bottom: 1px solid var(--color-border);
-  padding-bottom: var(--space-sm);
+  padding-bottom: var(--space-md);
   margin-bottom: var(--space-lg);
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
 .resume-page__title {
   font-family: var(--font-display);
   font-size: var(--text-3xl);
   font-weight: 400;
+  margin: 0 0 var(--space-xs);
+}
+
+.resume-page__summary {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 60ch;
   margin: 0;
 }
 
@@ -701,17 +715,110 @@ body {
   border-bottom: 1px solid var(--color-border);
 }
 
-.resume-entry {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: var(--space-sm);
-  padding: var(--space-sm) 0;
-  border-top: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
-
-  &:first-child { border-top: none; }
+/* ── Journey timeline (resume) ───────────────────────────── */
+.journey {
+  position: relative;
+  max-width: var(--max-width-wide);
+  margin: var(--space-md) auto 0;
+  padding: var(--space-md) 0 0;
 }
 
-.resume-entry__org {
+/* the "road": dark strip with dashed centre line */
+.journey__line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 22px;
+  transform: translateX(-50%);
+  background-color: var(--color-bg-dark);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--color-accent-subtle) 0,
+    var(--color-accent-subtle) 14px,
+    transparent 14px,
+    transparent 28px
+  );
+  background-position: center top;
+  background-size: 3px 28px;
+  background-repeat: repeat-y;
+  border-radius: 11px;
+}
+
+.journey-stop {
+  position: relative;
+  width: 50%;
+  padding-bottom: var(--space-xl);
+}
+
+.journey-stop--left {
+  left: 0;
+  padding-right: var(--space-xl);
+  text-align: right;
+}
+
+.journey-stop--right {
+  left: 50%;
+  padding-left: var(--space-xl);
+  text-align: left;
+}
+
+.journey-stop__dot {
+  position: absolute;
+  top: var(--space-sm);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 3px solid var(--color-bg-primary);
+  box-shadow: 0 0 0 2px var(--color-accent);
+  z-index: 2;
+}
+
+.journey-stop__dot--edu {
+  background: var(--color-accent-light);
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px var(--color-accent-light);
+}
+
+.journey-stop--left .journey-stop__dot { right: -8px; }
+.journey-stop--right .journey-stop__dot { left: -8px; }
+
+.journey-stop__connector {
+  position: absolute;
+  top: calc(var(--space-sm) + 7px);
+  height: 2px;
+  width: var(--space-xl);
+  background: var(--color-border-strong);
+}
+
+.journey-stop--left .journey-stop__connector { right: -8px; }
+.journey-stop--right .journey-stop__connector { left: -8px; }
+
+.journey-stop__card {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--space-md);
+}
+
+.journey-stop__card--edu {
+  background: transparent;
+  border-style: dashed;
+}
+
+.journey-stop__period {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.25rem;
+}
+
+.journey-stop__org {
   font-family: var(--font-display);
   font-size: var(--text-xl);
   font-weight: 400;
@@ -719,26 +826,62 @@ body {
   margin: 0 0 0.15rem;
 }
 
-.resume-entry__title {
-  font-size: var(--text-base);
+.journey-stop__role {
+  font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.6rem;
 }
 
-.resume-entry__period {
+.journey-stop__type {
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  white-space: nowrap;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent-subtle);
+  border-radius: 2px;
+  padding: 0.05rem 0.4rem;
+  margin-left: 0.5rem;
 }
 
-.resume-entry__bullets {
+.journey-stop__bullets {
   margin: 0;
   padding-left: 1.2em;
   color: var(--color-text-secondary);
   font-size: var(--text-sm);
+  line-height: var(--leading-body);
 
-  li + li { margin-top: 0.3rem; }
+  li + li { margin-top: 0.4rem; }
+}
+
+@media (max-width: 768px) {
+  .journey__line { left: 12px; transform: none; width: 16px; }
+
+  .journey-stop,
+  .journey-stop--left,
+  .journey-stop--right {
+    width: 100%;
+    left: 0;
+    padding-left: calc(12px + var(--space-lg));
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .journey-stop--left .journey-stop__dot,
+  .journey-stop--right .journey-stop__dot { left: 4px; right: auto; }
+
+  .journey-stop--left .journey-stop__connector,
+  .journey-stop--right .journey-stop__connector {
+    left: 4px;
+    right: auto;
+    width: var(--space-lg);
+  }
+}
+
+/* slightly tighter skill chip grid on resume */
+.skills-grid--resume {
+  margin-top: var(--space-md);
+  padding-top: 0;
+  border-top: none;
 }
 
 .resume-certs {
