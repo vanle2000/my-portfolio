@@ -1,9 +1,9 @@
 main:
+  - title: "Strategy"
+    url: /
+  - title: "Work"
+    url: /work/
   - title: "About"
     url: /about/
-  - title: "Projects"
-    url: /projects/
-  - title: "Research"
-    url: /research/
-  - title: "Resume"
-    url: /resume/
+  - title: "Contact"
+    url: /contact/

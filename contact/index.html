@@ -1,0 +1,19 @@
+---
+layout: default
+title: "Contact"
+permalink: /contact/
+---
+
+{% assign contact = site.data.contact %}
+
+<div class="section">
+  <p class="hero-banner__eyebrow">Contact</p>
+  <h1 class="section__title" style="font-size:var(--text-4xl);line-height:var(--leading-subhead);letter-spacing:var(--tracking-subhead)">Let's talk.</h1>
+  <p class="hero__bio">Reach out about collaborations, research, or just to say hi.</p>
+  <nav class="hero__links" aria-label="Contact links">
+    <a class="hero__link" href="mailto:{{ contact.email }}">Email</a>
+    <a class="hero__link" href="{{ contact.github }}" target="_blank" rel="noopener">GitHub</a>
+    <a class="hero__link" href="{{ contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="hero__link" href="{{ contact.resume_pdf | relative_url }}">Resume PDF</a>
+  </nav>
+</div>

@@ -1,12 +1,24 @@
 ---
 layout: default
-title: "Research"
-permalink: /research/
+title: "Work"
+permalink: /work/
 ---
 
 <div class="section">
   <div class="section__header">
-    <h1 class="section__title">Research</h1>
+    <h1 class="section__title">Projects</h1>
+    <span class="section__count">{{ site.data.projects | size }} total</span>
+  </div>
+  <ul class="project-list">
+    {% for project in site.data.projects %}
+      {% include project-list-item.html project=project %}
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section__header">
+    <h2 class="section__title">Research</h2>
     <span class="section__count">{{ site.data.research | size }} papers</span>
   </div>
   <ul class="research-list">

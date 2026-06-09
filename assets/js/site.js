@@ -1,24 +1,6 @@
 (function () {
   'use strict';
 
-  /* ── Aurora scroll fade ────────────────────────────────── */
-  var aurora = document.getElementById('aurora');
-  if (aurora) {
-    var ticking = false;
-    function updateAurora() {
-      var scrollY = window.scrollY || window.pageYOffset;
-      var opacity = Math.max(0, 1 - scrollY / 500);
-      aurora.style.opacity = opacity;
-      ticking = false;
-    }
-    window.addEventListener('scroll', function () {
-      if (!ticking) {
-        requestAnimationFrame(updateAurora);
-        ticking = true;
-      }
-    }, { passive: true });
-  }
-
   /* ── Sidebar TOC builder ────────────────────────────────── */
   var content = document.getElementById('detail-content');
   var tocNav = document.getElementById('toc-nav');

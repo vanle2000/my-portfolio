@@ -1,42 +1,35 @@
 ---
 layout: default
-title: "Elizabeth Van Le"
+title: "Strategy"
 ---
 
-{% include aurora.html %}
-{% include hero.html %}
+{% assign news = site.data.news | slice: 0, 5 %}
 
-<main>
-  <div class="section">
-    <div class="section__header">
-      <h2 class="section__title">Projects</h2>
-      <span class="section__count">{{ site.data.projects | size }} total</span>
-    </div>
-    <ul class="project-list">
-      {% for project in site.data.projects limit: 3 %}
-        {% include project-list-item.html project=project %}
-      {% endfor %}
-    </ul>
-    {% if site.data.projects.size > 3 %}
-      <p style="margin-top:1.5rem">
-        <a href="{{ '/projects/' | relative_url }}" style="font-family:var(--font-mono);font-size:var(--text-sm);">View all projects →</a>
-      </p>
-    {% endif %}
+<section class="hero-banner">
+  <div class="hero-banner__inner">
+    <p class="hero-banner__eyebrow">Strategy</p>
+    <h1 class="hero-banner__statement">Turning ambiguous data into decisions worth acting on.</h1>
   </div>
+</section>
 
-  <div class="section" style="padding-top:0">
-    <div class="section__header">
-      <h2 class="section__title">Research</h2>
-      <span class="section__count">{{ site.data.research | size }} papers</span>
-    </div>
-    <ul class="research-list">
-      {% for item in site.data.research %}
-        <li class="research-item">
-          <div class="research-item__venue">{{ item.venue }}</div>
-          <a class="research-item__title" href="{{ '/research/' | append: item.slug | append: '/' | relative_url }}">{{ item.title }}</a>
-          <p class="research-item__summary">{{ item.summary }}</p>
-        </li>
-      {% endfor %}
-    </ul>
+<div class="section">
+  <div class="section__header">
+    <h2 class="section__title">News</h2>
   </div>
-</main>
+  {% include news-feed.html items=news %}
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section__header">
+    <h2 class="section__title">Selected Work</h2>
+    <span class="section__count">{{ site.data.projects | size }} projects</span>
+  </div>
+  <ul class="project-list">
+    {% for project in site.data.projects limit: 3 %}
+      {% include project-list-item.html project=project %}
+    {% endfor %}
+  </ul>
+  <p style="margin-top:1.5rem">
+    <a href="{{ '/work/' | relative_url }}" style="font-family:var(--font-mono);font-size:var(--text-sm);">View all work →</a>
+  </p>
+</div>
