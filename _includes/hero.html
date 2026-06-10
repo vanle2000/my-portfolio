@@ -1,6 +1,9 @@
 {% assign about = site.data.about %}
 {% assign contact = site.data.contact %}
 {% assign news = site.data.news | slice: 0, 4 %}
+{% assign name_parts = about.name | split: " " %}
+{% assign first_name = name_parts[0] %}
+{% assign last_name = name_parts | slice: 1, name_parts.size | join: " " %}
 
 <section class="hero">
   <div class="hero__inner">
@@ -8,7 +11,10 @@
       <img src="{{ about.photo | relative_url }}" alt="Photo of {{ about.name }}" loading="eager">
     </div>
     <div class="hero__content">
-      <h1 class="hero__name">{{ about.name }}</h1>
+      <h1 class="hero__name">
+        <span class="hero__name-line">{{ first_name }}</span>
+        <span class="hero__name-line">{{ last_name }}</span>
+      </h1>
       <p class="hero__role">{{ about.role }}</p>
       <p class="hero__bio">{{ about.tagline }}</p>
       <nav class="hero__links" aria-label="Contact links">
