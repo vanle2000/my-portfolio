@@ -1075,6 +1075,11 @@ body {
   text-align: center;
 }
 
+.page-contact__eyebrow {
+  font-size: calc(var(--text-xs) * 2);
+  letter-spacing: 0.3em;
+}
+
 .page-contact__title {
   font-family: var(--font-display);
   font-size: var(--text-3xl);
@@ -1119,8 +1124,10 @@ body {
 
 /* ── Footer ───────────────────────────────────────────────── */
 .page__footer {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-inverse);
+  background: linear-gradient(120deg, var(--color-sky), var(--color-pink), var(--color-sky));
+  background-size: 200% 200%;
+  animation: gradient-flow 18s ease-in-out infinite;
+  color: var(--color-text-primary);
   border-top: none;
 
   footer {
@@ -1140,12 +1147,12 @@ body {
 .page__footer-copyright {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 }
 
 .page__footer-follow .social-icons a {
-  color: var(--color-text-muted);
-  &:hover { color: var(--color-accent-light); }
+  color: var(--color-text-secondary);
+  &:hover { color: var(--color-accent); }
 }
 
 /* ── 404 page ─────────────────────────────────────────────── */
