@@ -14,6 +14,20 @@ permalink: /projects/
       {% include project-list-item.html project=project %}
     {% endfor %}
   </ul>
+
+  <h2 class="resume-section__title">Technical Skills</h2>
+  <div class="skills-grid skills-grid--resume">
+    {% for group in site.data.resume.skills %}
+      <div class="skill-group">
+        <p class="skill-group__cat">{{ group.category }}</p>
+        <div class="skill-group__items">
+          {% for item in group.items %}
+            <span class="skill-group__item">{{ item }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% include contact-cta.html %}

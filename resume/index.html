@@ -10,23 +10,10 @@ permalink: /resume/
 <main class="resume-page">
   <div class="resume-page__header">
     <div>
-      <h1 class="resume-page__title">Resume</h1>
+      <h1 class="resume-page__title">Experience</h1>
       <p class="resume-page__summary">{{ r.summary }}</p>
     </div>
-    <a class="resume-pdf-link" href="{{ contact.resume_pdf | relative_url }}" download>Download PDF</a>
-  </div>
-
-  <div class="skills-grid skills-grid--resume">
-    {% for group in r.skills %}
-      <div class="skill-group">
-        <p class="skill-group__cat">{{ group.category }}</p>
-        <div class="skill-group__items">
-          {% for item in group.items %}
-            <span class="skill-group__item">{{ item }}</span>
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
+    <a class="resume-pdf-link" href="{{ contact.resume_pdf | relative_url }}" target="_blank" rel="noopener">View / Download PDF</a>
   </div>
 
   <h2 class="resume-section__title">The Journey</h2>

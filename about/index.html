@@ -17,19 +17,6 @@ permalink: /about/
       <div class="about__bio">{{ about.bio }}</div>
     </div>
   </div>
-
-  <div class="skills-grid">
-    {% for group in about.skills %}
-      <div class="skill-group">
-        <p class="skill-group__cat">{{ group.category }}</p>
-        <div class="skill-group__items">
-          {% for item in group.items %}
-            <span class="skill-group__item">{{ item }}</span>
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
-  </div>
 </main>
 
 {% include contact-cta.html %}

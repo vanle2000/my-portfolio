@@ -3,20 +3,21 @@
 {% assign news = site.data.news | slice: 0, 4 %}
 
 <section class="hero">
-  <div class="hero__photo">
-    <img src="{{ about.photo | relative_url }}" alt="Photo of {{ about.name }}" loading="eager">
-  </div>
-  <div class="hero__content">
-    <h1 class="hero__name">{{ about.name }}</h1>
-    <p class="hero__role">{{ about.role }}</p>
-    <p class="hero__bio">{{ about.tagline }}</p>
-    <nav class="hero__links" aria-label="Contact links">
-      <a class="hero__link" href="mailto:{{ contact.email }}">Email</a>
-      <a class="hero__link" href="{{ contact.github }}" target="_blank" rel="noopener">GitHub</a>
-      <a class="hero__link" href="{{ contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="hero__link" href="{{ contact.resume_pdf | relative_url }}">Resume PDF</a>
-    </nav>
+  <div class="hero__inner">
+    <div class="hero__photo">
+      <img src="{{ about.photo | relative_url }}" alt="Photo of {{ about.name }}" loading="eager">
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__name">{{ about.name }}</h1>
+      <p class="hero__role">{{ about.role }}</p>
+      <p class="hero__bio">{{ about.tagline }}</p>
+      <nav class="hero__links" aria-label="Contact links">
+        <a class="hero__link" href="mailto:{{ contact.email }}">Email</a>
+        <a class="hero__link" href="{{ contact.github }}" target="_blank" rel="noopener">GitHub</a>
+        <a class="hero__link" href="{{ contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
 
-    {% include news-feed.html items=news %}
+      {% include news-feed.html items=news %}
+    </div>
   </div>
 </section>

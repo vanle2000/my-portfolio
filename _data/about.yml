@@ -2,7 +2,7 @@ name: "Elizabeth Van Le"
 role: "Data Scientist"
 photo: "/assets/images/headshot.jpg"
 location: "Houston, TX"
-email: "lethaovann28@gmail.com"
+email: "vanle.vtl2000@gmail.com"
 github: "vanle2000"
 linkedin: "elizabethvanle"
 
@@ -33,15 +33,3 @@ bio: |
 
   Outside work, I'm into travelling, hiking and camping, astrology, matcha,
   and writing movie reviews.
-
-skills:
-  - category: "Languages & Query"
-    items: [Python, SQL, R, Bash]
-  - category: "ML & Analytics"
-    items: [XGBoost, Prophet, spaCy, BERT, MLflow, scikit-learn]
-  - category: "Data Infrastructure"
-    items: [dbt, BigQuery, Redshift, Airflow, Spark]
-  - category: "Visualisation"
-    items: [Tableau, Looker, Plotly, Matplotlib]
-  - category: "Tools"
-    items: [Git, Docker, Terraform, GitHub Actions, Figma]
