@@ -4,18 +4,76 @@ title: "Research"
 permalink: /research/
 ---
 
+{% assign rp = site.data.research_page %}
+{% assign contact = site.data.contact %}
+
+<section class="research-quote fade-in-up">
+  <p class="research-quote__text">&ldquo;{{ rp.quote.text }}&rdquo;</p>
+  <p class="research-quote__author">— {{ rp.quote.author }}</p>
+</section>
+
 <div class="section">
   <div class="section__header">
-    <h1 class="section__title">Research</h1>
-    <span class="section__count">{{ site.data.research | size }} papers</span>
+    <h2 class="section__title">Research Interests</h2>
+  </div>
+  <div class="research-interest-grid">
+    {% for item in rp.interests %}
+      <div class="research-interest fade-in-up">
+        <h3 class="research-interest__title">{{ item.title }}</h3>
+        <p class="research-interest__desc">{{ item.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section__header">
+    <h2 class="section__title">Research Experience</h2>
+  </div>
+  {% for exp in rp.experience %}
+    <article class="research-exp fade-in-up">
+      <h3 class="research-exp__lab">
+        <a href="{{ exp.lab_url }}" target="_blank" rel="noopener">{{ exp.lab }}</a>
+      </h3>
+      <p class="research-exp__meta">{{ exp.institution }} · {{ exp.pi }} · {{ exp.years }}</p>
+
+      <div class="research-exp__block">
+        <p class="research-exp__label">Project</p>
+        <p>{{ exp.project }}</p>
+      </div>
+      <div class="research-exp__block">
+        <p class="research-exp__label">Why this research</p>
+        <p>{{ exp.motivation }}</p>
+      </div>
+      <div class="research-exp__block">
+        <p class="research-exp__label">Outcomes</p>
+        <p>{{ exp.outcomes }}</p>
+      </div>
+      <div class="research-exp__block">
+        <p class="research-exp__label">How it shaped my path</p>
+        <p>{{ exp.relevance }}</p>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section__header">
+    <h2 class="section__title">Publications</h2>
+    <span class="section__count"><a href="{{ contact.google_scholar }}" target="_blank" rel="noopener">Google Scholar →</a></span>
   </div>
   <ul class="research-list">
     {% for item in site.data.research %}
-      <li class="research-item">
+      <li class="research-item fade-in-up">
         <div class="research-item__venue">{{ item.venue }}</div>
         <a class="research-item__title" href="{{ '/research/' | append: item.slug | append: '/' | relative_url }}">{{ item.title }}</a>
         <p class="research-item__summary">{{ item.summary }}</p>
+        {% if item.pubmed %}
+          <a class="publication-item__link" href="{{ item.pubmed }}" target="_blank" rel="noopener">View on PubMed →</a>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
 </div>
+
+{% include contact-cta.html %}

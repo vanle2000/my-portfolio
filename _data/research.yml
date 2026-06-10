@@ -2,6 +2,7 @@
   title: "Realistic Membrane Modeling Using Complex Lipid Mixtures in Simulation Studies"
   venue: "JoVE (Journal of Visualized Experiments), e65712 · 2023"
   year: 2023
+  pubmed: "https://pubmed.ncbi.nlm.nih.gov/37677042/"
   tags: [Molecular Dynamics, Deep Learning, CHARMM, Python, Membrane Biophysics]
   summary: >
     Published protocol for constructing and equilibrating realistic biological

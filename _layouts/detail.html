@@ -4,13 +4,13 @@ layout: default
 
 {% if page.collection == 'project' %}
   {% assign record = site.data.projects | where: "slug", page.slug | first %}
-  {% assign back_url = '/work/' | relative_url %}
-  {% assign back_label = '← All Work' %}
+  {% assign back_url = '/projects/' | relative_url %}
+  {% assign back_label = '← All Projects' %}
   {% assign eyebrow = 'Project' %}
 {% elsif page.collection == 'research' %}
   {% assign record = site.data.research | where: "slug", page.slug | first %}
-  {% assign back_url = '/work/' | relative_url %}
-  {% assign back_label = '← All Work' %}
+  {% assign back_url = '/research/' | relative_url %}
+  {% assign back_label = '← All Research' %}
   {% assign eyebrow = 'Research' %}
 {% endif %}
 

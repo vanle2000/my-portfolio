@@ -1,0 +1,15 @@
+{% assign contact = site.data.contact %}
+<section class="page-contact">
+  <p class="eyebrow">Contact</p>
+  <h2 class="page-contact__title">Let's get in touch!</h2>
+  <p class="page-contact__body">
+    Always excited to discuss new opportunities, collaborate on interesting
+    projects, or have a coffee chat!
+  </p>
+  <nav class="page-contact__links" aria-label="Contact links">
+    <a href="{{ contact.google_scholar }}" target="_blank" rel="noopener">Scholar</a>
+    <a href="{{ contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="{{ contact.github }}" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:{{ contact.email }}">Email</a>
+  </nav>
+</section>

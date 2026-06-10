@@ -1,19 +1,14 @@
-{% assign contact = site.data.contact %}
-<nav class="sidebar" aria-label="Primary">
-  <div>
-    <a class="sidebar__mark" href="{{ '/' | relative_url }}">{{ site.title | default: "Site" }}</a>
-    <ul class="sidebar__nav">
-      {% for item in site.data.navigation.main %}
-        {% assign item_url = item.url | relative_url %}
-        <li>
-          <a href="{{ item_url }}"{% if page.url == item.url %} class="is-active" aria-current="page"{% endif %}>{{ item.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
+<header class="masthead">
+  <div class="masthead__inner-wrap">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | default: "Site" }}</a>
+    <nav class="masthead__menu" aria-label="Primary">
+      <ul class="masthead__menu-list">
+        {% for item in site.data.navigation.main %}
+          <li class="masthead__menu-item">
+            <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page" class="is-active"{% endif %}>{{ item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
   </div>
-  <div class="sidebar__footer">
-    <a href="mailto:{{ contact.email }}">Email</a>
-    <a href="{{ contact.github }}" target="_blank" rel="noopener">GitHub</a>
-    <a href="{{ contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</nav>
+</header>
