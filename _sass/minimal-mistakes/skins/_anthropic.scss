@@ -71,9 +71,9 @@
   /* ── Motion ── */
   --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
-  --duration-fast:  150ms;
-  --duration-base:  280ms;
-  --duration-slow:  500ms;
+  --duration-fast:  220ms;
+  --duration-base:  400ms;
+  --duration-slow:  800ms;
 }
 
 /* ── Sass variable overrides ──────────────────────────────────────────────────

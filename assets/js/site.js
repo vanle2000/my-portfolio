@@ -59,24 +59,31 @@
   var hero = document.querySelector('.hero');
   var heroContent = document.querySelector('.hero__content');
   if (hero && heroContent) {
-    var updateHero = function () {
+    var heroTarget = { opacity: 1, contentY: 0, contentOpacity: 1 };
+    var heroCurrent = { opacity: 1, contentY: 0, contentOpacity: 1 };
+    var heroEase = 0.06; // lower = slower, smoother catch-up
+
+    var computeHeroTargets = function () {
       var progress = Math.min(Math.max(window.scrollY / hero.offsetHeight, 0), 1);
-      hero.style.opacity = 1 - progress;
-      heroContent.style.transform = 'translateY(' + (progress * -40) + 'px)';
-      heroContent.style.opacity = Math.max(0, 1 - progress / 0.8);
+      heroTarget.opacity = 1 - progress;
+      heroTarget.contentY = progress * -40;
+      heroTarget.contentOpacity = Math.max(0, 1 - progress / 0.8);
     };
 
-    var heroTicking = false;
-    window.addEventListener('scroll', function () {
-      if (!heroTicking) {
-        requestAnimationFrame(function () {
-          updateHero();
-          heroTicking = false;
-        });
-        heroTicking = true;
-      }
-    }, { passive: true });
+    var animateHero = function () {
+      heroCurrent.opacity += (heroTarget.opacity - heroCurrent.opacity) * heroEase;
+      heroCurrent.contentY += (heroTarget.contentY - heroCurrent.contentY) * heroEase;
+      heroCurrent.contentOpacity += (heroTarget.contentOpacity - heroCurrent.contentOpacity) * heroEase;
 
-    updateHero();
+      hero.style.opacity = heroCurrent.opacity;
+      heroContent.style.transform = 'translateY(' + heroCurrent.contentY + 'px)';
+      heroContent.style.opacity = heroCurrent.contentOpacity;
+
+      requestAnimationFrame(animateHero);
+    };
+
+    window.addEventListener('scroll', computeHeroTargets, { passive: true });
+    computeHeroTargets();
+    requestAnimationFrame(animateHero);
   }
 })();
