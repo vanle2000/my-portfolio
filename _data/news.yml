@@ -1,21 +1,18 @@
 - date: 2026-03-01
-  body: "I got into the online M.S. in Computational Data Analytics at Georgia Tech! I'll be starting this Fall and I honestly can't wait to be a student again."
+  body: "I got into the online M.S. in Computational Data Analytics at Georgia Tech! I'll be starting this Fall and want to focus on LLM and Agentic dynamics."
 
 - date: 2025-11-01
-  body: "My H1B visa was approved. After months of waiting and not knowing what would happen, I finally let myself breathe."
+  body: "My H1B visa was approved."
 
 - date: 2024-10-01
-  body: "Started a new role as a Data Analyst at M&T Tax Firm here in Houston. New job, new routine, and a fresh start I was ready for."
-
-- date: 2024-08-01
-  body: "Ten days before my cohort was set to begin, my Data Scientist offer from BNY Mellon was rescinded because of a visa issue. It hurt more than I expected, but I kept moving."
+  body: "Started a Data Analyst at M&T Tax Firm based in Houston. I start working on financial and tax data from point-of-sales to bank transactions."
 
 - date: 2024-01-01
   date_end: 2024-10-01
-  body: "Spent the year volunteering as a Data Analyst for the Los Angeles School of Arts on two projects close to my heart, one exploring how students engage with computers in their arts studies, and another building AI assisted models to help understand student performance in arts subjects."
+  body: "Spent the year volunteering as a Data Analyst for the Los Angeles School of Arts on two projects, one exploring how students engage with computers in their arts studies, and another building AI assisted models to help understand student performance in arts subjects."
 
 - date: 2024-01-01
-  body: "Graduated with my B.A. in Computational and Applied Mathematics, focused on Statistics, from the University at Buffalo. A moment I worked really hard for."
+  body: "Graduated with my B.A. in Computational and Applied Mathematics, focused on Statistics, from the University at Buffalo."
 
 - date: 2023-06-01
   date_end: 2023-08-01
@@ -26,7 +23,7 @@
 
 - date: 2022-06-01
   date_end: 2022-08-01
-  body: "Interned at Adaptive Biotechnologies that summer, working alongside scientists from Microsoft AI for Science on the Antigen Map project. I learned so much from such a brilliant team."
+  body: "Interned at Adaptive Biotechnologies that summer, working alongside scientists from Microsoft AI for Science on the Antigen Map project. This was my first time working on both wet lab and dry lab, analyzing 10G+ of bioassay data and teaching myself Machine Learning algorithms to build predictive models for T-cell receptor response. I also built and delivered an automatic dashboard tracking and analyzing the data processing pipeline for manufacturing data weekly, which the VP approved for use across the department."
 
 - date: 2020-08-01
   date_end: 2022-05-01
