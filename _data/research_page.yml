@@ -5,24 +5,24 @@ quote:
 interests:
   - title: "Causal Inference & Experiment Design"
     description: >
-      Designing experiments and quasi-experimental analyses that move beyond
-      correlation — understanding which interventions actually move the
-      outcomes that matter, and how to measure that reliably at scale.
+      Designing experiments and quasi experimental analyses that move beyond
+      correlation, to understand which interventions actually move the
+      outcomes that matter and how to measure that reliably at scale.
   - title: "Uncertainty Quantification"
     description: >
       Building forecasting and prediction systems that communicate not just a
-      point estimate but a calibrated range of confidence — so decision-makers
+      point estimate but a calibrated range of confidence, so decision makers
       know how much to trust a number.
-  - title: "Human-AI Collaboration in Analytics"
+  - title: "Human and AI Collaboration in Analytics"
     description: >
-      Studying how analysts and researchers work alongside ML/LLM tools —
+      Studying how analysts and researchers work alongside ML and LLM tools,
       where automation helps, where it misleads, and how to design workflows
       that keep a human in the loop for judgment calls.
   - title: "AI Fairness & Safety"
     description: >
       Evaluating models for bias, robustness, and safe behaviour before they
-      reach production — especially in scientific and healthcare contexts
-      where errors carry real consequences.
+      reach production, especially in scientific and healthcare contexts where
+      errors carry real consequences.
 
 experience:
   - lab: "Monje Lab"
@@ -31,26 +31,26 @@ experience:
     pi: "Dr. Viviana Monje-Galván"
     years: "2022 – 2023"
     project: >
-      Developed and validated a reproducible protocol for building realistic
+      I developed and validated a reproducible protocol for building realistic
       biological membrane models from complex lipid mixtures in molecular
-      dynamics simulations, combining CHARMM force-field parameterisation with
-      deep-learning-based protein structure prediction.
+      dynamics simulations, combining CHARMM force field parameterization with
+      deep learning based protein structure prediction.
     motivation: >
-      Most membrane simulations rely on simple single-lipid bilayers that
-      don't reflect how real cell membranes are built. We wanted a protocol
-      that researchers could reuse to model membranes that actually look like
-      the ones found in living cells — a more realistic foundation for
-      studying how proteins and drugs interact with them.
+      Most membrane simulations rely on simple single lipid bilayers that
+      don't reflect real cell membranes. I wanted a protocol other researchers
+      could reuse to model membranes that resemble those found in living
+      cells, giving a more realistic foundation for studying how proteins and
+      drugs interact with them.
     outcomes: >
-      Published as a peer-reviewed protocol in the Journal of Visualized
-      Experiments (JoVE), with trajectory-analysis scripts for order
-      parameters, area per lipid, membrane thickness, and lateral diffusion
-      now used as a standard workflow in the lab.
+      I published this protocol in the Journal of Visualized Experiments
+      (JoVE), including trajectory analysis scripts for order parameters, area
+      per lipid, membrane thickness, and lateral diffusion. These scripts are
+      now a standard workflow in the lab.
     relevance: >
-      This was my first experience validating a computational model against
-      experimental expectations under real uncertainty — directly shaping my
-      interest in uncertainty quantification, and confirming that I wanted a
-      career where I build and stress-test models, not just run them once.
+      This was my first time validating a computational model against
+      experimental expectations under real uncertainty. It shaped my interest
+      in uncertainty quantification and confirmed that I want a career
+      building and stress testing models, not just running them once.
 
   - lab: "Liu Lab"
     lab_url: "https://www.uh.edu/pharmacy/about-us/directory-home/pps-faculty/xinli-liu/"
@@ -58,25 +58,24 @@ experience:
     pi: "Dr. Xinli Liu"
     years: "2020 – 2022"
     project: >
-      Designed and maintained Python data pipelines for mass spectrometry
-      imaging (MSI) datasets, transforming high-dimensional spatial
-      cell-uptake data into analysis-ready formats to study nanoparticle drug
-      delivery and nanomedicine resistance.
+      I designed and maintained Python data pipelines for mass spectrometry
+      imaging datasets, transforming high dimensional spatial cell uptake data
+      into analysis ready formats for studying nanoparticle drug delivery and
+      nanomedicine resistance.
     motivation: >
-      Nanoparticle-based drug delivery can target tumours more precisely, but
+      Nanoparticle based drug delivery can target tumors more precisely, but
       some cells develop resistance to it. The lab needed a way to turn raw
-      MSI output — where every pixel is a full mass spectrum — into data that
-      could actually be analysed for patterns in resistance.
+      imaging output, where every pixel is a full mass spectrum, into data we
+      could analyze for patterns in resistance.
     outcomes: >
-      Built preprocessing pipelines (baseline correction, peak alignment,
-      dimensionality reduction) that made high-dimensional cellular-uptake
-      data tractable for downstream statistical analysis, and contributed to
-      experimental workflows testing nanoparticle formulations on cell culture
-      models.
+      I built preprocessing pipelines for baseline correction, peak alignment,
+      and dimensionality reduction that made high dimensional cellular uptake
+      data tractable for statistical analysis, and contributed to experiments
+      testing nanoparticle formulations on cell culture models.
     relevance: >
-      This was the experience that pushed me from pre-med toward data science
-      full-time: I realised the bottleneck in biomedical research is rarely
-      the experiment itself, but the capacity to process and interpret the
-      data it generates. It's the throughline connecting my interest in
-      human-AI collaboration in analytics with a long-term goal of working as
-      a research data scientist on problems with real clinical stakes.
+      This experience pushed me from pre med toward data science full time. I
+      realized the bottleneck in biomedical research is rarely the experiment
+      itself, but the capacity to process and interpret the data it generates.
+      It connects my interest in human and AI collaboration in analytics with
+      my long term goal of working as a research data scientist on problems
+      with real clinical stakes.

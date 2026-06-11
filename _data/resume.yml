@@ -1,10 +1,8 @@
 summary: >
-  Quantitative analyst with a B.A. in Computational and Applied Mathematics and
-  applied experience in time-series forecasting, ML model evaluation, and
-  unsupervised learning at scale. Recent work: walk-forward cross-validation on
-  10M+ equity records, validation of 8 mechanistic models against 570K+ data
-  points at Merck, and PCA/clustering pipelines on 100K+ single-cell RNA-seq
-  samples.
+  I'm a quantitative analyst with a B.A. in Computational and Applied
+  Mathematics, building my career from analytics toward data science. Along
+  the way, I've developed hands-on experience in time-series forecasting,
+  ML model evaluation, and unsupervised learning at scale.
 
 skills:
   - category: "Programming"
@@ -17,15 +15,14 @@ skills:
     items: [Tableau, Excel, Plotly]
 
 experience:
-  - title: "Data Analyst"
-    org: "M&T Tax Firm"
-    period: "Oct 2024 – Present"
-    location: "Houston, TX"
-    type: "Full-time"
+  - title: "Data Science Intern"
+    org: "Adaptive Biotechnologies"
+    period: "Jun 2022 – Aug 2022"
+    location: "Seattle, WA"
+    type: "Internship"
     bullets:
-      - "Cut reconciliation cycle time from 3–5 days to 1 day with 95% fewer reporting errors by designing optimized SQL workflows on point-of-sale and banking transaction data, replacing manual spreadsheet processes"
-      - "Automated monthly financial statement generation and data validation across client portfolios, saving 15+ hours/month, by building 3 reusable SQL query templates with embedded data quality checks"
-      - "Conducted YoY variance analysis on revenue growth, expense ratios, and cash flow trends across 10+ client portfolios, surfacing $175K in cost-reduction and tax-benefit opportunities adopted into client operational strategies"
+      - "Initiated a new flow cytometry research direction by developing unsupervised ML pipelines (PCA, k-means, DBSCAN) on 100K+ single-cell RNA sequencing samples, surfacing novel T-cell receptor clustering patterns presented to department leadership"
+      - "Improved experiment-tracking efficiency by 13% for 2 life-sciences research teams by gathering requirements from end users and consolidating fragmented manual reporting into a unified Tableau BI layer with real-time visibility into experiment status, sample throughput, and result tracking"
 
   - title: "Data Science Co-op"
     org: "Merck & Co."
@@ -37,19 +34,20 @@ experience:
       - "Reduced data ingestion time by 40% for 3–4 downstream analytics and engineering teams by building performant AWS EMR-to-S3 ETL pipelines for manufacturing process and instrument data"
       - "Designed domain-aware schemas and reusable SQL/Python templates on AWS Athena for data retrieval and batch-vs-standard analytics, replacing manual folder searches and cutting time-to-data by 60% across 3–4 teams"
 
-  - title: "Data Science Intern"
-    org: "Adaptive Biotechnologies"
-    period: "Jun 2022 – Aug 2022"
-    location: "Seattle, WA"
-    type: "Internship"
+  - title: "Data Analyst"
+    org: "M&T Tax Firm"
+    period: "Oct 2024 – Present"
+    location: "Houston, TX"
+    type: "Full-time"
     bullets:
-      - "Initiated a new flow cytometry research direction by developing unsupervised ML pipelines (PCA, k-means, DBSCAN) on 100K+ single-cell RNA sequencing samples, surfacing novel T-cell receptor clustering patterns presented to department leadership"
-      - "Improved experiment-tracking efficiency by 13% for 2 life-sciences research teams by gathering requirements from end users and consolidating fragmented manual reporting into a unified Tableau BI layer with real-time visibility into experiment status, sample throughput, and result tracking"
+      - "Cut reconciliation cycle time from 3–5 days to 1 day with 95% fewer reporting errors by designing optimized SQL workflows on point-of-sale and banking transaction data, replacing manual spreadsheet processes"
+      - "Automated monthly financial statement generation and data validation across client portfolios, saving 15+ hours/month, by building 3 reusable SQL query templates with embedded data quality checks"
+      - "Conducted YoY variance analysis on revenue growth, expense ratios, and cash flow trends across 10+ client portfolios, surfacing $175K in cost-reduction and tax-benefit opportunities adopted into client operational strategies"
 
 education:
-  - degree: "M.S. in Computational Data Analytics (Online)"
-    school: "Georgia Institute of Technology"
-    period: "Aug 2026 – Expected Dec 2028"
+  - degree: "Associate of Arts in Business and Chemistry"
+    school: "North Seattle College"
+    period: "Jan 2018 – Jun 2020"
     note: ""
 
   - degree: "B.A. in Computational and Applied Mathematics"
@@ -57,9 +55,9 @@ education:
     period: "Aug 2022 – Dec 2023"
     note: ""
 
-  - degree: "Associate of Arts in Business and Chemistry"
-    school: "North Seattle College"
-    period: "Jan 2018 – Jun 2020"
+  - degree: "M.S. in Computational Data Analytics (Online)"
+    school: "Georgia Institute of Technology"
+    period: "Aug 2026 – Expected Dec 2028"
     note: ""
 
 certifications: []
