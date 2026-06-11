@@ -1121,21 +1121,22 @@ body {
 
 /* ── Page contact CTA ─────────────────────────────────────── */
 .page-contact {
-  max-width: var(--max-width-site);
-  margin: 0 auto;
   padding: var(--space-xl) var(--space-md);
   border-top: 1px solid var(--color-border);
   text-align: center;
+  background: linear-gradient(120deg, var(--color-sky), var(--color-pink), var(--color-sky));
+  background-size: 200% 200%;
+  animation: gradient-flow 18s ease-in-out infinite;
 }
 
 .page-contact__eyebrow {
-  font-size: calc(var(--text-xs) * 2);
+  font-size: calc(var(--text-xs) * 1.25);
   letter-spacing: 0.3em;
 }
 
 .page-contact__title {
   font-family: var(--font-display);
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   font-weight: 400;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
