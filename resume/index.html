@@ -16,39 +16,39 @@ permalink: /resume/
 
   <h2 class="resume-section__title">The Journey</h2>
 
-  <section class="journey fade-on-scroll">
+  <section class="journey">
     <div class="journey__line"></div>
 
-    {% for job in r.experience %}
-      <div class="journey-stop {% cycle 'journey-stop--left', 'journey-stop--right' %}">
-        <div class="journey-stop__dot"></div>
-        <div class="journey-stop__connector"></div>
-        <div class="journey-stop__card">
-          <p class="journey-stop__period">{{ job.period }}</p>
-          <h3 class="journey-stop__org">{{ job.org }}</h3>
-          <p class="journey-stop__role">
-            {{ job.title }}{% if job.location %} · {{ job.location }}{% endif %}
-            {% if job.type %}<span class="journey-stop__type">{{ job.type }}</span>{% endif %}
-          </p>
-          <ul class="journey-stop__bullets">
-            {% for b in job.bullets %}
-              <li>{{ b }}</li>
-            {% endfor %}
-          </ul>
+    {% for item in r.journey %}
+      {% if item.type == "education" %}
+        <div class="journey-stop journey-stop--edu fade-on-scroll {% cycle 'journey-stop--left', 'journey-stop--right' %}">
+          <div class="journey-stop__dot journey-stop__dot--edu"></div>
+          <div class="journey-stop__connector"></div>
+          <div class="journey-stop__card journey-stop__card--edu">
+            <p class="journey-stop__period">{{ item.period }}</p>
+            <h3 class="journey-stop__org">{{ item.org }}</h3>
+            <p class="journey-stop__role">{{ item.title }}</p>
+          </div>
         </div>
-      </div>
-    {% endfor %}
-
-    {% for ed in r.education %}
-      <div class="journey-stop journey-stop--edu {% cycle 'journey-stop--left', 'journey-stop--right' %}">
-        <div class="journey-stop__dot journey-stop__dot--edu"></div>
-        <div class="journey-stop__connector"></div>
-        <div class="journey-stop__card journey-stop__card--edu">
-          <p class="journey-stop__period">{{ ed.period }}</p>
-          <h3 class="journey-stop__org">{{ ed.school }}</h3>
-          <p class="journey-stop__role">{{ ed.degree }}{% if ed.note %} — {{ ed.note }}{% endif %}</p>
+      {% else %}
+        <div class="journey-stop fade-on-scroll {% cycle 'journey-stop--left', 'journey-stop--right' %}">
+          <div class="journey-stop__dot"></div>
+          <div class="journey-stop__connector"></div>
+          <div class="journey-stop__card">
+            <p class="journey-stop__period">{{ item.period }}</p>
+            <h3 class="journey-stop__org">{{ item.org }}</h3>
+            <p class="journey-stop__role">
+              {{ item.title }}{% if item.location %} · {{ item.location }}{% endif %}
+              {% if item.tag %}<span class="journey-stop__type">{{ item.tag }}</span>{% endif %}
+            </p>
+            <ul class="journey-stop__bullets">
+              {% for b in item.bullets %}
+                <li>{{ b }}</li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
-      </div>
+      {% endif %}
     {% endfor %}
   </section>
 

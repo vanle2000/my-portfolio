@@ -14,50 +14,61 @@ skills:
   - category: "BI & Visualization"
     items: [Tableau, Excel, Plotly]
 
-experience:
-  - title: "Data Science Intern"
-    org: "Adaptive Biotechnologies"
-    period: "Jun 2022 – Aug 2022"
-    location: "Seattle, WA"
-    type: "Internship"
-    bullets:
-      - "Initiated a new flow cytometry research direction by developing unsupervised ML pipelines (PCA, k-means, DBSCAN) on 100K+ single-cell RNA sequencing samples, surfacing novel T-cell receptor clustering patterns presented to department leadership"
-      - "Improved experiment-tracking efficiency by 13% for 2 life-sciences research teams by gathering requirements from end users and consolidating fragmented manual reporting into a unified Tableau BI layer with real-time visibility into experiment status, sample throughput, and result tracking"
+journey:
+  - type: "education"
+    title: "M.S. in Computational Data Analytics (Online)"
+    org: "Georgia Institute of Technology"
+    period: "Aug 2026 – Expected Dec 2028"
 
-  - title: "Data Science Co-op"
-    org: "Merck & Co."
-    period: "May 2023 – Aug 2023"
-    location: ""
-    type: "Co-op"
-    bullets:
-      - "Contributed to a 7% yield increase and 25% shorter production cycles by validating 8 mechanistic models against 570K+ experimental data points using statistical model evaluation methodology; findings adopted by process engineers into manufacturing changes"
-      - "Reduced data ingestion time by 40% for 3–4 downstream analytics and engineering teams by building performant AWS EMR-to-S3 ETL pipelines for manufacturing process and instrument data"
-      - "Designed domain-aware schemas and reusable SQL/Python templates on AWS Athena for data retrieval and batch-vs-standard analytics, replacing manual folder searches and cutting time-to-data by 60% across 3–4 teams"
-
-  - title: "Data Analyst"
+  - type: "job"
+    title: "Data Analyst"
     org: "M&T Tax Firm"
     period: "Oct 2024 – Present"
     location: "Houston, TX"
-    type: "Full-time"
+    tag: "Full-time"
     bullets:
       - "Cut reconciliation cycle time from 3–5 days to 1 day with 95% fewer reporting errors by designing optimized SQL workflows on point-of-sale and banking transaction data, replacing manual spreadsheet processes"
       - "Automated monthly financial statement generation and data validation across client portfolios, saving 15+ hours/month, by building 3 reusable SQL query templates with embedded data quality checks"
       - "Conducted YoY variance analysis on revenue growth, expense ratios, and cash flow trends across 10+ client portfolios, surfacing $175K in cost-reduction and tax-benefit opportunities adopted into client operational strategies"
 
-education:
-  - degree: "Associate of Arts in Business and Chemistry"
-    school: "North Seattle College"
-    period: "Jan 2018 – Jun 2020"
-    note: ""
+  - type: "job"
+    title: "Data Science Co-op"
+    org: "Merck & Co."
+    period: "May 2023 – Aug 2023"
+    tag: "Co-op"
+    bullets:
+      - "Contributed to a 7% yield increase and 25% shorter production cycles by validating 8 mechanistic models against 570K+ experimental data points using statistical model evaluation methodology; findings adopted by process engineers into manufacturing changes"
+      - "Reduced data ingestion time by 40% for 3–4 downstream analytics and engineering teams by building performant AWS EMR-to-S3 ETL pipelines for manufacturing process and instrument data"
+      - "Designed domain-aware schemas and reusable SQL/Python templates on AWS Athena for data retrieval and batch-vs-standard analytics, replacing manual folder searches and cutting time-to-data by 60% across 3–4 teams"
 
-  - degree: "B.A. in Computational and Applied Mathematics"
-    school: "State University of New York at Buffalo"
+  - type: "education"
+    title: "B.A. in Computational and Applied Mathematics"
+    org: "State University of New York at Buffalo"
     period: "Aug 2022 – Dec 2023"
-    note: ""
 
-  - degree: "M.S. in Computational Data Analytics (Online)"
-    school: "Georgia Institute of Technology"
-    period: "Aug 2026 – Expected Dec 2028"
-    note: ""
+  - type: "job"
+    title: "Data Science Intern"
+    org: "Adaptive Biotechnologies"
+    period: "Jun 2022 – Aug 2022"
+    location: "Seattle, WA"
+    tag: "Internship"
+    bullets:
+      - "Initiated a new flow cytometry research direction by developing unsupervised ML pipelines (PCA, k-means, DBSCAN) on 100K+ single-cell RNA sequencing samples, surfacing novel T-cell receptor clustering patterns presented to department leadership"
+      - "Improved experiment-tracking efficiency by 13% for 2 life-sciences research teams by gathering requirements from end users and consolidating fragmented manual reporting into a unified Tableau BI layer with real-time visibility into experiment status, sample throughput, and result tracking"
+
+  - type: "job"
+    title: "Research Assistant"
+    org: "University of Houston, Liu Lab"
+    period: "2020 – 2022"
+    location: "Houston, TX"
+    tag: "Research"
+    bullets:
+      - "Designed and maintained Python data pipelines for mass spectrometry imaging datasets, transforming high-dimensional spatial cell-uptake data into analysis-ready formats for studying nanoparticle drug delivery and nanomedicine resistance"
+      - "Built preprocessing pipelines for baseline correction, peak alignment, and dimensionality reduction, making high-dimensional cellular-uptake data tractable for downstream statistical analysis"
+
+  - type: "education"
+    title: "Associate of Arts in Business and Chemistry"
+    org: "North Seattle College"
+    period: "Jan 2018 – Jun 2020"
 
 certifications: []
