@@ -270,9 +270,9 @@ body {
 }
 
 .news-item {
-  display: grid;
-  grid-template-columns: 6ch 1fr;
-  gap: var(--space-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
   padding: 0.5rem 0;
   border-top: 1px solid var(--color-border);
   font-size: var(--text-sm);
@@ -281,11 +281,11 @@ body {
 }
 
 .news-item__date {
+  display: block;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   white-space: nowrap;
-  padding-top: 0.15em;
 }
 
 .news-item__body { color: var(--color-text-secondary); }
