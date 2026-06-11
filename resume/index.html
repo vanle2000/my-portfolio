@@ -8,7 +8,7 @@ permalink: /resume/
 {% assign contact = site.data.contact %}
 
 <main class="resume-page">
-  <div class="resume-page__header">
+  <div class="resume-page__header fade-on-scroll">
     <div>
       <h1 class="resume-page__title">Experience</h1>
       <p class="resume-page__summary">{{ r.summary }}</p>
@@ -18,7 +18,7 @@ permalink: /resume/
 
   <h2 class="resume-section__title">The Journey</h2>
 
-  <section class="journey">
+  <section class="journey fade-on-scroll">
     <div class="journey__line"></div>
 
     {% for job in r.experience %}
@@ -55,12 +55,14 @@ permalink: /resume/
   </section>
 
   {% if r.certifications.size > 0 %}
-    <h2 class="resume-section__title">Certifications</h2>
-    <ul class="resume-certs">
-      {% for cert in r.certifications %}
-        <li class="resume-cert">{{ cert }}</li>
-      {% endfor %}
-    </ul>
+    <div class="fade-on-scroll">
+      <h2 class="resume-section__title">Certifications</h2>
+      <ul class="resume-certs">
+        {% for cert in r.certifications %}
+          <li class="resume-cert">{{ cert }}</li>
+        {% endfor %}
+      </ul>
+    </div>
   {% endif %}
 </main>
 

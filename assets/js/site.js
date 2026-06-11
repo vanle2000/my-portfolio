@@ -33,8 +33,15 @@
     headings.forEach(function (h) { observer.observe(h); });
   }
 
-  /* ── Fade-in-up on scroll/appear ──────────────────────────── */
-  var fadeEls = document.querySelectorAll('.fade-in-up');
+  /* ── Staggered reveal for project list rows ────────────────── */
+  document.querySelectorAll('.project-list').forEach(function (list) {
+    list.querySelectorAll(':scope > li').forEach(function (item, i) {
+      item.style.transitionDelay = (i * 80) + 'ms';
+    });
+  });
+
+  /* ── Fade-in-up / fade-on-scroll on appear ─────────────────── */
+  var fadeEls = document.querySelectorAll('.fade-in-up, .fade-on-scroll');
   if (fadeEls.length) {
     var fadeObserver = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
@@ -46,5 +53,30 @@
     }, { threshold: 0.15 });
 
     fadeEls.forEach(function (el) { fadeObserver.observe(el); });
+  }
+
+  /* ── Hero aurora fade + text parallax on scroll ────────────── */
+  var hero = document.querySelector('.hero');
+  var heroContent = document.querySelector('.hero__content');
+  if (hero && heroContent) {
+    var updateHero = function () {
+      var progress = Math.min(Math.max(window.scrollY / hero.offsetHeight, 0), 1);
+      hero.style.opacity = 1 - progress;
+      heroContent.style.transform = 'translateY(' + (progress * -40) + 'px)';
+      heroContent.style.opacity = Math.max(0, 1 - progress / 0.8);
+    };
+
+    var heroTicking = false;
+    window.addEventListener('scroll', function () {
+      if (!heroTicking) {
+        requestAnimationFrame(function () {
+          updateHero();
+          heroTicking = false;
+        });
+        heroTicking = true;
+      }
+    }, { passive: true });
+
+    updateHero();
   }
 })();
