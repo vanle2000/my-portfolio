@@ -47,6 +47,12 @@ body {
     gap: var(--space-sm);
   }
 
+  &__menu {
+    width: auto;
+    float: none;
+    clear: none;
+  }
+
   &__menu-list {
     list-style: none;
     margin: 0;
