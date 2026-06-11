@@ -1,12 +1,14 @@
 {% assign items = include.items %}
 <aside class="news-feed" aria-label="Recent news">
   <p class="news-feed__title">News</p>
-  {% for item in items %}
-    <div class="news-item">
-      <time class="news-item__date" datetime="{{ item.date | date: '%Y-%m-%d' }}">
-        {{ item.date | date: "%b '%y" }}
-      </time>
-      <span class="news-item__body">{{ item.body }}</span>
-    </div>
-  {% endfor %}
+  <div class="news-feed__list">
+    {% for item in items %}
+      <div class="news-item">
+        <time class="news-item__date" datetime="{{ item.date | date: '%Y-%m-%d' }}">
+          {{ item.date | date: "%b '%y" }}{% if item.date_end %} – {{ item.date_end | date: "%b '%y" }}{% endif %}
+        </time>
+        <span class="news-item__body">{{ item.body }}</span>
+      </div>
+    {% endfor %}
+  </div>
 </aside>

@@ -1,14 +1,33 @@
-- date: 2025-03-15
-  body: "Joined Anthropic as a Data Scientist."
+- date: 2026-03-01
+  body: "Accepted to the online M.S. in Computational Data Analytics at Georgia Tech — starting Fall '26."
 
-- date: 2023-09-01
-  body: "Paper published in JoVE — membrane modelling protocol with the Monje Lab."
+- date: 2025-11-01
+  body: "H-1B visa approved."
+
+- date: 2024-10-01
+  body: "Started as a Data Analyst at M&T Tax Firm in Houston, TX."
+
+- date: 2024-08-01
+  body: "Data Scientist offer from BNY Mellon rescinded just 10 days before the cohort start date due to a visa issue."
+
+- date: 2024-01-01
+  date_end: 2024-10-01
+  body: "Volunteered as a Data Analyst for the Los Angeles School of Arts on two projects: a student-assessment study with computers in arts education, and AI-assisted predictive models for student performance in arts subjects."
+
+- date: 2024-01-01
+  body: "Received B.A. in Computational & Applied Mathematics (focus: Statistics) from the State University of New York at Buffalo."
 
 - date: 2023-06-01
-  body: "Completed Stock Recommendation System with PySpark data pipeline and FastAPI serving layer."
+  date_end: 2023-08-01
+  body: "Data Science Intern at Merck — Trukeyda project."
 
-- date: 2022-08-01
-  body: "Wrapped up two years of computational biology research at the Liu Lab (UH) and Monje Lab (UB)."
+- date: 2022-09-01
+  body: "Began the next chapter of the data-centric era at Buffalo, NY."
 
-- date: 2022-05-01
-  body: "Graduated from the State University at Buffalo — B.A. Computational & Applied Mathematics."
+- date: 2022-06-01
+  date_end: 2022-08-01
+  body: "Interned at Adaptive Biotechnologies, collaborating with scientists at Microsoft AI for Science on the Antigen Map project."
+
+- date: 2020-08-01
+  date_end: 2022-05-01
+  body: "Studied Biochemistry/Pre-Med at the University of Houston — left the med-school path due to a health issue."
