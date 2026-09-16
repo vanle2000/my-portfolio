@@ -40,16 +40,16 @@
   --text-base: 1.0625rem;  /* 17px */
   --text-lg:   1.1875rem;  /* 19px */
   --text-xl:   1.625rem;   /* 26px */
-  --text-2xl:  clamp(2rem, 3vw, 2.75rem);
-  --text-3xl:  clamp(2.75rem, 5vw, 4rem);
-  --text-4xl:  clamp(3.5rem, 7vw, 5rem);
+  --text-2xl:  clamp(2rem, 3vw, 2.5rem);
+  --text-3xl:  clamp(3.25rem, 5vw, 4.25rem);
+  --text-4xl:  clamp(3.25rem, 6vw, 4.25rem);
   --text-5xl:  clamp(4.5rem, 9vw, 6.5rem);
 
   /* ── Line heights ── */
   --leading-display: 1;
   --leading-subhead: 1.08;
   --leading-tight:   1.2;
-  --leading-body:    1.6;
+  --leading-body:    1.65;
   --leading-relaxed: 1.7;
 
   /* ── Letter spacing ── */

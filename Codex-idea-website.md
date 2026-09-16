@@ -43,6 +43,13 @@ At the end of the implementation:
 - `git diff --check` passed.
 - The GitHub Actions Jekyll build and Pages deployment succeeded.
 
+Before testing the simplified sans-first typography direction, the previous
+deployed design was preserved in the Git tag:
+
+```text
+design-before-simple-typography-2026-09-16
+```
+
 ## 3. Reference Websites Supplied
 
 These are all the websites and repositories provided during the session.
