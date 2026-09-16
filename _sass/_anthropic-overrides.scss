@@ -1238,14 +1238,27 @@ p {
   white-space: nowrap;
 }
 
-.experience-stop__bullets {
-  margin: 0;
-  padding-left: 1.2em;
-  color: var(--color-text-secondary);
-  font-size: var(--text-sm);
-  line-height: var(--leading-body);
+.experience-stop__purpose {
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border);
 
-  li + li { margin-top: 0.4rem; }
+  p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+  }
+}
+
+.experience-stop__purpose-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
 @media (max-width: 900px) {

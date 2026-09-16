@@ -21,6 +21,10 @@ journey:
     title: "M.S. in Computational Data Analytics (Online)"
     org: "Georgia Institute of Technology"
     period: "Aug 2026 – Expected Dec 2028"
+    purpose: >
+      Deepening my foundation in statistical learning, computational methods,
+      and responsible AI so I can formulate and evaluate research questions
+      across scientific and high-stakes domains.
 
   - type: "job"
     title: "Data Analyst"
@@ -28,6 +32,10 @@ journey:
     period: "Oct 2024 – Present"
     location: "Houston, TX"
     tag: "Full-time"
+    purpose: >
+      Building trustworthy data systems that turn fragmented financial records
+      into consistent reporting and decision-ready evidence for small-business
+      clients.
     bullets:
       - "Cut reconciliation cycle time from 3–5 days to 1 day with 95% fewer reporting errors by designing optimized SQL workflows on point-of-sale and banking transaction data, replacing manual spreadsheet processes"
       - "Automated monthly financial statement generation and data validation across client portfolios, saving 15+ hours/month, by building 3 reusable SQL query templates with embedded data quality checks"
@@ -38,6 +46,10 @@ journey:
     org: "Merck & Co."
     period: "May 2023 – Aug 2023"
     tag: "Co-op"
+    purpose: >
+      Evaluating whether mechanistic manufacturing models agreed with
+      experimental evidence, while making the underlying scientific data
+      easier for engineering teams to access and reuse.
     bullets:
       - "Contributed to a 7% yield increase and 25% shorter production cycles by validating 8 mechanistic models against 570K+ experimental data points using statistical model evaluation methodology; findings adopted by process engineers into manufacturing changes"
       - "Reduced data ingestion time by 40% for 3–4 downstream analytics and engineering teams by building performant AWS EMR-to-S3 ETL pipelines for manufacturing process and instrument data"
@@ -47,6 +59,10 @@ journey:
     title: "B.A. in Computational and Applied Mathematics"
     org: "State University of New York at Buffalo"
     period: "Aug 2022 – Dec 2023"
+    purpose: >
+      Building the mathematical and statistical foundation that helped me move
+      from experimental biomedical research into computational modeling and
+      data science.
 
   - type: "job"
     title: "Data Science Intern"
@@ -54,6 +70,10 @@ journey:
     period: "Jun 2022 – Aug 2022"
     location: "Seattle, WA"
     tag: "Internship"
+    purpose: >
+      Using unsupervised learning to explore structure in high-dimensional
+      immune data, while creating clearer ways for research teams to monitor
+      experimental work.
     bullets:
       - "Initiated a new flow cytometry research direction by developing unsupervised ML pipelines (PCA, k-means, DBSCAN) on 100K+ single-cell RNA sequencing samples, surfacing novel T-cell receptor clustering patterns presented to department leadership"
       - "Improved experiment-tracking efficiency by 13% for 2 life-sciences research teams by gathering requirements from end users and consolidating fragmented manual reporting into a unified Tableau BI layer with real-time visibility into experiment status, sample throughput, and result tracking"
@@ -64,6 +84,9 @@ journey:
     period: "2020 – 2022"
     location: "Houston, TX"
     tag: "Research"
+    purpose: >
+      Turning mass spectrometry imaging data into reproducible computational
+      workflows for studying nanoparticle uptake and drug-delivery behavior.
     bullets:
       - "Designed and maintained Python data pipelines for mass spectrometry imaging datasets, transforming high-dimensional spatial cell-uptake data into analysis-ready formats for studying nanoparticle drug delivery and nanomedicine resistance"
       - "Built preprocessing pipelines for baseline correction, peak alignment, and dimensionality reduction, making high-dimensional cellular-uptake data tractable for downstream statistical analysis"
@@ -72,5 +95,9 @@ journey:
     title: "Associate of Arts in Business and Chemistry"
     org: "North Seattle College"
     period: "Jan 2018 – Jun 2020"
+    purpose: >
+      Developing an interdisciplinary foundation in chemistry and business
+      that eventually led me toward quantitative and computational problem
+      solving.
 
 certifications: []

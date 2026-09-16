@@ -62,12 +62,11 @@ permalink: /resume/
                 {% if item.type == "education" %}Education{% else %}{{ item.tag | default: "Experience" }}{% endif %}
               </span>
             </div>
-            {% if item.bullets %}
-              <ul class="experience-stop__bullets">
-                {% for b in item.bullets %}
-                  <li>{{ b }}</li>
-                {% endfor %}
-              </ul>
+            {% if item.purpose %}
+              <div class="experience-stop__purpose">
+                <span class="experience-stop__purpose-label">Purpose</span>
+                <p>{{ item.purpose }}</p>
+              </div>
             {% endif %}
           </div>
         </article>

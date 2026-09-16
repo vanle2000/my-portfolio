@@ -447,6 +447,9 @@ Do not relabel the existing PDF as a CV until the document itself is replaced.
   professional stops. A custom top-down two-seat roadster follows the route as
   the visitor scrolls, while reduced-motion visitors see it parked near the
   beginning.
+- Replaced résumé-style accomplishment lists on the Experience page with one
+  concise purpose statement for each role and degree. The detailed quantified
+  bullets remain preserved in `_data/resume.yml`.
 - Removed the continuous hero parallax loop.
 - Reduced entrance motion and added `prefers-reduced-motion` support.
 - Retained muted blue as the primary accent and used restrained borders instead
