@@ -27,15 +27,17 @@ journey:
       across scientific and high-stakes domains.
 
   - type: "job"
-    title: "Data Analyst"
+    title: "Data Scientist"
     org: "M&T Tax Firm"
-    period: "Oct 2024 – Present"
+    period: "Jan 2026 – Present"
     location: "Houston, TX"
     tag: "Full-time"
     purpose: >
-      Building trustworthy data systems that turn fragmented financial records
-      into consistent reporting and decision-ready evidence for small-business
-      clients.
+      Building on my earlier analytics and data-modeling work, I now own
+      production ML and LLM systems end to end—reconciling multi-source
+      financial records, resolving uncertain entity matches, and applying
+      client-specific classification thresholds with abstention when the
+      evidence is not strong enough to automate.
     bullets:
       - "Cut reconciliation cycle time from 3–5 days to 1 day with 95% fewer reporting errors by designing optimized SQL workflows on point-of-sale and banking transaction data, replacing manual spreadsheet processes"
       - "Automated monthly financial statement generation and data validation across client portfolios, saving 15+ hours/month, by building 3 reusable SQL query templates with embedded data quality checks"

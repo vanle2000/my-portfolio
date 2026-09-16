@@ -1250,17 +1250,6 @@ p {
   }
 }
 
-.experience-stop__purpose-label {
-  display: block;
-  margin-bottom: 0.35rem;
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-semibold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-}
-
 @media (max-width: 900px) {
   .experience-road__route {
     right: auto;
