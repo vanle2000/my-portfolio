@@ -22,8 +22,8 @@ The selected direction is a **research-first editorial portfolio**:
 - The site should feel personal without becoming informal or overly
   autobiographical.
 
-The current implementation is a substantial content and information-hierarchy
-rewrite. It is **not yet a complete visual redesign**.
+The current implementation now includes both the research-focused content
+rewrite and a restrained academic visual redesign.
 
 ## 2. Current Deployment State
 
@@ -381,31 +381,19 @@ published the protocol."
 
 ## 9. Known Issues Not Yet Resolved
 
-### P0: Broken Headshot
+### P1: Portrait Asset
 
-`_data/about.yml` references:
+The broken local headshot reference was replaced with Elizabeth's public GitHub
+profile image. It is displayed as a small, supporting 4:5 portrait rather than
+the dominant homepage visual.
 
-```text
-/assets/images/headshot.jpg
-```
+For better long-term control and performance, replace the external image later
+with an optimized local portrait:
 
-That file is absent from the repository, and the deployed image returns 404.
-The hero and About-page portrait therefore remain broken.
-
-Add an optimized portrait at:
-
-```text
-assets/images/headshot.jpg
-```
-
-Recommended:
-
-- At least 1200 × 1200 pixels
+- At least 1000 × 1250 pixels
 - JPEG or WebP
 - Under approximately 300 KB
-- Neutral background
-- Natural expression
-- Enough surrounding space for responsive cropping
+- Neutral background and enough surrounding space for responsive cropping
 
 ### P0: Academic CV
 
@@ -430,24 +418,23 @@ Create a separate academic CV containing:
 
 Do not relabel the existing PDF as a CV until the document itself is replaced.
 
-### P1: Full Visual Redesign
-
-The visual system was not rebuilt during this session. The site still uses the
-existing large hero portrait, animated pastel gradients, timeline, and
-Minimal Mistakes foundation.
-
-Recommended next visual direction:
+### Implemented: Academic Visual Redesign
 
 - Use Newsreader for editorial headings, Rethink Sans for body copy and
   navigation, and JetBrains Mono only for dates, tags, code, and compact
   technical metadata.
-- Use a warm white background and dark charcoal text.
-- Keep muted blue as the primary accent.
-- Use pink sparingly.
-- Reduce the portrait to a supporting element.
-- Add one scientific figure to the featured publication.
-- Use restrained cards and borders instead of heavy shadows.
-- Keep motion subtle and optional.
+- Replaced animated header, hero, contact, and footer gradients with restrained
+  solid surfaces.
+- Rebuilt the homepage hero as a text-led 65/35 composition.
+- Moved Latest Updates below the hero and removed the internal scroll box.
+- Reduced the portrait to a supporting 4:5 identity card.
+- Added a membrane-to-model workflow illustration as the primary hero visual.
+- Replaced the road-style experience timeline with a clean date-led academic
+  chronology.
+- Removed the continuous hero parallax loop.
+- Reduced entrance motion and added `prefers-reduced-motion` support.
+- Retained muted blue as the primary accent and used restrained borders instead
+  of heavy shadows.
 
 ### P1: Accessibility and Motion
 
@@ -457,8 +444,6 @@ Previously identified issues still include:
   consistently provide those IDs.
 - Animated content starts at `opacity: 0`; content can remain invisible if
   JavaScript fails.
-- There is no `prefers-reduced-motion` treatment.
-- The hero runs a continuous `requestAnimationFrame` loop.
 - Mobile navigation can wrap into a tall sticky header.
 
 ### P1: SEO and Structured Data
@@ -661,17 +646,17 @@ Never commit the GitHub CLI configuration or token files to the repository.
 
 Complete these tasks in order:
 
-1. Add and deploy the missing headshot.
+1. Replace the externally hosted GitHub portrait with an optimized local image.
 2. Confirm Georgia Tech degree wording and current enrollment status.
 3. Resolve the Adaptive Biotechnologies data-modality descriptions.
 4. Create a genuine academic CV.
-5. Add a research figure and a richer featured-publication component.
-6. Fix skip-link targets and progressive enhancement for animations.
-7. Add reduced-motion support and stop the continuous hero animation loop.
-8. Add author structured data and an Open Graph image.
-9. Review every numerical claim against the corresponding repository,
+5. Build a richer featured-publication component around the new research
+   figure.
+6. Fix skip-link targets and progressive enhancement for entrance transitions.
+7. Add author structured data and an Open Graph image.
+8. Review every numerical claim against the corresponding repository,
    notebook, or source data.
-10. Tailor the research thesis to the actual PhD discipline and programs.
+9. Tailor the research thesis to the actual PhD discipline and programs.
 
 ## 17. One-Sentence North Star
 

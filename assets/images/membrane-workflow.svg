@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-labelledby="title desc">
+  <title id="title">Computational membrane research workflow</title>
+  <desc id="desc">A biological membrane model becomes a molecular simulation, then structured measurements, and finally interpretable evidence.</desc>
+
+  <rect width="720" height="520" rx="20" fill="#F4F6F8"/>
+  <path d="M72 126H648" stroke="#C9CFD6" stroke-width="2"/>
+  <path d="M72 394H648" stroke="#C9CFD6" stroke-width="2"/>
+
+  <g fill="none" stroke="#6FA8C9" stroke-width="3">
+    <path d="M92 240C122 190 156 190 186 240S250 290 280 240 344 190 374 240 438 290 468 240 532 190 562 240 626 290 656 240"/>
+    <path d="M92 280C122 230 156 230 186 280S250 330 280 280 344 230 374 280 438 330 468 280 532 230 562 280 626 330 656 280"/>
+  </g>
+
+  <g fill="#FFFFFF" stroke="#6FA8C9" stroke-width="2">
+    <circle cx="112" cy="222" r="13"/><circle cx="158" cy="214" r="13"/>
+    <circle cx="208" cy="251" r="13"/><circle cx="256" cy="262" r="13"/>
+    <circle cx="304" cy="222" r="13"/><circle cx="352" cy="214" r="13"/>
+    <circle cx="400" cy="251" r="13"/><circle cx="448" cy="262" r="13"/>
+    <circle cx="496" cy="222" r="13"/><circle cx="544" cy="214" r="13"/>
+    <circle cx="592" cy="251" r="13"/><circle cx="638" cy="262" r="13"/>
+  </g>
+
+  <g stroke="#F2A6C2" stroke-width="3" stroke-linecap="round">
+    <path d="M112 235V264"/><path d="M158 227V256"/>
+    <path d="M208 264V293"/><path d="M256 275V304"/>
+    <path d="M304 235V264"/><path d="M352 227V256"/>
+    <path d="M400 264V293"/><path d="M448 275V304"/>
+    <path d="M496 235V264"/><path d="M544 227V256"/>
+    <path d="M592 264V293"/><path d="M638 275V304"/>
+  </g>
+
+  <g font-family="Arial, sans-serif">
+    <text x="72" y="88" fill="#14171A" font-size="18" font-weight="700">BIOLOGICAL MEMBRANE</text>
+    <text x="72" y="110" fill="#565C63" font-size="14">Molecular structure and composition</text>
+
+    <g transform="translate(72 430)">
+      <rect width="130" height="48" rx="24" fill="#EAF4FA"/>
+      <text x="65" y="29" text-anchor="middle" fill="#315E78" font-size="13" font-weight="700">SIMULATE</text>
+    </g>
+    <path d="M215 454H254" stroke="#9AA1A8" stroke-width="2"/>
+    <path d="M248 448L256 454 248 460" fill="none" stroke="#9AA1A8" stroke-width="2"/>
+
+    <g transform="translate(270 430)">
+      <rect width="130" height="48" rx="24" fill="#FFFFFF" stroke="#C9CFD6"/>
+      <text x="65" y="29" text-anchor="middle" fill="#14171A" font-size="13" font-weight="700">MEASURE</text>
+    </g>
+    <path d="M413 454H452" stroke="#9AA1A8" stroke-width="2"/>
+    <path d="M446 448L454 454 446 460" fill="none" stroke="#9AA1A8" stroke-width="2"/>
+
+    <g transform="translate(468 430)">
+      <rect width="180" height="48" rx="24" fill="#14171A"/>
+      <text x="90" y="29" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">INTERPRET</text>
+    </g>
+
+    <text x="648" y="110" text-anchor="end" fill="#565C63" font-size="13">structure · dynamics · evidence</text>
+  </g>
+</svg>

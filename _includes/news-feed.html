@@ -1,14 +1,17 @@
 {% assign items = include.items %}
-<aside class="news-feed" aria-label="Recent news">
-  <p class="news-feed__title">Latest update</p>
-  <div class="news-feed__list">
+<section class="news-feed fade-on-scroll" aria-labelledby="latest-updates-title">
+  <div class="news-feed__header">
+    <p class="eyebrow">Now &amp; recent</p>
+    <h2 class="news-feed__title" id="latest-updates-title">Latest updates</h2>
+  </div>
+  <div class="news-feed__list" role="list">
     {% for item in items %}
-      <div class="news-item">
+      <article class="news-item" role="listitem">
         <time class="news-item__date" datetime="{{ item.date | date: '%Y-%m-%d' }}">
           {{ item.date | date: "%b '%y" }}{% if item.date_end %} – {{ item.date_end | date: "%b '%y" }}{% endif %}
         </time>
-        <span class="news-item__body">{{ item.body }}</span>
-      </div>
+        <p class="news-item__body">{{ item.body }}</p>
+      </article>
     {% endfor %}
   </div>
-</aside>
+</section>

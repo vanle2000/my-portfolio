@@ -1,16 +1,13 @@
 {% assign about = site.data.about %}
 {% assign contact = site.data.contact %}
-{% assign news = site.data.news %}
 {% assign name_parts = about.name | split: " " %}
 {% assign first_name = name_parts[0] %}
 {% assign last_name = name_parts | slice: 1, name_parts.size | join: " " %}
 
 <section class="hero">
   <div class="hero__inner">
-    <div class="hero__photo">
-      <img src="{{ about.photo | relative_url }}" alt="Photo of {{ about.name }}" loading="eager">
-    </div>
     <div class="hero__content">
+      <p class="eyebrow">Computational research · Reliable machine learning</p>
       <h1 class="hero__name">
         <span class="hero__name-line">{{ first_name }}</span>
         <span class="hero__name-line">{{ last_name }}</span>
@@ -23,8 +20,24 @@
         <a class="hero__link" href="{{ contact.github }}" target="_blank" rel="noopener">GitHub</a>
         <a class="hero__link" href="{{ contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
       </nav>
+    </div>
 
-      {% include news-feed.html items=news %}
+    <div class="hero__visual">
+      <a class="hero__research-figure" href="{{ '/research/membrane-modeling/' | relative_url }}">
+        <img
+          src="{{ '/assets/images/membrane-workflow.svg' | relative_url }}"
+          alt="Workflow from a biological membrane model through simulation and analysis to interpretable evidence">
+        <span class="hero__figure-label">Research workflow</span>
+        <strong>From molecular systems to interpretable evidence</strong>
+      </a>
+
+      <div class="hero__portrait">
+        <img src="{{ about.photo }}" alt="Photo of {{ about.name }}" loading="eager">
+        <p>
+          {{ about.name }}
+          <span>{{ about.location }}</span>
+        </p>
+      </div>
     </div>
   </div>
 </section>
