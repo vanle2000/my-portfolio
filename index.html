@@ -8,25 +8,8 @@ title: "Elizabeth Van Le"
 <main>
   <div class="section fade-in-up">
     <div class="section__header">
-      <h2 class="section__title">Projects</h2>
-      <span class="section__count">{{ site.data.projects | size }} total</span>
-    </div>
-    <ul class="project-list">
-      {% for project in site.data.projects limit: 3 %}
-        {% include project-list-item.html project=project %}
-      {% endfor %}
-    </ul>
-    {% if site.data.projects.size > 3 %}
-      <p style="margin-top:1.5rem">
-        <a href="{{ '/projects/' | relative_url }}" style="font-family:var(--font-mono);font-size:var(--text-sm);">View all projects →</a>
-      </p>
-    {% endif %}
-  </div>
-
-  <div class="section fade-in-up" style="padding-top:0">
-    <div class="section__header">
       <h2 class="section__title">Research</h2>
-      <span class="section__count">{{ site.data.research | size }} papers</span>
+      <span class="section__count">{{ site.data.research | size }} publication</span>
     </div>
     <ul class="research-list">
       {% for item in site.data.research %}
@@ -37,6 +20,24 @@ title: "Elizabeth Van Le"
         </li>
       {% endfor %}
     </ul>
+    <p style="margin-top:1.5rem">
+      <a href="{{ '/research/' | relative_url }}" style="font-family:var(--font-mono);font-size:var(--text-sm);">Explore my research →</a>
+    </p>
+  </div>
+
+  <div class="section fade-in-up" style="padding-top:0">
+    <div class="section__header">
+      <h2 class="section__title">Selected Projects</h2>
+      <span class="section__count">3 of {{ site.data.projects | size }}</span>
+    </div>
+    <ul class="project-list">
+      {% for project in site.data.projects limit: 3 %}
+        {% include project-list-item.html project=project %}
+      {% endfor %}
+    </ul>
+    <p style="margin-top:1.5rem">
+      <a href="{{ '/projects/' | relative_url }}" style="font-family:var(--font-mono);font-size:var(--text-sm);">View all projects →</a>
+    </p>
   </div>
 </main>
 

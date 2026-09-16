@@ -54,6 +54,10 @@ layout: default
           <a class="detail__github-link" href="{{ record.github }}" target="_blank" rel="noopener">View on GitHub →</a>
         {% endif %}
 
+        {% if record.pubmed %}
+          <a class="detail__github-link" href="{{ record.pubmed }}" target="_blank" rel="noopener">Read the publication →</a>
+        {% endif %}
+
         {% if record.highlights %}
           <ul class="detail__highlights">
             {% for h in record.highlights %}

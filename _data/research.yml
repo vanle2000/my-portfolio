@@ -5,37 +5,48 @@
   pubmed: "https://pubmed.ncbi.nlm.nih.gov/37677042/"
   tags: [Molecular Dynamics, Deep Learning, CHARMM, Python, Membrane Biophysics]
   summary: >
-    Published protocol for constructing and equilibrating realistic biological
-    membrane models using complex lipid mixtures in molecular dynamics simulations.
-    Work conducted at the Monje Lab, University at Buffalo (2022–2023).
+    In the Monje Lab, I helped develop a reproducible workflow for constructing,
+    equilibrating, and analyzing biologically realistic membrane models from
+    complex lipid mixtures. The resulting protocol was published in JoVE.
   body: |
     ### Citation
     Campbell, O., Le, V., Aguirre, A., & Monje-Galvan, V. (2023). "Realistic
     Membrane Modeling Using Complex Lipid Mixtures in Simulation Studies."
     *Journal of Visualized Experiments*, e65712.
 
-    ### Research Context
-    Conducted at the **Monje Lab** (University at Buffalo, 2022–2023) under
-    Dr. Viviana Monje-Galvan. The lab focuses on the physical chemistry of
-    biological membranes — how lipid composition affects structure, dynamics,
-    and protein interactions.
+    ### The Research Question
+    Biological membranes are mixtures of many lipid species whose interactions
+    shape membrane structure, dynamics, and protein behavior. Yet computational
+    studies often rely on simplified bilayers. Our goal was to make more
+    realistic membrane simulations easier to construct, validate, and reproduce.
 
-    ### My Contributions
-    - Molecular dynamics trajectory analysis using Python and MDAnalysis
-    - Membrane protein modelling pipeline incorporating deep learning-based
-      structure prediction
-    - CHARMM force field parameterisation for novel lipid species
-    - Developed and validated the protocol published in JoVE
+    ### My Role
+    I worked in the **Monje Lab** at the University at Buffalo under
+    Dr. Viviana Monje-Galván. My contributions included:
+
+    - Molecular-dynamics trajectory analysis using Python and MDAnalysis
+    - Analysis of lipid order parameters, area per lipid, membrane thickness,
+      and lateral diffusion
+    - Work on a membrane-protein modeling pipeline incorporating
+      deep-learning-based structure prediction
+    - CHARMM force-field parameterization for novel lipid species
+    - Validation and documentation of the workflow reported in the JoVE paper
 
     ### Methods
-    Simulations used the CHARMM36 force field with TIP3P water. Complex lipid
-    mixtures were constructed using CHARMM-GUI. Trajectory analysis scripts
-    computed order parameters, area per lipid, membrane thickness, and lateral
-    diffusion coefficients. Deep learning tools (AlphaFold2 derivatives) were
-    used to model transmembrane protein structures embedded in the membranes.
+    We used the CHARMM36 force field with TIP3P water and constructed complex
+    lipid mixtures through CHARMM-GUI. The analysis workflow compared several
+    structural and dynamical properties to determine whether the simulated
+    membranes behaved consistently with physical expectations.
 
-    ### Significance
-    Provides a reproducible, step-by-step protocol enabling researchers to
-    build biologically realistic membrane simulations — moving beyond simple
-    single-lipid bilayers to mixtures that better reflect actual cell membrane
-    composition.
+    ### Why It Matters
+    A reusable protocol allows other researchers to move beyond single-lipid
+    systems and study membranes that more closely resemble those found in
+    living cells. That creates a stronger computational basis for investigating
+    membrane proteins, lipid interactions, and drug behavior.
+
+    ### What I Learned
+    This was my first sustained experience with computational model validation.
+    It taught me to think beyond whether a simulation runs successfully and ask
+    whether its assumptions are visible, its behavior is physically plausible,
+    and its results can be reproduced by someone else. Those questions continue
+    to shape my interest in reliable scientific machine learning.

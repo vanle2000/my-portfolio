@@ -1,15 +1,15 @@
 - slug: facebook-ads-efficiency
   title: "Facebook Ads Efficiency & Audience Saturation"
-  subtitle: "Identifying underperforming ad segments and simulating budget reallocation"
+  subtitle: "Exploring audience saturation through modeling and budget simulation"
   tags: [R, SQL, DuckDB, XGBoost, Shiny, tidymodels]
   status: "Complete"
   year: 2024
   github: "https://github.com/vanle2000/Facebook-ads-lose-efficiency-after-audience-saturation"
   summary: >
-    End-to-end analysis of Meta advertising campaign performance. Engineers
-    CTR, CPC, CPM, CPA, and ROAS metrics via SQL; models conversion probability
-    with XGBoost; and simulates budget reallocation strategies that lift
-    approved conversions without increasing total spend.
+    I studied how advertising efficiency changes as an audience becomes
+    saturated, combining SQL-based metric engineering, conversion modeling,
+    and a simulation of how budget might be reallocated without increasing
+    total spend.
   highlights:
     - SQL + DuckDB pipeline engineering CTR, CPC, CPM, CPA, ROAS metrics
     - XGBoost & Random Forest conversion classifiers with ROC-AUC evaluation
@@ -17,132 +17,142 @@
     - Interactive Shiny dashboard for stakeholder exploration
     - A/B test design framework for campaign validation
   body: |
-    ### Problem
-    High-spend ad segments often generate clicks without producing proportional
-    approved conversions — a classic audience saturation pattern. Marketing
-    teams lack the tooling to identify which segments are losing efficiency
-    and quantify the opportunity cost.
+    ### The Question
+    A campaign can continue generating clicks even after those clicks stop
+    translating into approved conversions. I wanted to understand whether that
+    pattern could be detected at the audience-segment level and translated into
+    a more useful budgeting decision.
 
-    ### Data Pipeline
-    SQL and DuckDB transform raw campaign event data into an analysis-ready
-    table. Engineered metrics include CTR (click-through rate), CPC (cost per
-    click), CPM (cost per mille), CPA (cost per acquisition), ROAS (return on
-    ad spend), and segment-level conversion rates. The pipeline is reproducible
-    via a Makefile with `renv` locking R package versions.
+    ### My Approach
+    I used SQL and DuckDB to transform raw campaign events into an
+    analysis-ready table and calculated CTR, CPC, CPM, CPA, ROAS, and
+    segment-level conversion rates. A Makefile and `renv` environment make the
+    workflow reproducible.
 
-    ### Modelling
-    XGBoost and Random Forest classifiers predict conversion probability per
-    impression, trained on tidymodels with cross-validation. Evaluation metrics:
-    RMSE, MAE, ROC-AUC, precision, recall. The model identifies which audience
-    segments are systematically underperforming relative to spend.
+    ### Modeling and Evaluation
+    I trained XGBoost and Random Forest classifiers with tidymodels and
+    cross-validation to estimate conversion probability. Rather than treating
+    the model score as the final answer, I compared it with spend and efficiency
+    metrics to identify segments whose cost was rising faster than their
+    conversion performance.
 
-    ### Budget Reallocation Simulator
-    A simulation layer estimates the conversion lift and CPA improvement
-    achievable by shifting budget from saturated segments to high-efficiency
-    ones — without increasing total advertising spend.
+    ### From Prediction to Decision
+    I built a simulation layer to explore what might happen if budget were
+    shifted from lower-efficiency segments to stronger ones while holding total
+    spend constant. An interactive Shiny application lets users inspect the
+    assumptions, segment metrics, model outputs, and reallocation scenarios.
 
-    ### Shiny Dashboard
-    An interactive Shiny app exposes segment-level metrics, model predictions,
-    and reallocation scenarios to non-technical stakeholders. Built with
-    ggplot2 and plotly for visualisation.
+    ### What I Learned
+    This project reinforced the difference between predicting an outcome and
+    recommending an intervention. A simulation can help formulate a hypothesis,
+    but a controlled experiment is still needed before claiming that a budget
+    change caused an improvement.
 
 - slug: github-support-analytics
   title: "GitHub Support Operations Analytics"
-  subtitle: "End-to-end BI platform for open-source support health"
+  subtitle: "Studying response time, sentiment, and contributor retention"
   tags: [Python, SQL Server, SQLAlchemy, VADER NLP, Power BI]
   status: "Complete"
   year: 2024
   github: "https://github.com/vanle2000/GitHub-support-operations-analytics"
   summary: >
-    End-to-end BI platform built on a SQL Server star schema with SQLAlchemy ETL.
-    VADER NLP tracks sentiment across support threads; statistical SLA breach
-    modelling classifies repos into five risk tiers.
+    I built an analytics system for studying the health of open-source support
+    communities, connecting response time, conversation sentiment, and
+    contributor behavior through a SQL warehouse and reproducible ETL pipeline.
   highlights:
     - Star-schema warehouse ingesting GitHub Issues & PR event streams via SQLAlchemy
     - VADER sentiment scoring pipeline across 100K+ support interactions
     - SLA breach model classifying repos into 5 risk tiers
     - Power BI dashboards surfacing contributor health metrics
   body: |
-    ### Overview
-    Open-source maintainers have limited visibility into whether their support
-    processes are actually working. This project builds a full analytics platform
-    to answer that question — tracking response times, sentiment trends, and
-    which repositories are systematically failing contributors.
+    ### The Question
+    Open-source maintainers can count issues and pull requests, but those totals
+    do not necessarily reveal whether contributors feel supported. I wanted to
+    examine whether response latency and the tone of a conversation could help
+    identify communities at risk of losing contributors.
 
-    ### Architecture
-    A SQL Server star schema sits at the centre. SQLAlchemy ETL jobs pull raw
-    GitHub Issues and PR events, normalise them into fact and dimension tables,
-    and load them on a nightly schedule. All transformations are idempotent and
-    tested.
+    ### Data System
+    I designed a SQL Server star schema and SQLAlchemy ETL jobs for GitHub issue
+    and pull-request events. The pipeline normalizes event streams into fact and
+    dimension tables, runs idempotently, and supports repeated analysis as new
+    activity arrives.
 
-    ### Sentiment & SLA Modelling
-    VADER NLP scores every comment in a support thread, producing a sentiment
-    trajectory per issue lifetime. SLA breach probability is modelled
-    statistically across five risk tiers based on response latency, thread
-    length, and sentiment slope.
+    ### Analysis
+    VADER sentiment scores provide a simple trajectory for each support thread.
+    I combined those trajectories with response latency and thread length to
+    classify repositories into five operational risk tiers.
 
-    ### Key Findings
-    - 12-hour first-response threshold correlates with a **3.5× lift** in repeat
-      contributor rates
-    - **12% of repositories** were flagged as SLA-toxic under the risk model
-    - Negative sentiment spikes 48 hours before contributor churn in 71% of cases
+    ### Observed Patterns
+    - A first response within 12 hours was associated with a **3.5× higher**
+      repeat-contributor rate in the analyzed sample
+    - **12% of repositories** were flagged as high risk under the scoring model
+    - Negative sentiment appeared before contributor churn in 71% of the
+      identified cases
+
+    ### What I Learned
+    These patterns are descriptive rather than causal. Repository size,
+    governance, contributor experience, and project maturity may influence both
+    response behavior and retention. The project taught me to treat operational
+    metrics as signals for further investigation, not explanations by
+    themselves.
 
 - slug: chronic-disease-risk
   title: "Chronic Disease Risk Intelligence"
-  subtitle: "20-year CDC surveillance analysis across 50 states"
+  subtitle: "Finding geographic patterns in 20 years of CDC surveillance data"
   tags: [Python, Scikit-learn, KMeans, Random Forest, GeoPandas, Plotly]
   status: "Complete"
   year: 2024
   github: "https://github.com/vanle2000/Chronic-disease-risks-in-US"
   summary: >
-    Cluster analysis and predictive modelling on 900K CDC chronic disease
-    surveillance records spanning 20 years and all 50 states. K-Means
-    identifies geographic risk cohorts; Random Forest predicts mortality
-    outcomes with AUC 0.73.
+    I analyzed 20 years of CDC chronic-disease surveillance data to explore
+    geographic patterns in health risk and evaluate how well state-level
+    indicators could distinguish higher-mortality outcomes.
   highlights:
     - 900K records, 50 states, 20-year longitudinal span
     - K-Means clustering with silhouette score 0.635
     - Random Forest mortality classifier — AUC 0.73, macro F1 0.85
     - GeoPandas choropleth maps + Plotly interactive dashboards
   body: |
-    ### Motivation
-    CDC chronic disease data is public but unwieldy — hundreds of indicators,
-    inconsistent state-level reporting, and no off-the-shelf tool for surfacing
-    geographic risk patterns over time.
+    ### The Question
+    Public-health datasets contain years of information, but their scale and
+    uneven reporting can make broad patterns difficult to see. I asked whether
+    states could be grouped by shared risk profiles and whether those profiles
+    contained useful information about mortality outcomes.
 
-    ### Data & Preprocessing
-    900K records from the CDC Chronic Disease Indicators dataset (2001–2021).
-    Missing values imputed using state-year medians; indicators normalised
-    before clustering. Feature engineering extracted year-over-year delta
-    features to capture trend momentum.
+    ### Data and Preparation
+    I worked with approximately 900,000 records from the CDC Chronic Disease
+    Indicators dataset covering 2001–2021. I used state-year medians for missing
+    values, normalized indicators before clustering, and created year-over-year
+    features to represent changing trends.
 
-    ### Clustering
-    K-Means (k selected via elbow + silhouette analysis, final k=6) grouped
-    states into chronic-disease risk cohorts. Silhouette score: **0.635**.
-    Clusters aligned strongly with known regional health disparities — Deep
-    South states consistently in the highest-risk cohort.
+    ### Exploring Geographic Structure
+    K-Means clustering, with the number of clusters selected through elbow and
+    silhouette analysis, produced six geographic risk cohorts and a silhouette
+    score of **0.635**. The resulting groups reflected persistent regional
+    differences visible across multiple indicators.
 
-    ### Predictive Modelling
-    Random Forest classifier predicting above-median mortality outcome.
-    Walk-forward cross-validation across yearly splits. Final metrics:
-    AUC **0.73**, macro F1 **0.85**.
+    ### Predictive Evaluation
+    I trained a Random Forest classifier to distinguish above-median mortality
+    outcomes and evaluated it with year-ordered splits. The model achieved an
+    AUC of **0.73** and macro F1 of **0.85**.
 
-    ### Visualisation
-    GeoPandas choropleth maps render risk cohort by state per year. Plotly
-    interactive dashboard allows filtering by indicator, year range, and
-    cohort membership.
+    ### What I Learned
+    State-level patterns are useful for exploration, but they should not be
+    interpreted as individual risk or as evidence that geography itself causes
+    an outcome. This project strengthened my interest in careful evaluation,
+    aggregation bias, and the difference between prediction and explanation.
 
 - slug: marathon-analysis
   title: "Marathon Performance Analysis"
-  subtitle: "KDE-Bayes classifier + regression on 26,000 Boston runners"
+  subtitle: "Modeling pacing archetypes and finish-time prediction"
   tags: [Python, SciPy, KDE, Bayesian Inference, KNN, Linear Regression]
   status: "Complete"
   year: 2023
   github: "https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners"
   summary: >
-    Statistical analysis of 26,000 Boston Marathon finishers. A custom
-    2-D KDE-Bayes classifier segments runners by performance archetype;
-    linear regression predicts finish time with R² 0.85.
+    I used data from 26,000 Boston Marathon finishers to study pacing behavior,
+    build a custom density-based classifier for runner archetypes, and evaluate
+    how early-race information predicts finish time.
   highlights:
     - 26,000 runner dataset with split-by-split pace profiles
     - Custom KDEBayesClassifier built on SciPy's gaussian_kde
@@ -150,100 +160,114 @@
     - Linear regression finish-time prediction R² 0.85
     - 26 unit tests covering all model components
   body: |
-    ### Problem
-    Predicting marathon finish time from early-race data is a classic but
-    non-trivial problem — pace decay is non-linear and runner archetypes
-    (negative splitters, positive splitters, even pacers) behave very differently.
+    ### The Question
+    Marathon runners reach the halfway point with very different pacing
+    histories. I wanted to know whether those patterns could be represented as
+    runner archetypes and how much of the final time could be estimated from
+    information available earlier in the race.
 
-    ### KDEBayesClassifier
-    A custom classifier built on SciPy's `gaussian_kde`. A 2-D kernel density
-    estimate is fit over (half-split pace, finish pace) space for each runner
-    archetype class. Prediction uses Bayes' theorem with the KDE as the
-    likelihood. Final classification accuracy: **77.5%**.
+    ### A Density-Based Classifier
+    I implemented a custom `KDEBayesClassifier` using SciPy's
+    `gaussian_kde`. For each pacing archetype, the model estimates a
+    two-dimensional density over halfway and finishing pace, then applies
+    Bayes' rule to assign a class. It achieved **77.5%** classification
+    accuracy.
 
-    ### Finish Time Prediction
-    Linear regression model using half-split time, age group, bib tier, and
-    weather conditions as features. Walk-forward validation preserving year
-    ordering. R² **0.85** on held-out years.
+    ### Finish-Time Modeling
+    A linear regression model used halfway time, age group, bib tier, and
+    weather conditions to estimate finish time. I preserved year ordering
+    during validation and obtained an R² of **0.85** on held-out years.
 
-    ### Engineering
-    Full test suite of 26 unit tests covering KDE bandwidth selection,
-    classifier edge cases (single-class data, identical splits), and
-    regression feature engineering pipeline.
+    ### What I Learned
+    The most rewarding part of this project was implementing a statistical
+    method rather than only calling an existing estimator. I added 26 tests for
+    bandwidth selection, feature preparation, and edge cases, which also taught
+    me how closely reliable modeling depends on reliable software.
 
 - slug: stock-recommendation
   title: "Stock Recommendation System"
-  subtitle: "LinearSVR price prediction + autoencoder-based recommendation"
+  subtitle: "Price modeling and representation learning from market data"
   tags: [Python, LinearSVR, TensorFlow, PCA, FastAPI]
   status: "Complete"
   year: 2023
   github: "https://github.com/vanle2000/Stock-based-Recommendation-System"
   summary: >
-    Two-stage system: a LinearSVR predicts next-day price movement from
-    PCA-compressed technical indicators (R² 0.997 under walk-forward CV);
-    a deep learning autoencoder learns stock embeddings for similarity-based
-    recommendation.
+    I explored two different questions in one system: whether technical
+    indicators could support short-horizon price estimation, and whether an
+    autoencoder could learn useful representations for finding similar stocks.
   highlights:
     - LinearSVR on PCA-compressed 20+ technical indicators — R² 0.997
     - Walk-forward cross-validation preserving time ordering
     - Autoencoder stock embeddings for nearest-neighbour recommendations
     - FastAPI serving layer; 45 tests
   body: |
-    ### Architecture
-    Two independent models serve different use cases: the SVR handles
-    directional price prediction; the autoencoder handles "stocks like this one"
-    recommendation. Both are served via a shared FastAPI endpoint.
+    ### Two Related Questions
+    I separated the project into two models. A LinearSVR estimates short-horizon
+    prices from engineered market features, while an autoencoder learns compact
+    representations for similarity-based recommendations. Both are exposed
+    through a shared FastAPI service.
 
-    ### Feature Engineering & PCA
-    20+ technical indicators computed from OHLCV data (RSI, MACD, Bollinger
-    Bands, volume momentum, etc.). PCA compresses these to 5 orthogonal
-    components, reducing noise and multicollinearity before the SVR.
+    ### Feature Representation
+    I calculated more than 20 indicators from OHLCV data, including RSI, MACD,
+    Bollinger Bands, and volume momentum. PCA reduced these features to five
+    orthogonal components before training the SVR.
 
-    ### LinearSVR Prediction
-    Walk-forward cross-validation with a 252-day (1-year) training window and
-    21-day (1-month) test window. Final R²: **0.997**. Evaluated on
-    out-of-sample periods only.
+    ### Time-Ordered Evaluation
+    I used walk-forward validation with a 252-day training window and a 21-day
+    test window. The resulting R² of **0.997** is unusually high for financial
+    prediction and should be interpreted cautiously. It motivates additional
+    checks for target construction, temporal leakage, non-stationarity, simple
+    persistence baselines, and performance after transaction costs.
 
-    ### Autoencoder Recommendation
-    A symmetric autoencoder (encoder → 8-dim bottleneck → decoder) trained to
-    reconstruct normalised return profiles. The bottleneck embedding is used
-    for cosine-similarity nearest-neighbour recommendations.
+    ### Representation Learning
+    The autoencoder compresses normalized return profiles into an
+    eight-dimensional embedding. Cosine similarity in that space provides a
+    way to retrieve stocks with related historical behavior.
+
+    ### What I Learned
+    This project made skepticism part of my modeling process. A strong metric is
+    not automatically strong evidence; it is often a reason to inspect the
+    experimental design more closely.
 
 - slug: stock-data-pipeline
   title: "Stock Market Data Pipeline"
-  subtitle: "PySpark ingestion of 10M+ OHLCV records from 3,600+ tickers"
+  subtitle: "A reproducible PySpark workflow for 10M+ market records"
   tags: [PySpark, Pandas, PCA, Docker, FastAPI, NASDAQ API]
   status: "Complete"
   year: 2023
   github: "https://github.com/vanle2000/Stock-based-Recommendation-System"
   summary: >
-    PySpark pipeline ingesting 10M+ OHLCV records from 3,600+ NASDAQ tickers,
-    computing 20+ technical indicators, and compressing features to 5 PCA
-    components for downstream modelling.
+    I built the data foundation for the stock-modeling project: a PySpark
+    pipeline that processes more than 10 million market records, calculates
+    technical features, and produces reusable inputs for downstream models.
   highlights:
     - 10M+ OHLCV records across 3,600+ NASDAQ tickers
     - 20+ technical indicators computed in PySpark
     - PCA compression from 20+ features to 5 components
     - Dockerised pipeline with FastAPI data-serving layer
   body: |
-    ### Scope
-    Full ingestion and feature engineering pipeline for the Stock Recommendation
-    System. Handles raw OHLCV data from the NASDAQ API across 3,600+ tickers,
-    spanning multiple years of daily data.
+    ### The Data Problem
+    Before experimenting with models, I needed a repeatable way to transform
+    several years of raw OHLCV records from more than 3,600 NASDAQ tickers into
+    consistent features.
 
-    ### PySpark Processing
-    Raw tick data is partitioned by ticker and date. PySpark jobs compute 20+
-    technical indicators (RSI, MACD, Bollinger Bands, ATR, OBV, etc.) in
-    parallel across partitions. Intermediate results are checkpointed to
-    Parquet.
+    ### Distributed Processing
+    I partitioned data by ticker and date and used PySpark to calculate more
+    than 20 technical indicators, including RSI, MACD, Bollinger Bands, ATR,
+    and OBV. Intermediate tables are checkpointed in Parquet so that later
+    stages do not need to repeat the full computation.
 
-    ### PCA Compression
-    After indicator computation, scikit-learn PCA reduces the 20+ feature
-    columns to 5 principal components (explaining ~94% of variance). This
-    compressed representation feeds directly into the LinearSVR and autoencoder
-    training pipelines.
+    ### Shared Model Inputs
+    PCA reduces the engineered feature set to five components explaining
+    approximately 94% of its variance. Those components become shared inputs
+    for the prediction and representation-learning experiments.
 
-    ### Infrastructure
-    The full pipeline runs in Docker. A FastAPI layer exposes processed data
-    to downstream consumers. Configuration-driven — new tickers or indicators
-    can be added via YAML without code changes.
+    ### Reproducibility
+    The pipeline runs in Docker, exposes processed data through FastAPI, and
+    uses YAML configuration so that new tickers and indicators can be added
+    without changing the main processing logic.
+
+    ### What I Learned
+    Modeling begins long before model training. Choices about partitioning,
+    missing observations, feature timing, and intermediate storage all shape
+    what can be evaluated later — and whether the result can be reproduced.

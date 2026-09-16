@@ -1,10 +1,10 @@
 main:
-  - title: "About Me"
+  - title: "About"
     url: /about/
-  - title: "Projects"
-    url: /projects/
   - title: "Research"
     url: /research/
+  - title: "Projects"
+    url: /projects/
   - title: "Experience"
     url: /resume/
   - title: "Contact"

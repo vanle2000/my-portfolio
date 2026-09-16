@@ -9,6 +9,11 @@ permalink: /projects/
     <h1 class="section__title">Projects</h1>
     <span class="section__count">{{ site.data.projects | size }} total</span>
   </div>
+  <p class="hero__bio">
+    These projects are where I test ideas end to end: beginning with a question,
+    building the data and modeling workflow, and then examining what the result
+    does — and does not — allow me to conclude.
+  </p>
   <ul class="project-list">
     {% for project in site.data.projects %}
       {% include project-list-item.html project=project %}

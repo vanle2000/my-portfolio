@@ -1,5 +1,5 @@
 name: "Elizabeth Van Le"
-role: "Data Scientist"
+role: "Data Scientist & Computational Researcher"
 photo: "/assets/images/headshot.jpg"
 location: "Houston, TX"
 email: "vanle.vtl2000@gmail.com"
@@ -7,29 +7,35 @@ github: "vanle2000"
 linkedin: "elizabethvanle"
 
 tagline: >
-  I turn messy data into clear decisions — building forecasting systems,
-  analytics pipelines, and dashboards that teams actually rely on.
+  I use statistics, machine learning, and data systems to make complex
+  scientific and operational data easier to understand — and easier to trust.
 
 bio: |
-  I'm a data scientist based in Houston, TX. My work sits at the intersection
-  of statistical modelling, machine learning, and data infrastructure — I care
-  about the full stack from raw ingestion to the insight that drives a decision.
+  Hi, I'm Elizabeth. I'm a data scientist and computational researcher based in
+  Houston, and I am currently pursuing an online M.S. in Computational Data
+  Analytics at Georgia Tech. My interests sit at the intersection of statistical
+  learning, scientific computing, and reliable decision-making.
 
-  I studied Computational and Applied Mathematics (Statistics focus) at the
-  State University at Buffalo. Before committing fully to data science, I spent
-  two years on a pre-med track at the University of Houston (2020–2022),
-  building a foundation in biology and medicine research that still shapes how
-  I think about scientific problems.
+  My path into data science was not linear. I began in biochemistry and pre-med
+  at the University of Houston, where research in a pharmacy lab introduced me
+  to mass spectrometry imaging and nanoparticle drug delivery. I found myself
+  increasingly drawn to the questions behind the data: how to turn a complex
+  experimental output into something interpretable, how to tell signal from
+  noise, and how to know when an analytical result can be trusted.
 
-  My first internship at Adaptive Biotechnologies' Seattle office set the
-  direction. I collaborated with Microsoft researchers on immunology and
-  predictive modelling — specifically, using flow cytometry data from human
-  blood samples to generate ImmuneCODE data sufficient to map how the adaptive
-  immune system responds to different infections, from initial exposure through
-  clearance. That work — sitting at the edge of wet-lab biology and machine
-  learning — showed me how technology can accelerate research and help produce
-  better treatments and vaccines. It's what pushed me fully into data science
-  and model development.
+  That curiosity led me to Adaptive Biotechnologies, where I worked alongside
+  life scientists and researchers from Microsoft AI for Science on high-dimensional
+  immune data. Applying unsupervised learning to questions about T-cell response
+  showed me how computational methods can extend what researchers are able to
+  observe — and how much care is required when a model is connected to biology.
 
-  Outside work, I'm into travelling, hiking and camping, astrology, matcha,
+  At the University at Buffalo, I continued this work from a different angle,
+  using molecular dynamics and Python-based trajectory analysis to study
+  realistic biological membranes. I later co-authored a reproducible protocol
+  in the Journal of Visualized Experiments. Together, these experiences shaped
+  the question that continues to motivate me: how can we build models that are
+  not only accurate, but also well evaluated, interpretable, and useful in the
+  scientific workflows around them?
+
+  Outside of work, I enjoy travelling, hiking and camping, astrology, matcha,
   and writing movie reviews.

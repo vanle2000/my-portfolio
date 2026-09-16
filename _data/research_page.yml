@@ -1,28 +1,33 @@
-quote:
-  text: "As for the future, your task is not to foresee it, but to enable it."
-  author: "Antoine de Saint-Exupéry, The Little Prince"
+intro: >
+  My research interests grew from a practical question: what makes a model
+  useful when the data are noisy, incomplete, and tied to real decisions?
+  Across biomedical research, manufacturing, and applied analytics, I have
+  seen that predictive performance is only one part of the answer. I am
+  interested in methods that help researchers understand uncertainty, test
+  whether models remain reliable when conditions change, and use AI without
+  giving up human judgment.
 
 interests:
+  - title: "Statistical Learning for Scientific Data"
+    description: >
+      Developing statistical and machine learning methods for data generated
+      by scientific instruments, simulations, and experiments, where the
+      structure of the problem matters as much as the size of the dataset.
+  - title: "Uncertainty & Robust Evaluation"
+    description: >
+      Studying how models communicate uncertainty, how performance changes
+      under distribution shift, and how evaluation can reveal when a
+      prediction is useful — or when it should not be trusted.
   - title: "Causal Inference & Experiment Design"
     description: >
-      Designing experiments and quasi experimental analyses that move beyond
-      correlation, to understand which interventions actually move the
-      outcomes that matter and how to measure that reliably at scale.
-  - title: "Uncertainty Quantification"
+      Moving beyond association to ask which interventions change an outcome,
+      how experiments can be designed efficiently, and what assumptions are
+      required before a result can support a decision.
+  - title: "Human-Centered AI"
     description: >
-      Building forecasting and prediction systems that communicate not just a
-      point estimate but a calibrated range of confidence, so decision makers
-      know how much to trust a number.
-  - title: "Human and AI Collaboration in Analytics"
-    description: >
-      Studying how analysts and researchers work alongside ML and LLM tools,
-      where automation helps, where it misleads, and how to design workflows
-      that keep a human in the loop for judgment calls.
-  - title: "AI Fairness & Safety"
-    description: >
-      Evaluating models for bias, robustness, and safe behaviour before they
-      reach production, especially in scientific and healthcare contexts where
-      errors carry real consequences.
+      Understanding how researchers and analysts work with ML and language
+      models, where automation genuinely helps, and how interfaces and
+      workflows can preserve context, accountability, and human judgment.
 
 experience:
   - lab: "Monje Lab"
@@ -31,26 +36,27 @@ experience:
     pi: "Dr. Viviana Monje-Galván"
     years: "2022 – 2023"
     project: >
-      I developed and validated a reproducible protocol for building realistic
-      biological membrane models from complex lipid mixtures in molecular
-      dynamics simulations, combining CHARMM force field parameterization with
-      deep learning based protein structure prediction.
+      In the Monje Lab, I helped develop and validate a reproducible workflow
+      for constructing realistic biological membrane models from complex lipid
+      mixtures and analyzing them through molecular dynamics simulations.
     motivation: >
-      Most membrane simulations rely on simple single lipid bilayers that
-      don't reflect real cell membranes. I wanted a protocol other researchers
-      could reuse to model membranes that resemble those found in living
-      cells, giving a more realistic foundation for studying how proteins and
-      drugs interact with them.
+      Biological membranes contain many interacting lipid species, yet
+      simulations often reduce them to much simpler systems. We wanted to make
+      biologically realistic models more reproducible, so researchers could
+      study membrane structure, proteins, and drug interactions on a stronger
+      computational foundation.
     outcomes: >
-      I published this protocol in the Journal of Visualized Experiments
-      (JoVE), including trajectory analysis scripts for order parameters, area
-      per lipid, membrane thickness, and lateral diffusion. These scripts are
-      now a standard workflow in the lab.
+      I co-authored the resulting protocol in the Journal of Visualized
+      Experiments. My contributions included Python-based trajectory analysis
+      for lipid order parameters, area per lipid, membrane thickness, and
+      lateral diffusion, as well as work on the modeling pipeline used by the
+      lab.
     relevance: >
-      This was my first time validating a computational model against
-      experimental expectations under real uncertainty. It shaped my interest
-      in uncertainty quantification and confirmed that I want a career
-      building and stress testing models, not just running them once.
+      This project taught me that building a model is only the beginning. The
+      more interesting work is deciding how to validate it, which assumptions
+      matter, and whether another researcher can reproduce and extend the
+      result. It is where my interest in model evaluation and uncertainty
+      became a research direction.
 
   - lab: "Liu Lab"
     lab_url: "https://www.uh.edu/pharmacy/about-us/directory-home/pps-faculty/xinli-liu/"
@@ -58,24 +64,22 @@ experience:
     pi: "Dr. Xinli Liu"
     years: "2020 – 2022"
     project: >
-      I designed and maintained Python data pipelines for mass spectrometry
-      imaging datasets, transforming high dimensional spatial cell uptake data
-      into analysis ready formats for studying nanoparticle drug delivery and
-      nanomedicine resistance.
+      In the Liu Lab, I built Python workflows for mass spectrometry imaging
+      data used to study nanoparticle drug delivery and cellular resistance to
+      nanomedicine.
     motivation: >
-      Nanoparticle based drug delivery can target tumors more precisely, but
-      some cells develop resistance to it. The lab needed a way to turn raw
-      imaging output, where every pixel is a full mass spectrum, into data we
-      could analyze for patterns in resistance.
+      Each pixel in a mass spectrometry image contains a full spectrum, making
+      the raw output both spatially rich and difficult to analyze. The lab
+      needed a reliable path from instrument output to interpretable patterns
+      in how cells absorbed or resisted nanoparticle formulations.
     outcomes: >
-      I built preprocessing pipelines for baseline correction, peak alignment,
-      and dimensionality reduction that made high dimensional cellular uptake
-      data tractable for statistical analysis, and contributed to experiments
-      testing nanoparticle formulations on cell culture models.
+      I developed preprocessing steps for baseline correction, peak alignment,
+      and dimensionality reduction, turning high-dimensional imaging data into
+      analysis-ready representations. I also supported experiments evaluating
+      nanoparticle formulations in cell-culture models.
     relevance: >
-      This experience pushed me from pre med toward data science full time. I
-      realized the bottleneck in biomedical research is rarely the experiment
-      itself, but the capacity to process and interpret the data it generates.
-      It connects my interest in human and AI collaboration in analytics with
-      my long term goal of working as a research data scientist on problems
-      with real clinical stakes.
+      This was the experience that changed my direction from pre-med to data
+      science. I saw that an experiment can generate more information than a
+      team can readily interpret, and that thoughtful computational tools can
+      become part of the scientific method itself. That idea still guides the
+      kind of research I hope to pursue.
