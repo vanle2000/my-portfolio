@@ -438,7 +438,9 @@ Minimal Mistakes foundation.
 
 Recommended next visual direction:
 
-- Retain Hedvig Letters Serif and Rethink Sans.
+- Use Newsreader for editorial headings, Rethink Sans for body copy and
+  navigation, and JetBrains Mono only for dates, tags, code, and compact
+  technical metadata.
 - Use a warm white background and dark charcoal text.
 - Keep muted blue as the primary accent.
 - Use pink sparingly.

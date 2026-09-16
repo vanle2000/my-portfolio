@@ -15,9 +15,20 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-body);
   font-size: var(--text-base);
+  font-weight: var(--weight-body);
   line-height: var(--leading-body);
   letter-spacing: var(--tracking-normal);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 /* ── Masthead ─────────────────────────────────────────────── */
@@ -86,9 +97,9 @@ body {
 }
 
 .btn-resume {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
   border: 1px solid var(--color-border-strong);
@@ -109,7 +120,7 @@ body {
 .site-title {
   font-family: var(--font-display);
   font-size: var(--text-xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
@@ -181,7 +192,7 @@ body {
 .hero__name {
   font-family: var(--font-display);
   font-size: var(--text-4xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-subhead);
   letter-spacing: var(--tracking-subhead);
   color: var(--color-text-primary);
@@ -193,10 +204,11 @@ body {
 }
 
 .hero__role {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
   color: var(--color-accent);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0 0 var(--space-md);
 }
@@ -218,8 +230,9 @@ body {
 }
 
 .hero__link {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-secondary);
   text-decoration: none;
   border-bottom: 1px solid var(--color-border);
@@ -309,7 +322,7 @@ body {
 .section__title {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
@@ -347,7 +360,7 @@ body {
 .project-item__title {
   font-family: var(--font-display);
   font-size: var(--text-xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
@@ -406,7 +419,7 @@ body {
 .research-item__title {
   font-family: var(--font-display);
   font-size: var(--text-xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
@@ -427,8 +440,9 @@ body {
 .publication-item__link {
   display: inline-block;
   margin-top: 0.5rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
   color: var(--color-accent);
   text-decoration: none;
 
@@ -470,9 +484,9 @@ body {
 
 .research-quote__text {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  font-weight: 400;
-  line-height: var(--leading-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-display);
+  line-height: var(--leading-subhead);
   letter-spacing: var(--tracking-display);
   color: var(--color-text-primary);
   margin: 0 0 var(--space-sm);
@@ -508,7 +522,7 @@ body {
 .research-interest__title {
   font-family: var(--font-display);
   font-size: var(--text-xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-accent);
@@ -534,7 +548,7 @@ body {
 .research-exp__lab {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   margin: 0;
@@ -554,8 +568,9 @@ body {
 }
 
 .research-exp__meta {
-  font-family: var(--font-mono);
-  font-size: var(--text-base);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
   color: var(--color-text-muted);
   letter-spacing: 0.04em;
   margin: 0.25rem 0 var(--space-md);
@@ -643,7 +658,7 @@ body {
 .detail__title {
   font-family: var(--font-display);
   font-size: var(--text-3xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   margin: 0 0 var(--space-sm);
@@ -699,7 +714,7 @@ body {
   h2 {
     font-family: var(--font-display);
     font-size: var(--text-2xl);
-    font-weight: 400;
+    font-weight: var(--weight-display);
     margin-top: var(--space-lg);
     padding-bottom: var(--space-xs);
     border-bottom: 1px solid var(--color-border);
@@ -708,7 +723,7 @@ body {
   h3 {
     font-family: var(--font-body);
     font-size: var(--text-lg);
-    font-weight: 700;
+    font-weight: var(--weight-semibold);
     margin-top: var(--space-md);
   }
 
@@ -769,8 +784,9 @@ body {
 
 .detail__github-link {
   display: inline-block;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
   color: var(--color-accent);
   text-decoration: none;
   border: 1px solid var(--color-accent);
@@ -833,17 +849,18 @@ body {
 .about__name {
   font-family: var(--font-display);
   font-size: var(--text-3xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   margin: 0 0 var(--space-xs);
 }
 
 .about__role {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
   color: var(--color-accent);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0 0 var(--space-md);
 }
@@ -905,7 +922,7 @@ body {
 .resume-page__title {
   font-family: var(--font-display);
   font-size: var(--text-3xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   margin: 0 0 var(--space-xs);
@@ -1037,7 +1054,7 @@ body {
 .journey-stop__org {
   font-family: var(--font-display);
   font-size: var(--text-xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
@@ -1139,7 +1156,7 @@ body {
 .page-contact__title {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   margin: 0 0 var(--space-sm);
@@ -1160,8 +1177,9 @@ body {
   gap: var(--space-md);
 
   a {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--color-text-secondary);
@@ -1230,7 +1248,7 @@ body {
 .not-found__title {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
@@ -1251,8 +1269,9 @@ body {
 .not-found__link {
   display: block;
   padding: 0.7rem 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-secondary);
   text-decoration: none;
 
@@ -1270,7 +1289,7 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--weight-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
