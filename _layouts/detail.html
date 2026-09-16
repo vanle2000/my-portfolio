@@ -42,6 +42,16 @@ layout: default
           <p class="detail__short-desc">{{ record.venue }}</p>
         {% endif %}
 
+        {% if record.authors %}
+          <p class="detail__authors">{{ record.authors }}</p>
+        {% elsif page.collection == 'project' %}
+          <p class="detail__authors">Elizabeth Van Le · Independent technical work · {{ record.year }}</p>
+        {% endif %}
+
+        {% if record.figure %}
+          <img class="detail__hero-image" src="{{ record.figure | relative_url }}" alt="{{ record.figure_alt }}">
+        {% endif %}
+
         {% if record.tags %}
           <div class="detail__tags">
             {% for tag in record.tags %}

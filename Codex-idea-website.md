@@ -57,6 +57,13 @@ also preserved as:
 design-before-driving-road-2026-09-16
 ```
 
+Before introducing publication-style Research and Project entries, the prior
+layout was preserved as:
+
+```text
+design-before-publication-format-2026-09-16
+```
+
 ## 3. Reference Websites Supplied
 
 These are all the websites and repositories provided during the session.
@@ -454,6 +461,9 @@ Do not relabel the existing PDF as a CV until the document itself is replaced.
 - Reduced entrance motion and added `prefers-reduced-motion` support.
 - Retained muted blue as the primary accent and used restrained borders instead
   of heavy shadows.
+- Reformatted Research and Projects as publication-style records with a visual
+  abstract, title, author or project context, venue or year, concise abstract,
+  methods, and artifact links. Added original SVG figures for all six projects.
 
 ### P1: Accessibility and Motion
 

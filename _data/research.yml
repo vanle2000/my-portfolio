@@ -1,7 +1,10 @@
 - slug: membrane-modeling
   title: "Realistic Membrane Modeling Using Complex Lipid Mixtures in Simulation Studies"
+  authors: "Olivia Campbell, Van Le, Andres Aguirre, and Viviana Monje-Galván"
   venue: "JoVE (Journal of Visualized Experiments), e65712 · 2023"
   year: 2023
+  figure: "/assets/images/membrane-workflow.svg"
+  figure_alt: "Diagram of a biological membrane moving through simulation, measurement, and interpretation"
   pubmed: "https://pubmed.ncbi.nlm.nih.gov/37677042/"
   tags: [Molecular Dynamics, Deep Learning, CHARMM, Python, Membrane Biophysics]
   summary: >

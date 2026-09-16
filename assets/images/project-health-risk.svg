@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Geographic health-risk analysis diagram</title>
+  <desc id="desc">Regional surveillance cells grouped into risk cohorts and evaluated over time.</desc>
+  <rect width="640" height="420" fill="#F4F6F8"/>
+  <rect x="36" y="34" width="568" height="352" rx="16" fill="#FFFFFF" stroke="#E6E8EC"/>
+  <text x="68" y="78" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#14171A">GEOGRAPHIC RISK PATTERNS</text>
+  <text x="68" y="101" font-family="Arial,sans-serif" font-size="13" fill="#687079">surveillance · cohorts · temporal evaluation</text>
+  <g transform="translate(76 142)">
+    <g fill="#EAF4FA" stroke="#FFFFFF" stroke-width="4">
+      <rect x="0" y="35" width="45" height="42" rx="4"/><rect x="47" y="0" width="45" height="42" rx="4"/>
+      <rect x="47" y="44" width="45" height="42" rx="4"/><rect x="94" y="22" width="45" height="42" rx="4"/>
+      <rect x="94" y="66" width="45" height="42" rx="4"/><rect x="141" y="12" width="45" height="42" rx="4"/>
+      <rect x="141" y="56" width="45" height="42" rx="4"/><rect x="188" y="34" width="45" height="42" rx="4"/>
+    </g>
+    <rect x="47" y="44" width="45" height="42" rx="4" fill="#6FA8C9"/>
+    <rect x="141" y="12" width="45" height="42" rx="4" fill="#F2A6C2"/>
+    <rect x="188" y="34" width="45" height="42" rx="4" fill="#BFE6F8"/>
+  </g>
+  <path d="M336 213H391" stroke="#9AA1A8" stroke-width="3"/>
+  <path d="M383 205L394 213 383 221" fill="none" stroke="#9AA1A8" stroke-width="3"/>
+  <g transform="translate(416 139)">
+    <circle cx="65" cy="65" r="61" fill="#F4F6F8" stroke="#C9CFD6"/>
+    <path d="M65 65L65 5A60 60 0 0 1 119 91Z" fill="#6FA8C9"/>
+    <path d="M65 65L119 91A60 60 0 0 1 27 112Z" fill="#BFE6F8"/>
+    <path d="M65 65L27 112A60 60 0 0 1 65 5Z" fill="#F2A6C2"/>
+    <circle cx="65" cy="65" r="27" fill="#FFFFFF"/>
+  </g>
+  <path d="M85 331C153 305 208 346 274 319S397 291 459 315 520 325 555 301" fill="none" stroke="#315E78" stroke-width="4" stroke-linecap="round"/>
+</svg>

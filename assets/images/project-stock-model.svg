@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Stock representation model diagram</title>
+  <desc id="desc">Market features compressed into embeddings for prediction and similarity retrieval.</desc>
+  <rect width="640" height="420" fill="#F4F6F8"/>
+  <rect x="36" y="34" width="568" height="352" rx="16" fill="#FFFFFF" stroke="#E6E8EC"/>
+  <text x="68" y="78" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#14171A">MARKET REPRESENTATIONS</text>
+  <text x="68" y="101" font-family="Arial,sans-serif" font-size="13" fill="#687079">time ordering · compressed features · similarity</text>
+  <g transform="translate(75 139)">
+    <path d="M0 155H218M0 155V0" stroke="#C9CFD6" stroke-width="2"/>
+    <g stroke-width="3">
+      <path d="M28 108V52" stroke="#6FA8C9"/><rect x="20" y="70" width="16" height="25" fill="#BFE6F8" stroke="#6FA8C9"/>
+      <path d="M66 121V74" stroke="#F2A6C2"/><rect x="58" y="84" width="16" height="24" fill="#FBD9E6" stroke="#F2A6C2"/>
+      <path d="M104 97V38" stroke="#6FA8C9"/><rect x="96" y="49" width="16" height="34" fill="#BFE6F8" stroke="#6FA8C9"/>
+      <path d="M142 80V24" stroke="#6FA8C9"/><rect x="134" y="39" width="16" height="25" fill="#BFE6F8" stroke="#6FA8C9"/>
+      <path d="M180 106V55" stroke="#F2A6C2"/><rect x="172" y="66" width="16" height="28" fill="#FBD9E6" stroke="#F2A6C2"/>
+    </g>
+  </g>
+  <path d="M319 219H365" stroke="#9AA1A8" stroke-width="3"/>
+  <path d="M357 211L368 219 357 227" fill="none" stroke="#9AA1A8" stroke-width="3"/>
+  <g transform="translate(407 145)">
+    <g stroke="#C9CFD6" stroke-width="2">
+      <path d="M24 50L83 23L137 62L103 128L38 123Z"/>
+      <path d="M24 50L103 128M83 23L38 123M137 62L38 123"/>
+    </g>
+    <circle cx="24" cy="50" r="12" fill="#6FA8C9"/>
+    <circle cx="83" cy="23" r="10" fill="#BFE6F8"/>
+    <circle cx="137" cy="62" r="13" fill="#F2A6C2"/>
+    <circle cx="103" cy="128" r="11" fill="#14171A"/>
+    <circle cx="38" cy="123" r="9" fill="#BFE6F8"/>
+  </g>
+  <text x="421" y="321" font-family="Arial,sans-serif" font-size="12" fill="#565C63">embedding space</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Marathon pacing analysis diagram</title>
+  <desc id="desc">Race lanes and several pacing trajectories leading to finish-time prediction.</desc>
+  <rect width="640" height="420" fill="#F4F6F8"/>
+  <rect x="36" y="34" width="568" height="352" rx="16" fill="#FFFFFF" stroke="#E6E8EC"/>
+  <text x="68" y="78" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#14171A">PACING ARCHETYPES</text>
+  <text x="68" y="101" font-family="Arial,sans-serif" font-size="13" fill="#687079">density estimation · classification · finish time</text>
+  <g fill="none" stroke="#E6E8EC" stroke-width="18">
+    <path d="M92 328C152 203 225 145 332 145S495 204 551 328"/>
+    <path d="M124 328C177 226 239 181 332 181S475 227 519 328"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-width="5">
+    <path d="M109 315C168 232 229 197 330 197S477 239 526 315" stroke="#6FA8C9"/>
+    <path d="M96 333C162 188 233 130 336 130S501 193 558 333" stroke="#F2A6C2"/>
+    <path d="M133 330C183 251 246 217 329 217S461 250 505 330" stroke="#14171A"/>
+  </g>
+  <g fill="#FFFFFF" stroke-width="4">
+    <circle cx="237" cy="197" r="10" stroke="#6FA8C9"/>
+    <circle cx="342" cy="130" r="10" stroke="#F2A6C2"/>
+    <circle cx="419" cy="245" r="10" stroke="#14171A"/>
+  </g>
+  <path d="M88 344H560" stroke="#C9CFD6" stroke-width="3"/>
+  <g fill="#C9CFD6">
+    <rect x="138" y="338" width="4" height="12"/><rect x="236" y="338" width="4" height="12"/>
+    <rect x="334" y="338" width="4" height="12"/><rect x="432" y="338" width="4" height="12"/>
+    <rect x="530" y="338" width="4" height="12"/>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+{% assign item = include.item %}
+{% assign entry_kind = include.kind %}
+{% if entry_kind == "research" %}
+  {% assign detail_url = '/research/' | append: item.slug | append: '/' | relative_url %}
+  {% assign entry_label = "Peer-reviewed publication" %}
+{% else %}
+  {% assign detail_url = '/projects/' | append: item.slug | append: '/' | relative_url %}
+  {% assign entry_label = "Independent project" %}
+{% endif %}
+
+<article class="publication-entry{% if include.compact %} publication-entry--compact{% endif %} fade-on-scroll">
+  <a class="publication-entry__visual" href="{{ detail_url }}" aria-label="View {{ item.title }}">
+    <img src="{{ item.figure | relative_url }}" alt="{{ item.figure_alt }}" loading="lazy">
+  </a>
+
+  <div class="publication-entry__content">
+    <p class="publication-entry__label">{{ entry_label }}</p>
+    <h3 class="publication-entry__title">
+      <a href="{{ detail_url }}">{{ item.title }}</a>
+    </h3>
+
+    {% if entry_kind == "research" %}
+      <p class="publication-entry__authors">{{ item.authors }}</p>
+      <p class="publication-entry__venue">{{ item.venue }}</p>
+    {% else %}
+      <p class="publication-entry__authors">Elizabeth Van Le · Independent technical work</p>
+      <p class="publication-entry__venue">{{ item.subtitle }} · {{ item.year }}</p>
+    {% endif %}
+
+    <p class="publication-entry__abstract">{{ item.summary }}</p>
+
+    {% if item.tags %}
+      <p class="publication-entry__methods">
+        <span>Methods</span>
+        {{ item.tags | join: " · " }}
+      </p>
+    {% endif %}
+
+    <div class="publication-entry__links">
+      <a href="{{ detail_url }}">{% if entry_kind == "research" %}Research note{% else %}Project overview{% endif %}</a>
+      {% if item.pubmed %}
+        <a href="{{ item.pubmed }}" target="_blank" rel="noopener">PubMed</a>
+      {% endif %}
+      {% if item.github %}
+        <a href="{{ item.github }}" target="_blank" rel="noopener">GitHub</a>
+      {% endif %}
+    </div>
+  </div>
+</article>

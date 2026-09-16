@@ -4,6 +4,8 @@
   tags: [R, SQL, DuckDB, XGBoost, Shiny, tidymodels]
   status: "Complete"
   year: 2024
+  figure: "/assets/images/project-ads-efficiency.svg"
+  figure_alt: "Chart showing campaign saturation and budget reallocation across audience segments"
   github: "https://github.com/vanle2000/Facebook-ads-lose-efficiency-after-audience-saturation"
   summary: >
     I studied how advertising efficiency changes as an audience becomes
@@ -54,6 +56,8 @@
   tags: [Python, SQL Server, SQLAlchemy, VADER NLP, Power BI]
   status: "Complete"
   year: 2024
+  figure: "/assets/images/project-support-analytics.svg"
+  figure_alt: "Network diagram connecting support conversations with response and sentiment trajectories"
   github: "https://github.com/vanle2000/GitHub-support-operations-analytics"
   summary: >
     I built an analytics system for studying the health of open-source support
@@ -102,6 +106,8 @@
   tags: [Python, Scikit-learn, KMeans, Random Forest, GeoPandas, Plotly]
   status: "Complete"
   year: 2024
+  figure: "/assets/images/project-health-risk.svg"
+  figure_alt: "Geographic surveillance cells grouped into health-risk cohorts and evaluated over time"
   github: "https://github.com/vanle2000/Chronic-disease-risks-in-US"
   summary: >
     I analyzed 20 years of CDC chronic-disease surveillance data to explore
@@ -148,6 +154,8 @@
   tags: [Python, SciPy, KDE, Bayesian Inference, KNN, Linear Regression]
   status: "Complete"
   year: 2023
+  figure: "/assets/images/project-marathon.svg"
+  figure_alt: "Several marathon pacing trajectories following different paths toward the finish"
   github: "https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners"
   summary: >
     I used data from 26,000 Boston Marathon finishers to study pacing behavior,
@@ -190,6 +198,8 @@
   tags: [Python, LinearSVR, TensorFlow, PCA, FastAPI]
   status: "Complete"
   year: 2023
+  figure: "/assets/images/project-stock-model.svg"
+  figure_alt: "Market observations transformed into a compact embedding space for stock similarity"
   github: "https://github.com/vanle2000/Stock-based-Recommendation-System"
   summary: >
     I explored two different questions in one system: whether technical
@@ -235,6 +245,8 @@
   tags: [PySpark, Pandas, PCA, Docker, FastAPI, NASDAQ API]
   status: "Complete"
   year: 2023
+  figure: "/assets/images/project-data-pipeline.svg"
+  figure_alt: "Market records flowing through distributed feature processing into reusable outputs"
   github: "https://github.com/vanle2000/Stock-based-Recommendation-System"
   summary: >
     I built the data foundation for the stock-modeling project: a PySpark

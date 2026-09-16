@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Support community analytics diagram</title>
+  <desc id="desc">A network of support conversations connected to response and sentiment signals.</desc>
+  <rect width="640" height="420" fill="#F4F6F8"/>
+  <rect x="36" y="34" width="568" height="352" rx="16" fill="#FFFFFF" stroke="#E6E8EC"/>
+  <text x="68" y="78" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#14171A">COMMUNITY HEALTH</text>
+  <text x="68" y="101" font-family="Arial,sans-serif" font-size="13" fill="#687079">response time · sentiment · retention</text>
+  <g stroke="#C9CFD6" stroke-width="3">
+    <path d="M144 198L242 151L323 217L420 151L510 213"/>
+    <path d="M144 198L229 292L323 217L424 293L510 213"/>
+  </g>
+  <g stroke="#FFFFFF" stroke-width="4">
+    <circle cx="144" cy="198" r="25" fill="#6FA8C9"/>
+    <circle cx="242" cy="151" r="21" fill="#BFE6F8"/>
+    <circle cx="229" cy="292" r="21" fill="#BFE6F8"/>
+    <circle cx="323" cy="217" r="31" fill="#14171A"/>
+    <circle cx="420" cy="151" r="21" fill="#FBD9E6"/>
+    <circle cx="424" cy="293" r="21" fill="#BFE6F8"/>
+    <circle cx="510" cy="213" r="25" fill="#F2A6C2"/>
+  </g>
+  <path d="M93 342C142 329 177 355 223 337S306 309 348 328 423 350 471 323 530 321 558 307" fill="none" stroke="#315E78" stroke-width="4" stroke-linecap="round"/>
+  <path d="M93 342H558" stroke="#E6E8EC" stroke-width="2"/>
+  <text x="93" y="370" font-family="Arial,sans-serif" font-size="12" fill="#565C63">conversation trajectory</text>
+</svg>

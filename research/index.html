@@ -63,18 +63,11 @@ permalink: /research/
     <h2 class="section__title">Publications</h2>
     <span class="section__count"><a href="{{ contact.google_scholar }}" target="_blank" rel="noopener">Google Scholar →</a></span>
   </div>
-  <ul class="research-list">
+  <div class="publication-list">
     {% for item in site.data.research %}
-      <li class="research-item fade-in-up">
-        <div class="research-item__venue">{{ item.venue }}</div>
-        <a class="research-item__title" href="{{ '/research/' | append: item.slug | append: '/' | relative_url }}">{{ item.title }}</a>
-        <p class="research-item__summary">{{ item.summary }}</p>
-        {% if item.pubmed %}
-          <a class="publication-item__link" href="{{ item.pubmed }}" target="_blank" rel="noopener">View on PubMed →</a>
-        {% endif %}
-      </li>
+      {% include publication-entry.html item=item kind="research" %}
     {% endfor %}
-  </ul>
+  </div>
 </div>
 
 {% include contact-cta.html %}
