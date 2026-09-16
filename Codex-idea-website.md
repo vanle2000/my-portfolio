@@ -50,6 +50,13 @@ deployed design was preserved in the Git tag:
 design-before-simple-typography-2026-09-16
 ```
 
+Before adding the scroll-driven Experience road, the sans-first version was
+also preserved as:
+
+```text
+design-before-driving-road-2026-09-16
+```
+
 ## 3. Reference Websites Supplied
 
 These are all the websites and repositories provided during the session.
@@ -436,8 +443,10 @@ Do not relabel the existing PDF as a CV until the document itself is replaced.
 - Moved Latest Updates below the hero and removed the internal scroll box.
 - Reduced the portrait to a supporting 4:5 identity card.
 - Added a membrane-to-model workflow illustration as the primary hero visual.
-- Replaced the road-style experience timeline with a clean date-led academic
-  chronology.
+- Rebuilt the Experience page as a winding road with alternating academic and
+  professional stops. A custom top-down two-seat roadster follows the route as
+  the visitor scrolls, while reduced-motion visitors see it parked near the
+  beginning.
 - Removed the continuous hero parallax loop.
 - Reduced entrance motion and added `prefers-reduced-motion` support.
 - Retained muted blue as the primary accent and used restrained borders instead

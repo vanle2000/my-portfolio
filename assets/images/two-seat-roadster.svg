@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 132" role="img" aria-labelledby="title desc">
+  <title id="title">Top-down two-seat roadster</title>
+  <desc id="desc">A small blue convertible with two visible pink seats.</desc>
+
+  <g fill="#171A1F">
+    <rect x="4" y="24" width="9" height="25" rx="4"/>
+    <rect x="67" y="24" width="9" height="25" rx="4"/>
+    <rect x="4" y="84" width="9" height="25" rx="4"/>
+    <rect x="67" y="84" width="9" height="25" rx="4"/>
+  </g>
+
+  <path
+    d="M40 4C24 4 16 12 14 28L10 104C9 118 20 128 40 128S71 118 70 104L66 28C64 12 56 4 40 4Z"
+    fill="#6FA8C9"
+    stroke="#234E66"
+    stroke-width="3"/>
+
+  <path d="M22 19C28 11 52 11 58 19L61 43H19L22 19Z" fill="#EAF4FA"/>
+  <path d="M20 47H60L65 92H15L20 47Z" fill="#26333D"/>
+  <path d="M20 47H60L57 57H23L20 47Z" fill="#BFE6F8" opacity=".9"/>
+
+  <g>
+    <rect x="20" y="62" width="17" height="25" rx="7" fill="#F2A6C2" stroke="#FFFFFF" stroke-width="2"/>
+    <rect x="43" y="62" width="17" height="25" rx="7" fill="#F2A6C2" stroke="#FFFFFF" stroke-width="2"/>
+    <path d="M23 84C26 78 31 78 34 84" fill="none" stroke="#C56F91" stroke-width="2"/>
+    <path d="M46 84C49 78 54 78 57 84" fill="none" stroke="#C56F91" stroke-width="2"/>
+  </g>
+
+  <path d="M20 98C26 94 54 94 60 98L58 114C52 121 28 121 22 114L20 98Z" fill="#598EAC"/>
+  <path d="M31 10H49" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M25 118H55" stroke="#234E66" stroke-width="3" stroke-linecap="round"/>
+
+  <g fill="#FFF6CC">
+    <ellipse cx="23" cy="22" rx="5" ry="3"/>
+    <ellipse cx="57" cy="22" rx="5" ry="3"/>
+  </g>
+  <g fill="#D65B5B">
+    <ellipse cx="23" cy="112" rx="5" ry="3"/>
+    <ellipse cx="57" cy="112" rx="5" ry="3"/>
+  </g>
+</svg>

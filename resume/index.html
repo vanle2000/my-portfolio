@@ -14,34 +14,65 @@ permalink: /resume/
     </div>
   </div>
 
-  <h2 class="resume-section__title">Academic &amp; professional chronology</h2>
+  <h2 class="resume-section__title">The road so far</h2>
 
-  <section class="chronology" aria-label="Academic and professional chronology">
-    {% for item in r.journey %}
-      <article class="chronology-item chronology-item--{{ item.type }} fade-on-scroll">
-        <div class="chronology-item__date">{{ item.period }}</div>
-        <div class="chronology-item__content">
-          <div class="chronology-item__heading">
-            <div>
-              <h3 class="chronology-item__org">{{ item.org }}</h3>
-              <p class="chronology-item__role">
-                {{ item.title }}{% if item.location %} · {{ item.location }}{% endif %}
-              </p>
+  <section class="experience-road" data-experience-road aria-label="Academic and professional journey">
+    <div class="experience-road__route" aria-hidden="true">
+      <svg
+        class="experience-road__map"
+        viewBox="0 0 1000 1800"
+        preserveAspectRatio="none"
+        focusable="false">
+        <path
+          class="experience-road__shoulder"
+          d="M500 0 C500 170 440 220 450 430 C460 620 550 610 540 820 C530 1010 440 1030 450 1240 C460 1430 550 1420 540 1600 C535 1700 510 1740 500 1800" />
+        <path
+          class="experience-road__surface"
+          d="M500 0 C500 170 440 220 450 430 C460 620 550 610 540 820 C530 1010 440 1030 450 1240 C460 1430 550 1420 540 1600 C535 1700 510 1740 500 1800" />
+        <path
+          class="experience-road__centerline"
+          d="M500 0 C500 170 440 220 450 430 C460 620 550 610 540 820 C530 1010 440 1030 450 1240 C460 1430 550 1420 540 1600 C535 1700 510 1740 500 1800" />
+        <path
+          data-experience-route
+          class="experience-road__guide"
+          d="M500 0 C500 170 440 220 450 430 C460 620 550 610 540 820 C530 1010 440 1030 450 1240 C460 1430 550 1420 540 1600 C535 1700 510 1740 500 1800" />
+      </svg>
+
+      <div class="experience-road__car" data-experience-car>
+        <img src="{{ '/assets/images/two-seat-roadster.svg' | relative_url }}" alt="">
+      </div>
+    </div>
+
+    <div class="experience-road__stops">
+      {% for item in r.journey %}
+        <article class="experience-stop experience-stop--{{ item.type }} {% cycle 'experience-stop--left', 'experience-stop--right' %} fade-on-scroll">
+          <div class="experience-stop__card">
+            <div class="experience-stop__meta">
+              <span class="experience-stop__number">0{{ forloop.index }}</span>
+              <span class="experience-stop__date">{{ item.period }}</span>
             </div>
-            <span class="chronology-item__type">
-              {% if item.type == "education" %}Education{% else %}{{ item.tag | default: "Experience" }}{% endif %}
-            </span>
+            <div class="experience-stop__heading">
+              <div>
+                <h3 class="experience-stop__org">{{ item.org }}</h3>
+                <p class="experience-stop__role">
+                {{ item.title }}{% if item.location %} · {{ item.location }}{% endif %}
+                </p>
+              </div>
+              <span class="experience-stop__type">
+                {% if item.type == "education" %}Education{% else %}{{ item.tag | default: "Experience" }}{% endif %}
+              </span>
+            </div>
+            {% if item.bullets %}
+              <ul class="experience-stop__bullets">
+                {% for b in item.bullets %}
+                  <li>{{ b }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
           </div>
-          {% if item.bullets %}
-            <ul class="chronology-item__bullets">
-              {% for b in item.bullets %}
-                <li>{{ b }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </div>
-      </article>
-    {% endfor %}
+        </article>
+      {% endfor %}
+    </div>
   </section>
 
   {% if r.certifications.size > 0 %}
