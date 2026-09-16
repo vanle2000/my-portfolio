@@ -447,11 +447,9 @@ Do not relabel the existing PDF as a CV until the document itself is replaced.
   professional stops. A custom top-down two-seat roadster follows the route as
   the visitor scrolls, while reduced-motion visitors see it parked near the
   beginning.
-- Separated the public Experience narrative from the résumé data. The road now
-  presents five thematic chapters—computational biology, scientific model
-  validation, production ML systems, independent inquiry, and graduate
-  direction—rather than listing every role and degree. Detailed quantified
-  bullets remain preserved in `_data/resume.yml` and the résumé PDF.
+- Replaced résumé-style accomplishment lists on the Experience page with one
+  concise purpose statement for each role and degree. The detailed quantified
+  bullets remain preserved in `_data/resume.yml`.
 - Removed the continuous hero parallax loop.
 - Reduced entrance motion and added `prefers-reduced-motion` support.
 - Retained muted blue as the primary accent and used restrained borders instead

@@ -1,24 +1,20 @@
 ---
 layout: default
-title: "Experience"
+title: "Resume"
 permalink: /resume/
 ---
 
-{% assign experience = site.data.experience %}
-{% assign contact = site.data.contact %}
+{% assign r = site.data.resume %}
 
 <main class="resume-page">
   <div class="resume-page__header fade-on-scroll">
     <div>
       <h1 class="resume-page__title">Experience</h1>
-      <p class="resume-page__summary">{{ experience.intro }}</p>
-      <a class="resume-page__document" href="{{ contact.resume_pdf | relative_url }}" target="_blank" rel="noopener">
-        View the detailed résumé →
-      </a>
+      <p class="resume-page__summary">{{ r.summary }}</p>
     </div>
   </div>
 
-  <h2 class="resume-section__title">A path through questions, not job titles</h2>
+  <h2 class="resume-section__title">The road so far</h2>
 
   <section class="experience-road" data-experience-road aria-label="Academic and professional journey">
     <div class="experience-road__route" aria-hidden="true">
@@ -48,26 +44,46 @@ permalink: /resume/
     </div>
 
     <div class="experience-road__stops">
-      {% for chapter in experience.chapters %}
-        <article class="experience-stop {% cycle 'experience-stop--left', 'experience-stop--right' %} fade-on-scroll">
+      {% for item in r.journey %}
+        <article class="experience-stop experience-stop--{{ item.type }} {% cycle 'experience-stop--left', 'experience-stop--right' %} fade-on-scroll">
           <div class="experience-stop__card">
             <div class="experience-stop__meta">
               <span class="experience-stop__number">0{{ forloop.index }}</span>
-              <span class="experience-stop__date">{{ chapter.period }}</span>
+              <span class="experience-stop__date">{{ item.period }}</span>
             </div>
-            <p class="experience-stop__focus">{{ chapter.focus }}</p>
-            <h3 class="experience-stop__title">{{ chapter.title }}</h3>
-            <p class="experience-stop__context">{{ chapter.organization }} · {{ chapter.role }}</p>
-            <p class="experience-stop__narrative">{{ chapter.narrative }}</p>
-            <div class="experience-stop__reflection">
-              <span class="experience-stop__reflection-label">What stayed with me</span>
-              <p>{{ chapter.reflection }}</p>
+            <div class="experience-stop__heading">
+              <div>
+                <h3 class="experience-stop__org">{{ item.org }}</h3>
+                <p class="experience-stop__role">
+                {{ item.title }}{% if item.location %} · {{ item.location }}{% endif %}
+                </p>
+              </div>
+              <span class="experience-stop__type">
+                {% if item.type == "education" %}Education{% else %}{{ item.tag | default: "Experience" }}{% endif %}
+              </span>
             </div>
+            {% if item.purpose %}
+              <div class="experience-stop__purpose">
+                <span class="experience-stop__purpose-label">Purpose</span>
+                <p>{{ item.purpose }}</p>
+              </div>
+            {% endif %}
           </div>
         </article>
       {% endfor %}
     </div>
   </section>
+
+  {% if r.certifications.size > 0 %}
+    <div class="fade-on-scroll">
+      <h2 class="resume-section__title">Certifications</h2>
+      <ul class="resume-certs">
+        {% for cert in r.certifications %}
+          <li class="resume-cert">{{ cert }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 </main>
 
 {% include contact-cta.html %}
