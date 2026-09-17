@@ -38,21 +38,8 @@ permalink: /research/
       </h3>
       <p class="research-exp__meta">{{ exp.institution }} · {{ exp.pi }} · {{ exp.years }}</p>
 
-      <div class="research-exp__block">
-        <p class="research-exp__label">Project</p>
-        <p>{{ exp.project }}</p>
-      </div>
-      <div class="research-exp__block">
-        <p class="research-exp__label">Why this research</p>
-        <p>{{ exp.motivation }}</p>
-      </div>
-      <div class="research-exp__block">
-        <p class="research-exp__label">Outcomes</p>
-        <p>{{ exp.outcomes }}</p>
-      </div>
-      <div class="research-exp__block">
-        <p class="research-exp__label">How it shaped my path</p>
-        <p>{{ exp.relevance }}</p>
+      <div class="research-exp__narrative">
+        {{ exp.story | markdownify }}
       </div>
     </article>
   {% endfor %}

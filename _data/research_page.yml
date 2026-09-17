@@ -1,33 +1,34 @@
 intro: >
-  My research interests grew from a practical question: what makes a model
-  useful when the data are noisy, incomplete, and tied to real decisions?
-  Across biomedical research, manufacturing, and applied analytics, I have
-  seen that predictive performance is only one part of the answer. I am
-  interested in methods that help researchers understand uncertainty, test
-  whether models remain reliable when conditions change, and use AI without
-  giving up human judgment.
+  My research direction is grounded in a practical question: how can people
+  make better decisions with models when the evidence is incomplete, noisy,
+  and changing? I am interested in statistical learning, Bayesian statistics,
+  causal inference, and uncertainty quantification as complementary ways to
+  reason from data — not only to improve prediction, but to understand what
+  the evidence supports. I am also interested in AI-augmented analytics: how
+  researchers and analysts can work with AI systems while keeping assumptions
+  visible, uncertainty explicit, and human judgment accountable.
 
 interests:
-  - title: "Statistical Learning for Scientific Data"
+  - title: "Statistical Learning & Bayesian Modeling"
     description: >
-      Developing statistical and machine learning methods for data generated
-      by scientific instruments, simulations, and experiments, where the
-      structure of the problem matters as much as the size of the dataset.
-  - title: "Uncertainty & Robust Evaluation"
-    description: >
-      Studying how models communicate uncertainty, how performance changes
-      under distribution shift, and how evaluation can reveal when a
-      prediction is useful — or when it should not be trusted.
-  - title: "Causal Inference & Experiment Design"
+      Combining flexible predictive methods with probabilistic reasoning to
+      learn from scientific and operational data, incorporate prior knowledge,
+      and update conclusions as new evidence becomes available.
+  - title: "Causal Inference & Experimentation"
     description: >
       Moving beyond association to ask which interventions change an outcome,
-      how experiments can be designed efficiently, and what assumptions are
-      required before a result can support a decision.
-  - title: "Human-Centered AI"
+      how experiments and quasi-experiments can be designed responsibly, and
+      which assumptions must hold before a result can guide action.
+  - title: "Uncertainty & Robust Evaluation"
     description: >
-      Understanding how researchers and analysts work with ML and language
-      models, where automation genuinely helps, and how interfaces and
-      workflows can preserve context, accountability, and human judgment.
+      Studying how models express uncertainty, how performance changes under
+      distribution shift, and how evaluation can reveal when a prediction is
+      useful — or when a system should defer to human judgment.
+  - title: "AI-Augmented Analytics"
+    description: >
+      Exploring how analysts and researchers can collaborate with machine
+      learning and language-model tools while preserving context,
+      reproducibility, accountability, and meaningful human oversight.
 
 experience:
   - lab: "Monje Lab"
@@ -35,51 +36,50 @@ experience:
     institution: "University at Buffalo, Dept. of Chemical & Biological Engineering"
     pi: "Dr. Viviana Monje-Galván"
     years: "2022 – 2023"
-    project: >
-      In the Monje Lab, I helped develop and validate a reproducible workflow
-      for constructing realistic biological membrane models from complex lipid
-      mixtures and analyzing them through molecular dynamics simulations.
-    motivation: >
-      Biological membranes contain many interacting lipid species, yet
-      simulations often reduce them to much simpler systems. We wanted to make
-      biologically realistic models more reproducible, so researchers could
-      study membrane structure, proteins, and drug interactions on a stronger
-      computational foundation.
-    outcomes: >
-      I co-authored the resulting protocol in the Journal of Visualized
-      Experiments. My contributions included Python-based trajectory analysis
-      for lipid order parameters, area per lipid, membrane thickness, and
-      lateral diffusion, as well as work on the modeling pipeline used by the
-      lab.
-    relevance: >
-      This project taught me that building a model is only the beginning. The
-      more interesting work is deciding how to validate it, which assumptions
-      matter, and whether another researcher can reproduce and extend the
-      result. It is where my interest in model evaluation and uncertainty
-      became a research direction.
+    story: |
+      At the Monje Lab, I became interested in a deceptively simple question:
+      how realistic must a membrane model be before its behavior can
+      meaningfully represent biology? Biological membranes contain many
+      interacting lipid species, yet simulations often reduce them to much
+      simpler systems. Our goal was to make complex membrane models easier to
+      construct, evaluate, and reproduce so they could provide a stronger
+      foundation for studying membrane structure, proteins, and drug
+      interactions.
+
+      I helped develop the computational workflow and used Python-based
+      trajectory analysis to examine lipid order parameters, area per lipid,
+      membrane thickness, and lateral diffusion. I also contributed to the
+      membrane-protein modeling pipeline and to documenting the decisions
+      needed for another researcher to reproduce the analysis.
+
+      The work became a peer-reviewed protocol in the *Journal of Visualized
+      Experiments*. More importantly, it changed how I think about modeling: a
+      successful run is not the same as a trustworthy result. This experience
+      drew me toward questions of uncertainty, model evaluation, and the role
+      of reproducibility in scientific computing.
 
   - lab: "Liu Lab"
     lab_url: "https://www.uh.edu/pharmacy/about-us/directory-home/pps-faculty/xinli-liu/"
     institution: "University of Houston, College of Pharmacy"
     pi: "Dr. Xinli Liu"
     years: "2020 – 2022"
-    project: >
-      In the Liu Lab, I built Python workflows for mass spectrometry imaging
-      data used to study nanoparticle drug delivery and cellular resistance to
-      nanomedicine.
-    motivation: >
-      Each pixel in a mass spectrometry image contains a full spectrum, making
-      the raw output both spatially rich and difficult to analyze. The lab
-      needed a reliable path from instrument output to interpretable patterns
-      in how cells absorbed or resisted nanoparticle formulations.
-    outcomes: >
-      I developed preprocessing steps for baseline correction, peak alignment,
-      and dimensionality reduction, turning high-dimensional imaging data into
-      analysis-ready representations. I also supported experiments evaluating
-      nanoparticle formulations in cell-culture models.
-    relevance: >
-      This was the experience that changed my direction from pre-med to data
-      science. I saw that an experiment can generate more information than a
-      team can readily interpret, and that thoughtful computational tools can
-      become part of the scientific method itself. That idea still guides the
-      kind of research I hope to pursue.
+    story: |
+      My path toward data science began in the Liu Lab, where I worked with
+      mass spectrometry imaging data used to study nanoparticle drug delivery
+      and cellular resistance to nanomedicine. Each pixel in an image contains
+      a full mass spectrum, so the scientific value of an experiment depends
+      on turning a large, high-dimensional output into patterns that a research
+      team can interpret.
+
+      I built Python workflows for baseline correction, peak alignment, and
+      dimensionality reduction, transforming raw instrument output into
+      analysis-ready representations. I also supported cell-culture experiments
+      evaluating nanoparticle formulations, which helped me understand how
+      computational choices and experimental context shape one another.
+
+      The immediate benefit was a clearer and more repeatable path from
+      instrument data to downstream analysis. For me, the deeper outcome was
+      discovering that computational methods can become part of the scientific
+      process itself. That realization led me from pre-med toward data science
+      and continues to guide my interest in research data science and applied
+      statistical work.

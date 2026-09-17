@@ -9,21 +9,6 @@ title: "Elizabeth Van Le"
 <main>
   <div class="section fade-in-up">
     <div class="section__header">
-      <h2 class="section__title">Research</h2>
-      <span class="section__count">{{ site.data.research | size }} publication</span>
-    </div>
-    <div class="publication-list publication-list--home">
-      {% for item in site.data.research %}
-        {% include publication-entry.html item=item kind="research" compact=true %}
-      {% endfor %}
-    </div>
-    <p class="section-more">
-      <a href="{{ '/research/' | relative_url }}">Explore my research →</a>
-    </p>
-  </div>
-
-  <div class="section fade-in-up" style="padding-top:0">
-    <div class="section__header">
       <h2 class="section__title">Selected Projects</h2>
       <span class="section__count">3 of {{ site.data.projects | size }}</span>
     </div>
@@ -34,6 +19,21 @@ title: "Elizabeth Van Le"
     </div>
     <p class="section-more">
       <a href="{{ '/projects/' | relative_url }}">View all projects →</a>
+    </p>
+  </div>
+
+  <div class="section fade-in-up" style="padding-top:0">
+    <div class="section__header">
+      <h2 class="section__title">Research</h2>
+      <span class="section__count">{{ site.data.research | size }} publication</span>
+    </div>
+    <div class="publication-list publication-list--home">
+      {% for item in site.data.research %}
+        {% include publication-entry.html item=item kind="research" compact=true %}
+      {% endfor %}
+    </div>
+    <p class="section-more">
+      <a href="{{ '/research/' | relative_url }}">Explore my research →</a>
     </p>
   </div>
 </main>
