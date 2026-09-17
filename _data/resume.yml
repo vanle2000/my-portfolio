@@ -27,17 +27,20 @@ journey:
       across scientific and high-stakes domains.
 
   - type: "job"
-    title: "Data Scientist"
-    org: "M&T Tax Firm"
-    period: "Jan 2026 – Present"
+    title: "Business Intelligence Analyst → Data Scientist"
+    org: "M&T Tax Firm → Starpoint Investment Firm"
+    period: "Oct 2024 – Present"
     location: "Houston, TX"
     tag: "Full-time"
     purpose: >
-      Building on my earlier analytics and data-modeling work, I now own
-      production ML and LLM systems end to end—reconciling multi-source
-      financial records, resolving uncertain entity matches, and applying
-      client-specific classification thresholds with abstention when the
-      evidence is not strong enough to automate.
+      I joined M&T Tax Firm as a Business Intelligence Analyst, building SQL
+      workflows, reporting systems, and data-quality checks across financial
+      and operational records. After the firm merged into Starpoint Investment
+      Firm, I was promoted to Data Scientist in early 2026. I now own production
+      ML and LLM-assisted analytics systems end to end — reconciling
+      multi-source records, resolving uncertain entity matches, and applying
+      client-specific classification thresholds that defer when the evidence
+      is not strong enough to automate.
     bullets:
       - "Cut reconciliation cycle time from 3–5 days to 1 day with 95% fewer reporting errors by designing optimized SQL workflows on point-of-sale and banking transaction data, replacing manual spreadsheet processes"
       - "Automated monthly financial statement generation and data validation across client portfolios, saving 15+ hours/month, by building 3 reusable SQL query templates with embedded data quality checks"
