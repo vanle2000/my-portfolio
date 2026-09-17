@@ -4,35 +4,53 @@ title: "Projects"
 permalink: /projects/
 ---
 
-<div class="section">
-  <div class="section__header">
+<main class="section projects-page">
+  <header class="section__header">
     <h1 class="section__title">Projects</h1>
     <span class="section__count">{{ site.data.projects | size }} total</span>
-  </div>
-  <p class="hero__bio">
+  </header>
+
+  <p class="hero__bio projects-page__intro">
     These projects are where I test ideas end to end: beginning with a question,
     building the data and modeling workflow, and then examining what the result
     does — and does not — allow me to conclude.
   </p>
-  <div class="publication-list publication-list--projects">
-    {% for project in site.data.projects %}
-      {% include publication-entry.html item=project kind="project" %}
-    {% endfor %}
-  </div>
 
-  <h2 class="resume-section__title">Technical Skills</h2>
-  <div class="skills-grid skills-grid--resume">
-    {% for group in site.data.resume.skills %}
-      <div class="skill-group">
-        <p class="skill-group__cat">{{ group.category }}</p>
-        <div class="skill-group__items">
-          {% for item in group.items %}
-            <span class="skill-group__item">{{ item }}</span>
+  <div class="projects-page__layout">
+    <aside class="projects-skills" aria-labelledby="technical-skills-title">
+      <div class="projects-skills__inner">
+        <p class="eyebrow">Capabilities</p>
+        <h2 id="technical-skills-title" class="projects-skills__title">Technical Skills</h2>
+        <p class="projects-skills__intro">
+          Methods and tools I use across modeling, experimentation, and data systems.
+        </p>
+
+        <div class="projects-skills__groups">
+          {% for group in site.data.resume.skills %}
+            <section class="projects-skills__group">
+              <h3 class="projects-skills__category">{{ group.category }}</h3>
+              <ul class="projects-skills__items">
+                {% for item in group.items %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </section>
           {% endfor %}
         </div>
       </div>
-    {% endfor %}
+    </aside>
+
+    <section class="projects-page__work" aria-labelledby="selected-work-title">
+      <div class="projects-page__work-header">
+        <h2 id="selected-work-title">Selected Work</h2>
+      </div>
+      <div class="publication-list publication-list--projects">
+        {% for project in site.data.projects %}
+          {% include publication-entry.html item=project kind="project" %}
+        {% endfor %}
+      </div>
+    </section>
   </div>
-</div>
+</main>
 
 {% include contact-cta.html %}

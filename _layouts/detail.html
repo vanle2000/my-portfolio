@@ -44,8 +44,6 @@ layout: default
 
         {% if record.authors %}
           <p class="detail__authors">{{ record.authors }}</p>
-        {% elsif page.collection == 'project' %}
-          <p class="detail__authors">Elizabeth Van Le · Independent technical work · {{ record.year }}</p>
         {% endif %}
 
         {% if record.figure %}
