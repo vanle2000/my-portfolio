@@ -1,6 +1,10 @@
+{% assign site_name = site.title | default: "Elizabeth Van Le" %}
+{% assign site_first_name = site_name | split: " " | first %}
 <header class="masthead">
   <div class="masthead__inner-wrap">
-    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | default: "Site" }}</a>
+    <a class="site-title" href="{{ '/' | relative_url }}" aria-label="{{ site_name }}">
+      <span aria-hidden="true">{{ site_first_name }}</span>
+    </a>
     <nav class="masthead__menu" aria-label="Primary">
       <ul class="masthead__menu-list">
         {% for item in site.data.navigation.main %}
