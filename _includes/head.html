@@ -1,0 +1,25 @@
+{% assign locale = include.locale | default: site.locale %}
+{% assign asset_version = site.time | date: "%s" %}
+
+<meta charset="utf-8">
+{% include seo.html locale=locale %}
+
+{% unless site.atom_feed.hide %}
+  {% assign feed_path = site.atom_feed.path | default: '/feed.xml' %}
+  <link rel="alternate" type="application/atom+xml" href="{{ feed_path | relative_url }}" title="{{ site.title }} Feed">
+{% endunless %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  {% if site.enable_copy_code_button %}window.enable_copy_code_button = true;{% endif %}
+</script>
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ asset_version }}">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+{% for script in site.head_scripts %}
+  <script src="{{ script | relative_url }}"></script>
+{% endfor %}
