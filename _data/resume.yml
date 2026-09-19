@@ -7,14 +7,53 @@ summary: >
   that make complex data useful without hiding their assumptions or limits.
 
 skills:
-  - category: "Programming"
-    items: [Python, pandas, NumPy, scikit-learn, PyTorch, SciPy, SQL, R, Bash, Scala]
-  - category: "Statistics & ML"
-    items: [Time-Series Forecasting, Walk-Forward CV, A/B Testing, Regression, Classification, "Clustering (PCA, k-means, DBSCAN)", Random Forest, XGBoost]
-  - category: "Data Engineering & Cloud"
-    items: [ETL Pipeline Design, Data Modeling, Data Warehousing, "AWS (S3, EMR, Athena)", PySpark, MySQL]
-  - category: "BI & Visualization"
-    items: [Tableau, Excel, Plotly]
+  - category: "Programming and BI"
+    items:
+      - "Python (pandas, scikit-learn, PyTorch)"
+      - "SQL"
+      - "R"
+      - "Tableau"
+      - "Plotly"
+  - category: "Machine Learning"
+    items:
+      - "Regression"
+      - "Classification"
+      - "Clustering (k-means, DBSCAN, PCA)"
+      - "Random Forest"
+      - "XGBoost"
+      - "RNN"
+      - "Model benchmarking and selection"
+  - category: "Causal Inference and Experimentation"
+    items:
+      - "A/B testing"
+      - "RCT analysis"
+      - "Difference-in-differences"
+      - "Propensity score matching"
+      - "IPW"
+      - "Doubly robust AIPW"
+      - "G-computation"
+      - "statsmodels"
+      - "EconML"
+  - category: "GenAI and LLM Systems"
+    items:
+      - "OpenRouter"
+      - "Claude API"
+      - "Hermes agent framework"
+      - "Prompt evaluation harnesses"
+      - "Agent guardrails"
+      - "Model explainability via per-decision confidence and abstention"
+  - category: "Data and Cloud"
+    items:
+      - "AWS (S3, EMR, Athena)"
+      - "BigQuery"
+      - "PySpark"
+      - "ETL and pipeline design"
+      - "Data modeling"
+      - "Data quality and integrity validation"
+      - "Docker"
+      - "FastAPI"
+      - "CI/CD"
+      - "REST API integration (Intuit QuickBooks)"
 
 journey:
   - type: "education"
