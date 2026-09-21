@@ -47,10 +47,7 @@ permalink: /resume/
       {% for item in r.journey %}
         <article class="experience-stop experience-stop--{{ item.type }} {% cycle 'experience-stop--left', 'experience-stop--right' %} fade-on-scroll">
           <div class="experience-stop__card">
-            <div class="experience-stop__meta">
-              <span class="experience-stop__number">0{{ forloop.index }}</span>
-              <span class="experience-stop__date">{{ item.period }}</span>
-            </div>
+            <p class="experience-stop__date">{{ item.period }}</p>
             <div class="experience-stop__heading">
               <div>
                 <h3 class="experience-stop__org">{{ item.org }}</h3>

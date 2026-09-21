@@ -1517,28 +1517,8 @@ p {
   border-color: var(--color-border-strong);
 }
 
-.experience-stop__meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-xs);
-}
-
-.experience-stop__number {
-  display: inline-grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background: var(--color-bg-dark);
-  color: var(--color-text-inverse);
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-semibold);
-  font-variant-numeric: tabular-nums;
-}
-
 .experience-stop__date {
+  margin: 0 0 var(--space-xs);
   font-family: var(--font-sans);
   font-size: var(--text-xs);
   font-weight: var(--weight-medium);

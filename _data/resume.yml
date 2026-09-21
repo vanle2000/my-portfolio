@@ -103,10 +103,6 @@ journey:
     title: "B.A. in Computational and Applied Mathematics"
     org: "State University of New York at Buffalo"
     period: "Aug 2022 – Dec 2023"
-    purpose: >
-      Building the mathematical and statistical foundation that helped me move
-      from experimental biomedical research into computational modeling and
-      data science.
 
   - type: "job"
     title: "Data Science Intern"
@@ -139,9 +135,5 @@ journey:
     title: "Associate of Arts in Business and Chemistry"
     org: "North Seattle College"
     period: "Jan 2018 – Jun 2020"
-    purpose: >
-      Developing an interdisciplinary foundation in chemistry and business
-      that eventually led me toward quantitative and computational problem
-      solving.
 
 certifications: []
