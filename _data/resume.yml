@@ -72,14 +72,17 @@ journey:
     location: "Houston, TX"
     tag: "Full-time"
     purpose: >
-      I joined M&T Tax Firm as a Business Intelligence Analyst, building SQL
-      workflows, reporting systems, and data-quality checks across financial
-      and operational records. After the firm merged into Starpoint Investment
-      Firm, I was promoted to Data Scientist in early 2026. I now own production
-      ML and LLM-assisted analytics systems end to end — reconciling
-      multi-source records, resolving uncertain entity matches, and applying
-      client-specific classification thresholds that defer when the evidence
-      is not strong enough to automate.
+      I joined M&T Tax Firm as a Business Intelligence Analyst and continued
+      with Starpoint Investment Firm after the merger, earning a promotion to
+      Data Scientist in early 2026. I now build and own BigQuery pipelines,
+      automated reporting, and LLM-assisted workflows across 5M+ financial and
+      operational records. The resulting systems reduced the reporting cycle
+      from five days to one, automate 75% of monthly data preparation, and
+      support an accounts-payable system processing about 120K invoices per
+      month at an 88% straight-through reconciliation rate. I also developed
+      its expense classifier, achieving 0.925 macro-F1 across approximately 100 labels,
+      with per-class confidence thresholds and abstention routing uncertain
+      cases to human review.
     bullets:
       - "Cut reconciliation cycle time from 3–5 days to 1 day with 95% fewer reporting errors by designing optimized SQL workflows on point-of-sale and banking transaction data, replacing manual spreadsheet processes"
       - "Automated monthly financial statement generation and data validation across client portfolios, saving 15+ hours/month, by building 3 reusable SQL query templates with embedded data quality checks"
