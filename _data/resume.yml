@@ -66,23 +66,23 @@ journey:
       across scientific and high-stakes domains.
 
   - type: "job"
-    title: "Business Intelligence Analyst → Data Scientist"
-    org: "M&T Tax Firm → Starpoint Investment Firm"
+    title: "Data Scientist · promoted from Business Intelligence Analyst"
+    org: "Starpoint Investment Firm (formerly M&T Tax Firm)"
     period: "Oct 2024 – Present"
     location: "Houston, TX"
     tag: "Full-time"
     purpose: >
-      I joined M&T Tax Firm as a Business Intelligence Analyst and continued
-      with Starpoint Investment Firm after the merger, earning a promotion to
-      Data Scientist in early 2026. I now build and own BigQuery pipelines,
-      automated reporting, and LLM-assisted workflows across 5M+ financial and
-      operational records. The resulting systems reduced the reporting cycle
-      from five days to one, automate 75% of monthly data preparation, and
-      support an accounts-payable system processing about 120K invoices per
-      month at an 88% straight-through reconciliation rate. I also developed
-      its expense classifier, achieving 0.925 macro-F1 across approximately 100 labels,
-      with per-class confidence thresholds and abstention routing uncertain
-      cases to human review.
+      After joining M&T Tax Firm as a Business Intelligence Analyst in October
+      2024, I continued with Starpoint Investment Firm following the merger and
+      was promoted to Data Scientist in early 2026. I build and own BigQuery
+      data pipelines, automated reporting, LLM-assisted document workflows,
+      and an accounts-payable decision system across 5M+ records. These systems
+      reduced monthly reporting from five days to one, automate 75% of data
+      preparation, and reconcile about 120K invoices each month at an 88%
+      straight-through rate. I also built the expense classifier, achieving
+      0.925 macro-F1 across approximately 100 labels. Per-class confidence
+      thresholds route uncertain cases to human review, balancing automation
+      with financial data quality and accountable decisions.
     bullets:
       - "Cut reconciliation cycle time from 3–5 days to 1 day with 95% fewer reporting errors by designing optimized SQL workflows on point-of-sale and banking transaction data, replacing manual spreadsheet processes"
       - "Automated monthly financial statement generation and data validation across client portfolios, saving 15+ hours/month, by building 3 reusable SQL query templates with embedded data quality checks"
