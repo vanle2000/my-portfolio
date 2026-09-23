@@ -44,18 +44,22 @@ permalink: /resume/
     </div>
 
     <div class="experience-road__stops">
+      {% assign buffalo = r.journey | where: "org", "State University of New York at Buffalo" | first %}
       {% for item in r.journey %}
-        <article class="experience-stop experience-stop--{{ item.type }} {% cycle 'experience-stop--left', 'experience-stop--right' %} fade-on-scroll">
-          <div class="experience-stop__card">
-            <p class="experience-stop__date">{{ item.period }}</p>
-            <div class="experience-stop__heading">
-              <h3 class="experience-stop__org">{{ item.org }}</h3>
-              <p class="experience-stop__role{% if item.org == 'Georgia Institute of Technology' %} experience-stop__role--single-line{% endif %}">
-                {{ item.title }}{% if item.location %} · {{ item.location }}{% endif %}
-              </p>
-            </div>
+        {% if item.org == "Merck & Co." %}
+          <div class="experience-stop experience-stop--paired">
+            <article class="experience-stop__pair-item experience-stop--{{ item.type }} experience-stop--left fade-on-scroll">
+              {% include experience-stop-card.html item=item %}
+            </article>
+            <article class="experience-stop__pair-item experience-stop--{{ buffalo.type }} experience-stop--right fade-on-scroll">
+              {% include experience-stop-card.html item=buffalo %}
+            </article>
           </div>
-        </article>
+        {% elsif item.org != "State University of New York at Buffalo" %}
+          <article class="experience-stop experience-stop--{{ item.type }} {% cycle 'experience-stop--left', 'experience-stop--right' %} fade-on-scroll">
+            {% include experience-stop-card.html item=item %}
+          </article>
+        {% endif %}
       {% endfor %}
     </div>
   </section>

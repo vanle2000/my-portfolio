@@ -1476,6 +1476,21 @@ p {
   min-height: 220px;
 }
 
+.experience-stop--paired > .experience-stop__pair-item {
+  display: flex;
+  min-width: 0;
+}
+
+.experience-stop--paired > .experience-stop--left {
+  grid-column: 1;
+  justify-content: flex-end;
+}
+
+.experience-stop--paired > .experience-stop--right {
+  grid-column: 3;
+  justify-content: flex-start;
+}
+
 .experience-stop__card {
   position: relative;
   width: min(100%, 420px);
@@ -1584,6 +1599,10 @@ p {
       right: auto;
       width: 28px;
     }
+  }
+
+  .experience-stop--paired > .experience-stop__pair-item + .experience-stop__pair-item {
+    margin-top: var(--space-sm);
   }
 }
 

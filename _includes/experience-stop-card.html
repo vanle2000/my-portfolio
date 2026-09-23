@@ -1,0 +1,10 @@
+{% assign item = include.item %}
+<div class="experience-stop__card">
+  <p class="experience-stop__date">{{ item.period }}</p>
+  <div class="experience-stop__heading">
+    <h3 class="experience-stop__org">{{ item.org }}</h3>
+    <p class="experience-stop__role{% if item.org == 'Georgia Institute of Technology' %} experience-stop__role--single-line{% endif %}">
+      {{ item.title }}{% if item.location %} · {{ item.location }}{% endif %}
+    </p>
+  </div>
+</div>
