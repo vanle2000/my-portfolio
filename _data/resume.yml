@@ -1,10 +1,9 @@
 summary: >
-  I'm a data scientist and computational researcher with a background in
-  applied mathematics, biomedical research, and data systems. My experience
-  spans molecular simulation, high-dimensional biological data, mechanistic
-  model validation, forecasting, and analytics engineering. Across these
-  settings, I have been most drawn to the same challenge: building methods
-  that make complex data useful without hiding their assumptions or limits.
+  I did not follow a straight line into data science. I began in chemistry and
+  biomedical research, moved through applied mathematics and scientific model
+  validation, and now build production data and AI systems. At every turn, I
+  followed the same instinct: understand the evidence, make uncertainty
+  visible, and build something people can actually use.
 
 skills:
   - category: "Programming and BI"
