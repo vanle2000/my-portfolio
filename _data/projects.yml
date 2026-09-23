@@ -1,3 +1,143 @@
+- slug: criteo-uplift-causal
+  title: "Criteo Causal Inference & Uplift Stress Test"
+  subtitle: "Auditing observational estimators against randomized ground truth across 14M ad impressions"
+  tags: [Python, Causal Inference, AIPW, Uplift Modeling, LightGBM, EconML, FastAPI, GitHub Actions]
+  status: "Core analysis complete"
+  year: 2026
+  figure: "/assets/images/project-criteo-causal.svg"
+  figure_alt: "Diagram showing a randomized experiment deliberately confounded before causal estimators are compared with the randomized target"
+  github: "https://github.com/vanle2000/criteo-uplift-causal"
+  summary: >
+    I used Criteo's 13.98M-impression randomized uplift dataset as an answer
+    key, deliberately introduced confounding in opposing directions, and
+    audited how observational estimators recovered sample-specific RCT
+    targets. In these constructed scenarios, boosted AIPW was the only tested
+    estimator within single-digit bias across both outcomes and directions.
+  highlights:
+    - 13,979,592-row Criteo v2.1 pipeline with checksum-traced ingestion and committed reports
+    - "Deflate stress test reversed the naive sign: -0.003148 estimate versus +0.000402 RCT-derived target"
+    - Boosted AIPW stayed within 4.6%–8.4% bias across four outcome and scenario conditions
+    - Excellent covariate balance still coincided with severe IPW bias and low effective sample size
+    - "Cluster-held-out uplift ranking under the project's Qini definition: response 0.813, transformed outcome 0.659, T-learner 0.003"
+    - 70 tests plus FastAPI scoring, drift checks, and promotion-gated retraining scaffolding
+  body: |
+    ## The Question
+    Observational causal methods are often judged without knowing the true
+    treatment effect. I wanted a harder test: start with a real randomized
+    experiment, use its treatment contrast as an answer key, deliberately make
+    the data observational, and measure which estimators recover the target.
+
+    This makes failure visible. It also creates a setting where diagnostics
+    that look reassuring can be checked against a known benchmark rather than
+    accepted on their own.
+
+    ## Data and the Answer Key
+    I used the Criteo Uplift Prediction Dataset v2.1: **13,979,592 ad
+    impressions** with randomized treatment assignment and rare visit and
+    conversion outcomes. The ingestion pipeline streams the compressed source
+    in chunks, validates its schema and binary fields, writes typed Parquet,
+    and records the source checksum in a committed report.
+
+    The raw randomized conversion contrast was **+0.001152**, or about 59.4%
+    relative lift over the control rate. I treated that randomized contrast as
+    the declared answer key while also checking Lin adjustment, prognostic
+    strata, and proxy-cluster estimates.
+
+    The rows are impressions rather than verified people. Proxy clusters reveal
+    repeated observations and some mixed treatment assignment, so the raw ITT,
+    adjusted estimate, and proxy-user estimate represent related but not
+    identical estimands. I keep that distinction visible instead of treating
+    one number as unquestionable person-level truth.
+
+    ## Breaking Randomization on Purpose
+    I trained a prognostic model on controls, then selected treated and control
+    observations with opposing probabilities based on outcome-predictive
+    covariates. An inflate scenario exaggerated the apparent benefit; a mirror
+    deflate scenario pushed the estimate in the opposite direction. A random
+    subsample control reproduced the RCT approximately, helping isolate the
+    effect of the induced selection.
+
+    The strongest failure was a sign reversal: in the deflate conversion
+    sample, the naive estimate was **-0.003148** even though the sample-specific
+    RCT-derived target remained positive at **+0.000402**. Targets were
+    recalculated for each selected covariate mix rather than copied from the
+    full randomized sample.
+
+    ## Estimator Audit
+    I compared naive differences, stabilized Hájek IPW, AIPW,
+    g-computation, propensity-score matching with replacement, common-support
+    trimming, and a synthetic-preperiod DiD demonstration. Nuisance models were
+    cross-fitted using both boosted and linear propensity specifications.
+
+    In these constructed scenarios, boosted-propensity AIPW was the only tested
+    estimator with single-digit point-estimate bias across conversion and visit
+    outcomes in both bias directions: **4.6% to 8.4%**. This is a result of this
+    benchmark, not a claim that AIPW is universally best.
+
+    One of the most useful findings was that balance was not enough. In the
+    inflate scenario, weighting reduced every reported absolute standardized
+    mean difference below 0.05, yet boosted IPW conversion bias remained about
+    -92%. Extreme weights and a sharply reduced effective sample size explained
+    why a good balance table did not guarantee a reliable estimate.
+
+    ## Falsification and Sensitivity
+    Negative-control and treatment-permutation checks helped expose failure
+    modes, but results were asymmetric: not every estimator passed every
+    placebo. Trimming also changed the target population, so I evaluated the
+    trimmed estimate against a newly computed trimmed target rather than the
+    original estimand.
+
+    Rosenbaum bounds and E-values describe how strong hidden bias would need to
+    be; they do not prove that confounding is absent. The DiD component uses a
+    simulated preperiod because Criteo has no real time dimension, so it
+    demonstrates estimator mechanics rather than identifying an empirical DiD
+    effect in this dataset.
+
+    ## Uplift Ranking
+    I used a proxy-cluster-aware 70/30 split to compare an EconML T-learner, a
+    transformed-outcome learner, and a plain response model on held-out
+    randomized data. Under the repository's documented Qini normalization, the
+    response baseline scored **0.813**, transformed outcome **0.659**, and the
+    T-learner **0.003**.
+
+    The response model does not estimate an individual treatment effect. Its
+    win means it ranked incremental conversions better on this one split, which
+    is exactly why causal ranking models should be compared with a strong
+    noncausal baseline. The experiment does not yet include repeated splits or
+    uncertainty intervals for differences in Qini.
+
+    ## Engineering Evidence
+    The repository includes machine-readable and narrative reports, figures,
+    a committed LightGBM model artifact, FastAPI health and scoring endpoints,
+    drift checks, and a promotion-gated retraining workflow. Six test modules
+    contain **70 self-contained tests** covering estimators, sensitivity,
+    uplift metrics, statistics, serving, and drift behavior. Test CI and two
+    full-data scheduled retraining runs completed successfully.
+
+    I describe this as operational scaffolding rather than a live production
+    deployment. The scheduled workflow repeatedly uses the same static source
+    and deterministic split, so successful retraining demonstrates automation,
+    not adaptation to changing production traffic.
+
+    ## Limitations and Open Work
+    - Impression rows and proxy clusters do not establish a clean person-level estimand
+    - Nuisance-model folds are assigned by row, so repeated impressions can cross folds
+    - Matching intervals are indicative and ignore propensity estimation and reused matches
+    - Uplift conclusions rely on one split and a repository-specific Qini normalization
+    - Score ties leave some nominal serving deciles empty
+    - The environment is not fully locked, and EconML is missing from declared dependencies
+    - The repository has no license or live deployment
+    - The GenAI evaluation extension is implemented in code but has not been run
+
+    ## What I Learned
+    A causal estimate deserves more skepticism when its diagnostics look clean,
+    not less. I learned to inspect effective sample size and weight behavior
+    alongside balance, to recompute the estimand after selection or trimming,
+    and to benchmark causal ranking against a simple response model. Most of
+    all, this project reinforced that reliable causal work is an audit process:
+    define the target, create opportunities to be wrong, and make those failures
+    visible.
+
 - slug: facebook-ads-efficiency
   title: "Facebook Ads Efficiency & Audience Saturation"
   subtitle: "Exploring audience saturation through modeling and budget simulation"
