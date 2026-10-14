@@ -32,122 +32,165 @@
     - "Cluster-held-out uplift ranking under the project's Qini definition: response 0.813, transformed outcome 0.659, T-learner 0.003"
     - 70 tests plus FastAPI scoring, drift checks, and promotion-gated retraining scaffolding
   body: |
-    ## The Question
-    Observational causal methods are often judged without knowing the true
-    treatment effect. I wanted a harder test: start with a real randomized
-    experiment, use its treatment contrast as an answer key, deliberately make
-    the data observational, and measure which estimators recover the target.
+    ## The result, up front
+    Confounding pushed the naive conversion estimate to **+237% of the truth**
+    and, in the mirror scenario, to the **wrong sign** entirely. Against an
+    RCT-derived target re-standardised onto the exact rows each estimator used,
+    only one method landed within single digits in all four test conditions:
+    doubly-robust **AIPW** on gradient-boosted propensity scores, at
+    **+4.6% / −8.3%** bias on conversion and **−8.4% / −5.3%** on visit.
 
-    This makes failure visible. It also creates a setting where diagnostics
-    that look reassuring can be checked against a known benchmark rather than
-    accepted on their own.
+    | estimator | inflate · conversion | deflate · conversion | inflate · visit | deflate · visit |
+    |---|---|---|---|---|
+    | naive (no adjustment) | +237% | −882% | +595% | −2024% |
+    | IPW (gradient-boosted PS) | −92% | −0.1% | −49% | −0.2% |
+    | **AIPW, doubly robust (GBM PS)** | **+4.6%** | **−8.3%** | **−8.4%** | **−5.3%** |
+    | PSM 1:1 NN (GBM PS) | −11% | −19% | +13% | −20% |
+    | g-computation | −34% | +34% | +11% | −10% |
+    | IPW (linear PS) | −283% | +182% | −1439% | +329% |
 
-    ## Data and the Answer Key
-    I used the Criteo Uplift Prediction Dataset v2.1: **13,979,592 ad
-    impressions** with randomized treatment assignment and rare visit and
-    conversion outcomes. The ingestion pipeline streams the compressed source
-    in chunks, validates its schema and binary fields, writes typed Parquet,
-    and records the source checksum in a committed report.
+    ## The question
+    Observational causal methods are usually judged without knowing the true
+    effect. This project runs a harder test: start with a real randomized
+    experiment, treat its treatment contrast as an answer key, deliberately
+    break the randomization, apply the standard observational toolkit to the
+    wreckage, and **score each method against the truth it was supposed to
+    find**. Making failure visible is the whole point.
 
-    The raw randomized conversion contrast was **+0.001152**, or about 59.4%
-    relative lift over the control rate. I treated that randomized contrast as
-    the declared answer key while also checking Lin adjustment, prognostic
-    strata, and proxy-cluster estimates.
+    ## Data and the answer key
+    The source is the Criteo Uplift Prediction dataset v2.1 —
+    **13,979,592 ad impressions**, 85% treated / 15% control, with `visit` and
+    `conversion` labels and 12 anonymised features. Three properties of the data
+    shape every downstream choice: the rows are impressions, not people
+    (13.98M rows carry 9.17M distinct covariate vectors, so a proxy cluster id
+    is needed and every interval is clustered on it, design effect 2.0–3.5×);
+    the impression-level "RCT" is not perfectly balanced (max |SMD| 0.049); and
+    the score is massively tied, which can strand a predicted-uplift decile with
+    zero control units if ties are broken carelessly.
 
-    The rows are impressions rather than verified people. Proxy clusters reveal
-    repeated observations and some mixed treatment assignment, so the raw ITT,
-    adjusted estimate, and proxy-user estimate represent related but not
-    identical estimands. I keep that distinction visible instead of treating
-    one number as unquestionable person-level truth.
+    The randomized ground truth, cross-checked three ways (Lin adjustment, a
+    100-stratum standardisation, and a cluster-collapsed estimate):
 
-    ## Breaking Randomization on Purpose
-    I trained a prognostic model on controls, then selected treated and control
-    observations with opposing probabilities based on outcome-predictive
-    covariates. An inflate scenario exaggerated the apparent benefit; a mirror
-    deflate scenario pushed the estimate in the opposite direction. A random
-    subsample control reproduced the RCT approximately, helping isolate the
-    effect of the induced selection.
+    | outcome | control rate | treated rate | ATE (ITT) | relative lift |
+    |---|---|---|---|---|
+    | `visit` | 0.03820 | 0.04854 | **+0.010342** | +27.1% |
+    | `conversion` | 0.00194 | 0.00309 | **+0.001152** | +59.4% |
 
-    The strongest failure was a sign reversal: in the deflate conversion
-    sample, the naive estimate was **-0.003148** even though the sample-specific
-    RCT-derived target remained positive at **+0.000402**. Targets were
-    recalculated for each selected covariate mix rather than copied from the
-    full randomized sample.
+    Conversion runs at 0.29% — 40,774 positives in 14M rows. That rarity drives
+    every metric choice later.
 
-    ## Estimator Audit
-    I compared naive differences, stabilized Hájek IPW, AIPW,
-    g-computation, propensity-score matching with replacement, common-support
-    trimming, and a synthetic-preperiod DiD demonstration. Nuisance models were
-    cross-fitted using both boosted and linear propensity specifications.
+    ## Breaking randomization on purpose
+    Rows are selected into an observational subsample with a probability that
+    depends on both the treatment arm and a prognostic score (a control-arm
+    outcome model, holdout AUC 0.947). Selecting on a covariate that predicts
+    the outcome is deliberate: selecting on noise would produce imbalance but no
+    bias, demonstrating nothing. At selection strength k = 3 on 7.01M retained
+    rows, max |SMD| explodes from **0.049 to 1.102**, and the naive conversion
+    estimate becomes 3.37× the truth. The mirror `deflate` scenario reverses the
+    rule until ads appear to *reduce* conversion: **−0.003148 against a true
+    +0.000402**.
 
-    In these constructed scenarios, boosted-propensity AIPW was the only tested
-    estimator with single-digit point-estimate bias across conversion and visit
-    outcomes in both bias directions: **4.6% to 8.4%**. This is a result of this
-    benchmark, not a claim that AIPW is universally best.
+    ![Standardised mean differences for all twelve covariates: tight around zero under the RCT, blown far past the Rubin thresholds once confounding is introduced.](/assets/images/criteo/step2_balance_rct_vs_confounded.png)
+    <p class="detail__figcaption">The randomized sample sits on the zero line; the confounded sample scatters past ±1.0. The imbalance is engineered — and the true subsample effect is recomputed for the new covariate mix rather than copied from the full sample.</p>
 
-    One of the most useful findings was that balance was not enough. In the
-    inflate scenario, weighting reduced every reported absolute standardized
-    mean difference below 0.05, yet boosted IPW conversion bias remained about
-    -92%. Extreme weights and a sharply reduced effective sample size explained
-    why a good balance table did not guarantee a reliable estimate.
+    ## Which estimators recover the target
+    Boosted-propensity AIPW is the only estimator with single-digit bias across
+    both outcomes and both directions. Its 95% interval covers the RCT target;
+    the naive estimate and both linear-propensity specifications are badly off.
 
-    ## Falsification and Sensitivity
-    Negative-control and treatment-permutation checks helped expose failure
-    modes, but results were asymmetric: not every estimator passed every
-    placebo. Trimming also changed the target population, so I evaluated the
-    trimmed estimate against a newly computed trimmed target rather than the
-    original estimand.
+    ![Forest plot of estimated conversion ATEs against the dashed RCT target; AIPW on boosted propensity sits on the line while naive and IPW miss.](/assets/images/criteo/step3_forest_conversion_inflate.png)
+    <p class="detail__figcaption">Green intervals cover the RCT target of +0.001603; red miss it. Doubly-robust AIPW on a gradient-boosted propensity is the estimate that lands on the truth.</p>
 
-    Rosenbaum bounds and E-values describe how strong hidden bias would need to
-    be; they do not prove that confounding is absent. The DiD component uses a
-    simulated preperiod because Criteo has no real time dimension, so it
-    demonstrates estimator mechanics rather than identifying an empirical DiD
-    effect in this dataset.
+    ## Balance is necessary — and nowhere near sufficient
+    This is the finding worth the project. IPW weighting drove every covariate
+    |SMD| from as high as 1.10 down to ≤ 0.049 — a textbook balance table — yet
+    the conversion estimate was still **92% biased**. The reason is not visible
+    in a balance plot: the same weights left an effective control sample of
+    **192,289 out of 1,061,480** (max weight 1,171). With the misspecified
+    linear propensity it is worse — effective control sample 4,270, a visit
+    estimate of −0.159 against a true +0.012. Effective sample size is printed
+    beside every weighted estimate for exactly this reason.
 
-    ## Uplift Ranking
-    I used a proxy-cluster-aware 70/30 split to compare an EconML T-learner, a
-    transformed-outcome learner, and a plain response model on held-out
-    randomized data. Under the repository's documented Qini normalization, the
-    response baseline scored **0.813**, transformed outcome **0.659**, and the
-    T-learner **0.003**.
+    ![Absolute standardised mean differences per covariate before adjustment, after IPW weighting, and after 1:1 matching, nearly all pulled below the 0.1 threshold.](/assets/images/criteo/step3_balance_conversion_inflate.png)
+    <p class="detail__figcaption">Every covariate is driven under the balance threshold after adjustment — the kind of table that passes review — while the weighted point estimate remains 92% wrong.</p>
 
-    The response model does not estimate an individual treatment effect. Its
-    win means it ranked incremental conversions better on this one split, which
-    is exactly why causal ranking models should be compared with a strong
-    noncausal baseline. The experiment does not yet include repeated splits or
-    uncertainty intervals for differences in Qini.
+    Two related traps appear in the same step. Matching's confidence interval is
+    **14× narrower** than AIPW's on identical data, because the matched-pair
+    standard error ignores both propensity estimation and control reuse; the
+    point estimates look respectable (−11% to −20%) but the coverage does not.
+    And common-support trimming silently changes the question — restricting to
+    e ∈ [0.02, 0.98] moves the conversion target from +0.001603 to +0.000224,
+    because it discards exactly the high-propensity units where the uplift
+    lives. Trimmed estimates are scored against a re-standardised trimmed target.
 
-    ## Engineering Evidence
-    The repository includes machine-readable and narrative reports, figures,
-    a committed LightGBM model artifact, FastAPI health and scoring endpoints,
-    drift checks, and a promotion-gated retraining workflow. Six test modules
-    contain **70 self-contained tests** covering estimators, sensitivity,
-    uplift metrics, statistics, serving, and drift behavior. Test CI and two
-    full-data scheduled retraining runs completed successfully.
+    ## Sensitivity, and the E-value trap
+    With no answer key you can only ask how strong an unmeasured confounder would
+    have to be. Rosenbaum bounds on 5.95M matched pairs give Γ* = 1.41 for
+    conversion — a 41% shift in treatment odds between otherwise-identical units
+    would end significance. Not robust, and the honest verdict on the matched
+    analysis. The sharper lesson: **the most biased estimator carries the
+    largest E-value.** The naive conversion estimate (237% wrong) implies an
+    E-value of 4.26, while AIPW's E-value (2.23) lands almost exactly on the
+    truth's (2.19). An E-value measures the *size of the claim*, never whether
+    it is right — a distinction only visible because the RCT was there to check.
 
-    I describe this as operational scaffolding rather than a live production
-    deployment. The scheduled workflow repeatedly uses the same static source
-    and deterministic split, so successful retraining demonstrates automation,
-    not adaptation to changing production traffic.
+    ## Uplift ranking, including a result I did not want
+    Trained on 10.4M rows, evaluated on 3.60M held out, split by cluster so no
+    unit crosses the split. Two uncomfortable findings:
 
-    ## Limitations and Open Work
-    - Impression rows and proxy clusters do not establish a clean person-level estimand
-    - Nuisance-model folds are assigned by row, so repeated impressions can cross folds
-    - Matching intervals are indicative and ignore propensity estimation and reused matches
-    - Uplift conclusions rely on one split and a repository-specific Qini normalization
-    - Score ties leave some nominal serving deciles empty
-    - The environment is not fully locked, and EconML is missing from declared dependencies
-    - The repository has no license or live deployment
-    - The GenAI evaluation extension is implemented in code but has not been run
+    | model | Qini | uplift @ top 10% | vs untargeted | captured share @ 10% |
+    |---|---|---|---|---|
+    | two-model T-learner | +0.0033 | +0.001868 | 1.35× | 13.5% |
+    | transformed outcome | +0.6590 | +0.009090 | 6.58× | 65.8% |
+    | **response baseline** | **+0.8133** | +0.009902 | **7.17×** | 71.7% |
 
-    ## What I Learned
-    A causal estimate deserves more skepticism when its diagnostics look clean,
-    not less. I learned to inspect effective sample size and weight behavior
-    alongside balance, to recompute the estimand after selection or trimming,
-    and to benchmark causal ranking against a simple response model. Most of
-    all, this project reinforced that reliable causal work is an audit process:
-    define the target, create opportunities to be wrong, and make those failures
-    visible.
+    ![Qini curves on the held-out randomized sample: the response baseline and transformed-outcome learner rise steeply above the diagonal while the two-model T-learner tracks random targeting.](/assets/images/criteo/step4_qini_conversion.png)
+    <p class="detail__figcaption">The two-model T-learner is indistinguishable from random targeting; a plain response model with no causal content ranks uplift best of all — which is exactly why causal ranking must be benchmarked against a response baseline.</p>
+
+    The T-learner differences two models each larger than the effect between
+    them, on a 0.29% outcome, and the errors do not cancel. The response model
+    wins because here uplift is nearly proportional to baseline conversion
+    propensity, so the response ordering is almost the uplift ordering and is
+    estimated far more precisely. The *served* model is still the
+    transformed-outcome learner, deliberately: a response model emits
+    P(convert), not an increment, so it cannot tell a bidder how much extra
+    conversion one more impression buys. Class imbalance is handled honestly —
+    AUC-PR 0.1834 against a 0.00338 base rate (54.3× a random ranker); accuracy
+    is never reported, because predicting "never converts" scores 99.66% and
+    means nothing.
+
+    ## Engineering around the result
+    The repository commits machine-readable and narrative reports, the figures
+    above, a LightGBM artifact, a FastAPI service (`/health` reports whether the
+    artifact actually loaded; 3.5 ms for a 2-row batch; malformed input → 422),
+    a multi-stage non-root Docker image, a promotion-gated retrain that refuses
+    to overwrite a good model with one more than 10% worse, and a drift monitor
+    that pages on per-feature PSI. **70 self-contained tests** run with no
+    dataset — the causal tests are simulations with known ground truth. I call
+    this operational scaffolding, not a live deployment: the scheduled workflow
+    reuses the same static source, so it demonstrates automation, not adaptation
+    to changing traffic.
+
+    ## Where the assumptions break
+    The estimates are causal here only because I wrote the selection rule, so
+    unconfoundedness holds by construction. On real ad data it usually does not —
+    bid-time context, competitive pressure, and intent are rarely all in the
+    feature set. Positivity is technically satisfied but thin at the top, which
+    is why IPW's effective sample collapses. SUTVA is close to a worst case in
+    auction advertising: suppressing ads to a control group changes the price and
+    win rate for everyone else, so the control arm is not a clean untreated world.
+    The DiD component uses a simulated pre-period and so demonstrates estimator
+    mechanics, not an identified empirical effect. These are properties of the
+    assumptions, not of the code.
+
+    ## What it demonstrates
+    A causal estimate deserves *more* skepticism when its diagnostics look clean,
+    not less. The reusable practices: inspect effective sample size and weight
+    behavior alongside balance, recompute the estimand after any selection or
+    trimming, and benchmark causal ranking against a simple response model.
+    Reliable causal work is an audit — define the target, create opportunities to
+    be wrong, and make those failures visible.
+
 
 - slug: facebook-ads-efficiency
   title: "Facebook Ads Efficiency & Audience Saturation"
