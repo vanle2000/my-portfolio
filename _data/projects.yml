@@ -292,13 +292,6 @@
     defensible lift estimate. No single "X% lift" headline is claimed anywhere,
     because this dataset cannot defend one.
 
-    ## What a BIE takes from this
-    The job was not to produce the most impressive number — it was to separate
-    the number I could stand behind (25.1% reallocatable, measured and
-    reproducible) from the one I could not (the lift, which needs an experiment).
-    Knowing which side of that line a claim sits on, and designing the test that
-    moves it across, is the part of the work a stakeholder is actually paying for.
-
 
 
 - slug: github-support-analytics
