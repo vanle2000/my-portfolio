@@ -163,6 +163,72 @@ p {
   font-weight: var(--weight-display);
 }
 
+/* ── Dual-tone metric strip (data as narrative) ─────────────
+   Charcoal upright serif numerals (Anchor) fused with royal-indigo
+   serif italics (Flow). Hierarchy via posture + chroma, no card fills. */
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin: var(--space-md) 0 var(--space-lg);
+  padding: 0;
+  list-style: none;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+/* The Anchor — heavy charcoal upright serif numeral */
+.metric__value {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: var(--weight-display);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 0.95;
+  letter-spacing: var(--tracking-display);
+  color: var(--color-numeral);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* A smaller upright unit (%, M, ×) riding alongside the numeral */
+.metric__value .metric__unit {
+  font-size: 0.55em;
+  letter-spacing: -0.01em;
+}
+
+/* The Flow — vibrant indigo serif italic narrative label */
+.metric__label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--weight-display);
+  font-size: clamp(1.0625rem, 1.6vw, 1.375rem);
+  line-height: 1.15;
+  letter-spacing: 0;
+  color: var(--color-narrative);
+  max-width: 22ch;
+}
+
+/* Inline variant: numeral and italic label fused on one baseline */
+.metric--inline {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.metric--inline .metric__label {
+  font-size: clamp(1.125rem, 2vw, 1.75rem);
+  max-width: none;
+}
+
+@media (max-width: 600px) {
+  .metrics { gap: var(--space-md); }
+  .metric { flex: 1 1 40%; }
+}
+
 /* ── Hero section ─────────────────────────────────────────── */
 .hero {
   background: var(--color-bg-secondary);

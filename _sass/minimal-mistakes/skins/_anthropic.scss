@@ -3,27 +3,30 @@
    (hex/string), never var() — because MM calls mix() on them at compile time. */
 
 :root {
-  /* ── Warm editorial palette ──
-     Soft charcoal ink on a warm cream canvas, after basetobase.jobs.
-     Avoids harsh #000 on #FFF; reduces eye strain in long-form reading. */
-  --color-bg-primary:    #F9F6EE;  /* warm cream canvas */
-  --color-bg-secondary:  #F2EEE2;  /* slightly deeper cream for panels */
-  --color-bg-surface:    #FCFAF4;  /* raised cards, a hair lighter than canvas */
-  --color-bg-dark:       #1F1D18;  /* warm near-black for footer / code */
-  --color-text-primary:  #211F1A;  /* soft charcoal, not pure black */
-  --color-text-secondary:#5A554B;  /* warm mid-gray for body copy */
-  --color-text-muted:    #908A7C;  /* warm taupe for captions / meta */
-  --color-text-inverse:  #F9F6EE;
+  /* ── Professional white editorial palette ──
+     Dual-tone data-as-narrative system: charcoal upright serif numerals
+     (the Anchor) fused with royal-indigo serif italics (the Flow). */
+  --color-bg-primary:    #FFFFFF;  /* professional white canvas */
+  --color-bg-secondary:  #F6F6F8;  /* faint cool-gray panels */
+  --color-bg-surface:    #FFFFFF;  /* cards on white */
+  --color-bg-dark:       #1A1A1F;  /* near-black for footer / code */
+  --color-text-primary:  #1C1B22;  /* charcoal ink */
+  --color-text-secondary:#4A4A52;  /* body copy */
+  --color-text-muted:    #76767E;  /* captions / meta */
+  --color-text-inverse:  #FFFFFF;
 
-  /* Accent: lavender/cyan tint used on eyebrow labels (the reference's
-     signature micro-accent); warm amber for interactive links/hover. */
-  --color-label:         #8A86C9;  /* lavender — mono eyebrow tags */
-  --color-label-cyan:    #4E8299;  /* cyan alt for section kickers */
-  --color-accent:        #B5742B;  /* warm amber — links / interactive */
-  --color-accent-light:  #CF8E3F;  /* lighter amber for hover */
-  --color-accent-subtle: #F0E6D4;  /* pale amber wash for code/pills */
-  --color-border:        #E3DCCB;  /* warm hairline */
-  --color-border-strong: #CDC4AE;
+  /* Dual-tone metric roles */
+  --color-numeral:       #16161A;  /* Anchor — heavy charcoal numerals */
+  --color-narrative:     #3538CD;  /* Flow — royal-indigo serif italic */
+
+  /* Accent: indigo for interactive links; indigo tint for labels. */
+  --color-label:         #3538CD;  /* indigo — mono eyebrow tags */
+  --color-label-cyan:    #2B2F9E;  /* deep-indigo alt for section kickers */
+  --color-accent:        #3538CD;  /* royal indigo — links / interactive */
+  --color-accent-light:  #5457DB;  /* lighter indigo for hover */
+  --color-accent-subtle: #EEEEFB;  /* pale indigo wash for code/pills */
+  --color-border:        #E6E6EA;  /* cool hairline */
+  --color-border-strong: #CDCDD4;
 
   /* ── Typography ──
      Matches the basetobase.jobs editorial type system:
@@ -93,27 +96,27 @@
 /* ── Sass variable overrides ──────────────────────────────────────────────────
    Define ALL derived color vars here so MM never runs mix() on our values.   */
 
-$background-color:        #F9F6EE !default;
-$text-color:              #211F1A !default;
-$muted-text-color:        #908A7C !default;
-$primary-color:           #B5742B !default;
-$link-color:              #B5742B !default;
-$link-color-hover:        #CF8E3F !default;
-$link-color-visited:      #9A6B3A !default;
-$masthead-link-color:     #211F1A !default;
-$masthead-link-color-hover: #B5742B !default;
-$navicon-link-color-hover: #F0E6D4 !default;
-$code-background-color:   #F2EEE2 !default;
-$border-color:            #E3DCCB !default;
-$footer-background-color: #1F1D18 !default;
-$footer-border-color:     #3A362E !default;
-$footer-font-color:       #F9F6EE !default;
-$footer-link-color:       #CF8E3F !default;
-$footer-link-color-hover: #F9F6EE !default;
-$focus-color:             #B5742B !default;
-$active-color:            rgba(181, 116, 43, 0.08) !default;
-$form-background-color:   #FCFAF4 !default;
-$box-shadow:              0 1px 2px rgba(31, 29, 24, 0.06) !default;
+$background-color:        #FFFFFF !default;
+$text-color:              #1C1B22 !default;
+$muted-text-color:        #76767E !default;
+$primary-color:           #3538CD !default;
+$link-color:              #3538CD !default;
+$link-color-hover:        #5457DB !default;
+$link-color-visited:      #2B2F9E !default;
+$masthead-link-color:     #1C1B22 !default;
+$masthead-link-color-hover: #3538CD !default;
+$navicon-link-color-hover: #EEEEFB !default;
+$code-background-color:   #F6F6F8 !default;
+$border-color:            #E6E6EA !default;
+$footer-background-color: #1A1A1F !default;
+$footer-border-color:     #343440 !default;
+$footer-font-color:       #FFFFFF !default;
+$footer-link-color:       #9FA0EE !default;
+$footer-link-color-hover: #FFFFFF !default;
+$focus-color:             #3538CD !default;
+$active-color:            rgba(53, 56, 205, 0.08) !default;
+$form-background-color:   #FFFFFF !default;
+$box-shadow:              0 1px 2px rgba(28, 27, 34, 0.06) !default;
 
 $sans-serif:         'Inter', system-ui, sans-serif !default;
 $serif:              'Instrument Serif', Georgia, serif !default;

@@ -7,6 +7,17 @@
   figure: "/assets/images/project-criteo-causal.svg"
   figure_alt: "Diagram showing a randomized experiment deliberately confounded before causal estimators are compared with the randomized target"
   github: "https://github.com/vanle2000/criteo-uplift-causal"
+  metrics:
+    - value: "13.98"
+      unit: "M"
+      label: "randomized ad impressions as the answer key"
+    - value: "4.6–8.4"
+      unit: "%"
+      label: "AIPW bias across four conditions"
+    - value: "0.813"
+      label: "held-out Qini for the response estimator"
+    - value: "70"
+      label: "tests guarding the pipeline"
   summary: >
     I used Criteo's 13.98M-impression randomized uplift dataset as an answer
     key, deliberately introduced confounding in opposing directions, and
