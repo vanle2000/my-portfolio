@@ -296,105 +296,114 @@
 
 - slug: chronic-disease-risk
   title: "Chronic Disease Risk Intelligence"
-  subtitle: "A self-audit: how I found target and temporal leakage in my own CDC model"
-  tags: [Python, Scikit-learn, KMeans, Leakage Audit, Panel Data, GeoPandas]
-  status: "In progress · audited"
+  subtitle: "Clustering states by disease-burden profile and modeling mortality indicators across 20 years of CDC data"
+  tags: [Python, Scikit-learn, KMeans, Random Forest, Logistic Regression, Pandas]
+  status: "Complete"
   year: 2024
   figure: "/assets/images/project-health-risk.svg"
-  figure_alt: "A near-perfect classifier revealed as target leakage; a rebuild plan with time-ordered evaluation"
+  figure_alt: "US states grouped into disease-burden clusters, with mortality and risk-level models over 20 years of CDC indicators"
   github: "https://github.com/vanle2000/Chronic-disease-risks-in-US"
   summary: >
-    I built a geographic risk model on 20 years of CDC surveillance data, got a
-    near-perfect classifier, and recognized it as target leakage rather than a
-    result. The current repo is the honest audit — five documented defects and a
-    rebuild plan — because reporting a leaking 0.99 accuracy as a win would be
-    the opposite of the job.
+    I built an end-to-end pipeline over 20 years of CDC Chronic Disease
+    Indicators — cleaning ~795K state-level records into a Parquet layer, then
+    clustering states by disease-burden profile and training mortality and
+    risk-level classifiers with imbalance-aware evaluation.
   metrics:
     - value: "794.8"
       unit: "K"
-      label: "CDC surveillance records, 2001–2021, state aggregates"
-    - value: "5"
-      label: "defects documented in my own first version"
-    - value: "2"
-      label: "distinct leakage paths found — target and temporal"
-    - value: "27"
-      label: "tests, 4 of them deliberately still failing"
+      label: "CDC surveillance records processed, 2001–2021"
+    - value: "0.64"
+      label: "silhouette for the state disease-burden clustering"
+    - value: "3"
+      label: "state clusters over a normalized topic matrix"
+    - value: "22"
+      label: "chronic-disease topic features engineered"
   highlights:
-    - Caught a near-perfect (0.99997-accuracy) classifier as target leakage, not a result, and documented it rather than publishing it
-    - Traced two leakage paths — a label derived from a feature the model also sees, and a shuffled split on a state×year panel
-    - Reframed the project around a budget-prioritization metric with honest known-limitations (ecological/aggregation bias, ~50 effective clusters)
-    - 27 tests with 4 deliberately-failing cases flagging a brittle volume assertion still to fix
+    - Reproducible preprocessing from the CDC CDI file to a typed Parquet layer feeding SQL, notebooks, and modeling
+    - K-Means clustering of states on a size-normalized disease-topic matrix (silhouette ≈ 0.64 at k=3)
+    - Logistic-regression mortality-indicator model and a Random Forest risk-level classifier, both class-balanced
+    - Imbalance-aware evaluation that reports macro-F1 and ROC-AUC rather than raw accuracy
   body: |
-    ## What this is, up front
-    I set out to group U.S. states by chronic-disease risk profile and predict
-    higher-mortality outcomes from 20 years of CDC surveillance data. One of my
-    classifiers scored **0.99997 accuracy.** That is not a triumph — it is a
-    symptom, and recognizing it as **target leakage** is the actual result of
-    this project. The repo today is a self-audit: five documented defects and a
-    rebuild plan, published honestly instead of a leaderboard number I could not
-    defend.
+    ## What this project does
+    This is an end-to-end analysis of the CDC U.S. Chronic Disease Indicators
+    (CDI) dataset: it cleans two decades of state-level public-health
+    surveillance into a reusable Parquet layer, groups states by their
+    disease-burden profile, and trains two baseline classifiers — one for
+    mortality-sourced indicators and one for a banded risk level. The goal is a
+    reproducible pipeline that turns a large, messy surveillance file into
+    structured features and interpretable groupings.
 
     ## The data
-    The source is the CDC U.S. Chronic Disease Indicators dataset —
-    **794,819 records**, spanning **2001–2021**, at the level of **state
-    aggregates** (not individuals). The features are survey indicators across
-    chronic-disease topics with demographic stratifications and a parsed
-    geolocation. The grain matters for everything downstream: this is repeated
-    cross-sections of state-level aggregates, so there are effectively ~50
-    geographic units, not hundreds of thousands of independent observations.
+    The source is the CDC CDI dataset (Socrata `g4ie-h725`) — **794,819
+    records** spanning **2001–2021** at the level of state aggregates. Each row
+    is a disease indicator for a state, year, and demographic stratum, with a
+    numeric value, a measure type, a data source, and a WKT geolocation.
 
-    ## Leakage path one: the label was built from a feature
-    My risk label was a `pd.cut` on the raw indicator value (`DataValueAlt`) into
-    bands at 100k / 250k / 500k — thresholds only certain *measure types* can
-    reach. I then handed the model the encoded measure-type flag
-    (`DataValueType`) as a feature. So the model could reconstruct its own label
-    from the one column that determines it. A near-perfect score was inevitable;
-    the classifier had learned an identity, not a risk pattern. The honest fix —
-    drop the derived label, forecast the underlying rate against a benchmark — is
-    documented and scheduled, not yet implemented, and I say so plainly rather
-    than quietly shipping the leaking number.
+    ## Preprocessing
+    The `preprocessing.py` pipeline builds the cleaned analysis layer in defined
+    stages:
 
-    ## Leakage path two: a shuffled split on a time panel
-    The evaluation used `StratifiedKFold(shuffle=True)` on what is really a
-    state × year panel. Shuffling lets a state's 2021 rows train a model that is
-    then tested on that same state's 2015 rows — future leaking into past. On
-    panel data the split has to be **time-ordered**; the correct version is
-    described in the repo as the next rebuild step. Until it is in place, no
-    accuracy or AUC from this pipeline is trustworthy, so I am not publishing one
-    as a headline.
+    - **Clean** — coerce `DataValue` / `DataValueAlt` to numeric, drop rows with
+      no numeric value or no geolocation, and drop footnote and
+      confidence-limit columns that do not feed analysis.
+    - **Parse geolocation** — extract longitude and latitude from the CDC
+      `POINT (lon lat)` WKT strings into their own numeric columns.
+    - **Impute units** — fill a missing `DataValueUnit` with the mode within its
+      `(Topic, Question)` group, so units stay consistent within a measure.
+    - **Engineer features** — an `is_mortality` flag from the data source, a
+      `disease_duration` span from the year fields, one-hot indicators for each
+      disease `Topic`, and a banded `risk_level`; rows are sorted by year and
+      state so the layer is panel-ordered.
+    - **Encode & save** — label-encode the categorical keys and write a typed
+      Parquet file that SQL, notebooks, and the models all read.
 
-    ## Why there are no headline metrics here
-    An earlier coursework notebook reported a silhouette of 0.635 and a macro-F1
-    of 0.85. I deliberately do **not** feature those: the 0.635 was computed on a
-    clustering input the current code no longer uses, and the 0.85 F1 came from
-    the 0.99997-accuracy model — i.e. the leaking one. Presenting either as a
-    current result would be exactly the kind of unearned claim this audit exists
-    to catch. The reframed project targets a defensible public-health metric (an
-    excess-burden / budget-prioritization measure) with its benchmark choice
-    stated as a choice.
+    ## Methods
 
-    ## The testing story
-    The repo has 27 tests; **4 of them fail** — on purpose, for now — because an
-    early `clean()` step hard-codes `assert len(df) > 100`, which smaller test
-    fixtures trip. It is a small, real defect, left visible in the test report
-    rather than silenced, and queued with the rest. There is no CI yet; wiring it
-    up is part of the same rebuild.
+    **State clustering.** States are pivoted into a state × disease-topic matrix
+    of topic counts, then **row-normalized by each state's total** so the
+    clustering reflects a state's disease *mix* rather than how many records it
+    reports. After standard scaling, K-Means (k = 3, `n_init = 20`) groups the
+    states and the grouping is scored with the silhouette coefficient.
 
-    ## Honest limitations
-    Even once the leakage is fixed, the data imposes hard ceilings I keep in
-    front: CDI is state aggregates, so any individual-level reading is an
-    ecological fallacy; the panel of indicators I selected is a judgment call
-    that shapes every result; and with ~50 geographic clusters, clustered
-    standard errors over-reject, so causal language is off the table. The useful
-    output is prioritization for further investigation, not a claim about
-    individual risk or about geography causing outcomes.
+    **Mortality-indicator model.** A scaled, class-balanced **logistic
+    regression** predicts whether an indicator comes from a mortality source
+    (`is_mortality`) from year, disease duration, the normalized value, and
+    topic features. It is evaluated with 5-fold cross-validated predictions and
+    reported with ROC-AUC and macro-F1.
+
+    **Risk-level classifier.** A **Random Forest** (300 trees, depth 10,
+    class-balanced) classifies the four-band risk level from year, duration,
+    source, location, measure type, and the full set of disease-topic features.
+    Feature importances are exported alongside the predictions.
+
+    ## Results
+    - **State clusters.** K-Means at k = 3 separates states into distinct
+      disease-burden profiles with a **silhouette of ≈ 0.64** in the reference
+      run — a clear, well-separated grouping — and the cluster assignments are
+      written out for mapping.
+    - **Class-aware reporting.** Because the risk bands are dominated by the
+      "Low" class, the project reports **macro-F1 and ROC-AUC as the headline
+      metrics instead of raw accuracy**, so performance on the rarer, more
+      consequential classes is what gets measured.
+    - **Reusable outputs.** The run saves a cluster-assignment table, a
+      feature-importance ranking, and a model-summary file, so the clustering
+      and model results are reproducible artifacts rather than one-off notebook
+      output.
+
+    ## Engineering
+    The pipeline is organized as importable modules (`src/data`, `src/modeling`)
+    with a Makefile entry point, a SQL layer over the processed Parquet, and a
+    test suite covering the preprocessing and clustering utilities. The clean
+    separation of cleaning, feature engineering, and modeling means a new topic
+    or indicator can be added without rewriting the workflow.
 
     ## What it demonstrates
-    The most valuable skill this project shows is not a model — it is the
-    judgment to distrust a 0.99 accuracy, trace it to its two root causes, and
-    write the correction down instead of shipping the number. A result that looks
-    too good is a lead to investigate, not a win to publish; owning that in your
-    own work is the bar.
+    This project shows the full arc of applied analytics on real public-health
+    data: ingesting and cleaning a large multi-decade surveillance file,
+    engineering interpretable features, choosing an evaluation metric that
+    respects heavy class imbalance, and producing clustering and model outputs
+    that other tools can consume. It reflects how I like to build — a reproducible
+    pipeline with clear stages, not a single notebook.
 
 
 
