@@ -3,24 +3,27 @@
    (hex/string), never var() — because MM calls mix() on them at compile time. */
 
 :root {
-  /* ── Brand gradient (hero only) ── */
-  --color-sky:  #BFE6F8;
-  --color-pink: #FBD9E6;
+  /* ── Warm editorial palette ──
+     Soft charcoal ink on a warm cream canvas, after basetobase.jobs.
+     Avoids harsh #000 on #FFF; reduces eye strain in long-form reading. */
+  --color-bg-primary:    #F9F6EE;  /* warm cream canvas */
+  --color-bg-secondary:  #F2EEE2;  /* slightly deeper cream for panels */
+  --color-bg-surface:    #FCFAF4;  /* raised cards, a hair lighter than canvas */
+  --color-bg-dark:       #1F1D18;  /* warm near-black for footer / code */
+  --color-text-primary:  #211F1A;  /* soft charcoal, not pure black */
+  --color-text-secondary:#5A554B;  /* warm mid-gray for body copy */
+  --color-text-muted:    #908A7C;  /* warm taupe for captions / meta */
+  --color-text-inverse:  #F9F6EE;
 
-  /* ── Colour ── */
-  --color-bg-primary:    #FFFFFF;
-  --color-bg-secondary:  #F4F6F8;
-  --color-bg-surface:    #FFFFFF;
-  --color-bg-dark:       #14171A;
-  --color-text-primary:  #14171A;
-  --color-text-secondary:#565C63;
-  --color-text-muted:    #9AA1A8;
-  --color-text-inverse:  #FFFFFF;
-  --color-accent:        #6FA8C9;
-  --color-accent-light:  #F2A6C2;
-  --color-accent-subtle: #EAF4FA;
-  --color-border:        #E6E8EC;
-  --color-border-strong: #C9CFD6;
+  /* Accent: lavender/cyan tint used on eyebrow labels (the reference's
+     signature micro-accent); warm amber for interactive links/hover. */
+  --color-label:         #8A86C9;  /* lavender — mono eyebrow tags */
+  --color-label-cyan:    #4E8299;  /* cyan alt for section kickers */
+  --color-accent:        #B5742B;  /* warm amber — links / interactive */
+  --color-accent-light:  #CF8E3F;  /* lighter amber for hover */
+  --color-accent-subtle: #F0E6D4;  /* pale amber wash for code/pills */
+  --color-border:        #E3DCCB;  /* warm hairline */
+  --color-border-strong: #CDC4AE;
 
   /* ── Typography ──
      Matches the basetobase.jobs editorial type system:
@@ -36,30 +39,36 @@
   --weight-semibold: 600;
 
   /* ── Type scale ──
-     Display type uses Instrument Serif at its native weight (400).
-     Body type remains 17px with generous leading for long-form reading. */
+     Stark contrast after the reference: oversized Instrument Serif display
+     paired with tiny tracked-out Geist Mono labels. */
   --text-xs:   0.75rem;    /* 12px */
   --text-sm:   0.875rem;   /* 14px */
-  --text-base: 1.0625rem;  /* 17px */
+  --text-base: 1.0625rem;  /* 17px body */
   --text-lg:   1.1875rem;  /* 19px */
   --text-xl:   1.625rem;   /* 26px */
-  --text-2xl:  clamp(2rem, 3vw, 2.5rem);
-  --text-3xl:  clamp(3.25rem, 5vw, 4.25rem);
-  --text-4xl:  clamp(3.25rem, 6vw, 4.25rem);
-  --text-5xl:  clamp(4.5rem, 9vw, 6.5rem);
+  --text-2xl:  clamp(2.25rem, 3.5vw, 3rem);     /* section titles (serif) */
+  --text-3xl:  clamp(2.75rem, 5vw, 4rem);       /* large display */
+  --text-4xl:  clamp(3.5rem, 7.5vw, 5.75rem);   /* hero name ~56-92px */
+  --text-5xl:  clamp(4rem, 9vw, 6.5rem);        /* XL editorial display */
+
+  /* Micro-label scale (mono eyebrow tags) */
+  --text-label:    0.6875rem;  /* 11px — the reference's eyebrow size */
+  --text-label-lg: 0.78rem;    /* 12.5px — section kickers */
 
   /* ── Line heights ── */
-  --leading-display: 1;
-  --leading-subhead: 1.08;
-  --leading-tight:   1.2;
+  --leading-display: 0.98;
+  --leading-subhead: 1.04;
+  --leading-tight:   1.15;
   --leading-body:    1.65;
-  --leading-relaxed: 1.7;
+  --leading-relaxed: 1.72;
 
   /* ── Letter spacing ── */
-  --tracking-display: -0.025em;
-  --tracking-subhead: -0.02em;
+  --tracking-display: -0.03em;   /* tight display, matches reference */
+  --tracking-subhead: -0.025em;
   --tracking-tight:   -0.015em;
   --tracking-normal:  0em;
+  --tracking-label:   0.14em;    /* wide tracking on mono eyebrow tags */
+  --tracking-label-sm:0.1em;
 
   /* ── Spacing ── */
   --space-xs: 0.5rem;
@@ -84,27 +93,27 @@
 /* ── Sass variable overrides ──────────────────────────────────────────────────
    Define ALL derived color vars here so MM never runs mix() on our values.   */
 
-$background-color:        #FFFFFF !default;
-$text-color:              #14171A !default;
-$muted-text-color:        #9AA1A8 !default;
-$primary-color:           #6FA8C9 !default;
-$link-color:              #6FA8C9 !default;
-$link-color-hover:        #F2A6C2 !default;
-$link-color-visited:      #8FA8BC !default;
-$masthead-link-color:     #14171A !default;
-$masthead-link-color-hover: #6FA8C9 !default;
-$navicon-link-color-hover: #EAF4FA !default;
-$code-background-color:   #F4F6F8 !default;
-$border-color:            #E6E8EC !default;
-$footer-background-color: #14171A !default;
-$footer-border-color:     #2A2E33 !default;
-$footer-font-color:       #FFFFFF !default;
-$footer-link-color:       #F2A6C2 !default;
-$footer-link-color-hover: #FFFFFF !default;
-$focus-color:             #6FA8C9 !default;
-$active-color:            rgba(111, 168, 201, 0.08) !default;
-$form-background-color:   #FFFFFF !default;
-$box-shadow:              0 1px 1px rgba(20, 23, 26, 0.08) !default;
+$background-color:        #F9F6EE !default;
+$text-color:              #211F1A !default;
+$muted-text-color:        #908A7C !default;
+$primary-color:           #B5742B !default;
+$link-color:              #B5742B !default;
+$link-color-hover:        #CF8E3F !default;
+$link-color-visited:      #9A6B3A !default;
+$masthead-link-color:     #211F1A !default;
+$masthead-link-color-hover: #B5742B !default;
+$navicon-link-color-hover: #F0E6D4 !default;
+$code-background-color:   #F2EEE2 !default;
+$border-color:            #E3DCCB !default;
+$footer-background-color: #1F1D18 !default;
+$footer-border-color:     #3A362E !default;
+$footer-font-color:       #F9F6EE !default;
+$footer-link-color:       #CF8E3F !default;
+$footer-link-color-hover: #F9F6EE !default;
+$focus-color:             #B5742B !default;
+$active-color:            rgba(181, 116, 43, 0.08) !default;
+$form-background-color:   #FCFAF4 !default;
+$box-shadow:              0 1px 2px rgba(31, 29, 24, 0.06) !default;
 
 $sans-serif:         'Inter', system-ui, sans-serif !default;
 $serif:              'Instrument Serif', Georgia, serif !default;
