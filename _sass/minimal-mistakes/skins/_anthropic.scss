@@ -22,19 +22,21 @@
   --color-border:        #E6E8EC;
   --color-border-strong: #C9CFD6;
 
-  /* ── Typography ── */
-  --font-display:   'Newsreader', Georgia, serif;
+  /* ── Typography ──
+     Matches the basetobase.jobs editorial type system:
+     Instrument Serif for display, Inter for body/UI, Geist Mono for labels. */
+  --font-display:   'Instrument Serif', Georgia, serif;
   --font-signature: 'Allura', 'Segoe Script', 'Brush Script MT', cursive;
-  --font-sans:      'Rethink Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-body:      'Rethink Sans', system-ui, sans-serif;
-  --font-mono:      'JetBrains Mono', 'Courier New', monospace;
-  --weight-display: 500;
+  --font-sans:      'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body:      'Inter', system-ui, sans-serif;
+  --font-mono:      'Geist Mono', 'JetBrains Mono', 'Courier New', monospace;
+  --weight-display: 400;
   --weight-body: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
 
   /* ── Type scale ──
-     Display type uses Newsreader's optical sizing.
+     Display type uses Instrument Serif at its native weight (400).
      Body type remains 17px with generous leading for long-form reading. */
   --text-xs:   0.75rem;    /* 12px */
   --text-sm:   0.875rem;   /* 14px */
@@ -104,9 +106,9 @@ $active-color:            rgba(111, 168, 201, 0.08) !default;
 $form-background-color:   #FFFFFF !default;
 $box-shadow:              0 1px 1px rgba(20, 23, 26, 0.08) !default;
 
-$sans-serif:         'Rethink Sans', system-ui, sans-serif !default;
-$serif:              'Newsreader', Georgia, serif !default;
-$monospace:          'JetBrains Mono', 'Courier New', monospace !default;
-$global-font-family: 'Rethink Sans', system-ui, sans-serif !default;
-$header-font-family: 'Newsreader', Georgia, serif !default;
+$sans-serif:         'Inter', system-ui, sans-serif !default;
+$serif:              'Instrument Serif', Georgia, serif !default;
+$monospace:          'Geist Mono', 'JetBrains Mono', 'Courier New', monospace !default;
+$global-font-family: 'Inter', system-ui, sans-serif !default;
+$header-font-family: 'Instrument Serif', Georgia, serif !default;
 $doc-font-size:      17 !default;
